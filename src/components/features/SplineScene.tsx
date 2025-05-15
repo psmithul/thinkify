@@ -7,7 +7,20 @@ import { motion } from 'framer-motion';
 
 // Extended interface for Spline application with potential additional methods
 interface ExtendedApplication extends Application {
-  findObjectsByType?: (type: string) => any[];
+  findObjectsByType?: (type: string) => SplineObject[];
+}
+
+// Define interfaces for Spline objects
+interface SplineObject {
+  name?: string;
+  scale?: { x: number; y: number; z: number };
+  rotation?: { x: number; y: number; z: number };
+  position?: { x: number; y: number; z: number };
+  material?: {
+    opacity?: number;
+    emissive?: unknown;
+    emissiveIntensity?: number;
+  };
 }
 
 interface SplineSceneProps {
@@ -54,8 +67,8 @@ const SplineScene: React.FC<SplineSceneProps> = ({
         }
         
         // Optionally adjust other properties to blend better
-        // This depends on the specific 3D model - using any here because the API types are not fully defined
-        const obj = mainObject as any;
+        // This depends on the specific 3D model - using SplineObject here instead of any
+        const obj = mainObject as SplineObject;
         if (obj && obj.material && typeof obj.material.opacity !== 'undefined') {
           obj.material.opacity = 0.85; // Adjust opacity if needed
         }
@@ -71,7 +84,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
         if (extendedApp.findObjectsByType && typeof extendedApp.findObjectsByType === 'function') {
           const meshes = extendedApp.findObjectsByType('Mesh');
           if (Array.isArray(meshes)) {
-            meshes.forEach((mesh: any) => {
+            meshes.forEach((mesh: SplineObject) => {
               if (mesh.material && mesh.material.emissive) {
                 mesh.material.emissiveIntensity = 1.2;
               }
