@@ -48,7 +48,7 @@ const Testimonials = () => {
   return (
     <section id="success-stories" className="py-32 relative overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-950/60 to-indigo-950/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#E3FDFD]/70 to-[#CBF1F5]/60" />
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-5 mix-blend-overlay"></div>
       
       {/* Content */}
@@ -63,9 +63,9 @@ const Testimonials = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-white">Success Stories</h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
-            See how startups have accelerated their growth with Thinkify's engineering talent.
+          <h2 className="text-3xl font-bold mb-4 text-[#0C6980]">Success Stories</h2>
+          <p className="text-lg text-[#0C6980]/90 max-w-2xl mx-auto">
+            See how startups have accelerated their growth with Thinkify&apos;s engineering talent.
           </p>
         </motion.div>
 
@@ -88,26 +88,26 @@ const Testimonials = () => {
                     <CardContent className="p-8 flex flex-col items-center text-center">
                       <div className="mb-6">
                         <svg 
-                          className="h-10 w-10 text-purple-300 opacity-70" 
+                          className="h-10 w-10 text-[#71C9CE] opacity-70" 
                           xmlns="http://www.w3.org/2000/svg" 
                           viewBox="0 0 24 24" 
                           fill="currentColor"
                         >
-                          <path fillRule="evenodd" d="M4.804 3c-1.682 0-2.563 1.242-2.563 2.484 0 1.599 1.553 2.88 3.136 2.88l.183-.003c2.293-.055 3.064-2.927 1.56-4.246A4.022 4.022 0 0 0 4.804 3zm-.926 7.676c-1.682 0-2.563 1.241-2.563 2.483 0 1.6 1.553 2.88 3.136 2.88 1.863 0 3.135-1.36 3.135-2.9-.015-1.65-1.329-2.463-3.136-2.463h-.572zm12.295-7.297c-1.682 0-2.563 1.241-2.563 2.483 0 1.6 1.553 2.881 3.136 2.881l.184-.003c2.292-.056 3.063-2.927 1.56-4.247a4.022 4.022 0 0 0-2.317-1.114zm-.927 7.297c-1.681 0-2.563 1.241-2.563 2.483 0 1.6 1.553 2.88 3.136 2.88 1.863 0 3.135-1.36 3.135-2.9-.015-1.65-1.329-2.463-3.135-2.463h-.573z" clipRule="evenodd" />
+                          <path fillRule="evenodd" d="M4.804 3c-1.682 0-2.563 1.242-2.563 2.484 0 1.599 1.553 2.883.136 2.88l.183-.003c2.293-.055 3.064-2.927 1.56-4.246A4.022 4.022 0 0 0 4.804 3zm-.926 7.676c-1.682 0-2.563 1.241-2.563 2.483 0 1.6 1.553 2.88 3.136 2.88 1.863 0 3.135-1.36 3.135-2.9-.015-1.65-1.329-2.463-3.136-2.463h-.572zm12.295-7.297c-1.682 0-2.563 1.241-2.563 2.483 0 1.6 1.553 2.881 3.136 2.881l.184-.003c2.292-.056 3.063-2.927 1.56-4.247a4.022 4.022 0 0 0-2.317-1.114zm-.927 7.297c-1.681 0-2.563 1.241-2.563 2.483 0 1.6 1.553 2.88 3.136 2.88 1.863 0 3.135-1.36 3.135-2.9-.015-1.65-1.329-2.463-3.135-2.463h-.573z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <blockquote className="text-xl font-medium mb-8 text-white">
-                        "{testimonial.quote}"
+                      <blockquote className="text-xl font-medium mb-8 text-[#0C6980]">
+                        &quot;{testimonial.quote}&quot;
                       </blockquote>
                       <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 bg-purple-500/20 rounded-full mb-3 overflow-hidden backdrop-blur-sm border border-purple-500/30">
+                        <div className="w-12 h-12 bg-[#71C9CE]/20 rounded-full mb-3 overflow-hidden backdrop-blur-sm border border-[#71C9CE]/30">
                           {/* Placeholder for avatar */}
-                          <div className="w-full h-full flex items-center justify-center bg-purple-600/30 text-white font-bold">
+                          <div className="w-full h-full flex items-center justify-center bg-[#71C9CE]/30 text-[#0C6980] font-bold">
                             {testimonial.name.charAt(0)}
                           </div>
                         </div>
-                        <h4 className="font-bold text-white">{testimonial.name}</h4>
-                        <p className="text-sm text-white/70">{testimonial.title}</p>
+                        <h4 className="font-bold text-[#0C6980]">{testimonial.name}</h4>
+                        <p className="text-sm text-[#0C6980]/70">{testimonial.title}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -115,8 +115,8 @@ const Testimonials = () => {
               ))}
             </CarouselContent>
             <div className="flex justify-center mt-8 gap-2">
-              <CarouselPrevious className="bg-white/10 border-white/20 text-white hover:bg-white/20" />
-              <CarouselNext className="bg-white/10 border-white/20 text-white hover:bg-white/20" />
+              <CarouselPrevious className="bg-[#71C9CE]/20 border-[#71C9CE]/30 text-[#0C6980] hover:bg-[#71C9CE]/40" />
+              <CarouselNext className="bg-[#71C9CE]/20 border-[#71C9CE]/30 text-[#0C6980] hover:bg-[#71C9CE]/40" />
             </div>
           </Carousel>
         </motion.div>

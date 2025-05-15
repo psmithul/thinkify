@@ -78,11 +78,11 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             });
           }
         }
-      } catch (error) {
-        console.log('Could not modify mesh materials', error);
+      } catch {
+        console.log('Could not modify mesh materials');
       }
-    } catch (error) {
-      console.log('Could not find or modify scene elements', error);
+    } catch {
+      console.log('Could not find or modify scene elements');
     }
   };
 
@@ -113,7 +113,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             mainObject.position.x = mousePos.current.x * 0.1;
             mainObject.position.y = -mousePos.current.y * 0.1;
           }
-        } catch (error) {
+        } catch {
           console.log('Could not find object to rotate with mouse');
         }
       }
@@ -149,7 +149,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             // Apply rotation
             mainObject.rotation.y = rotationY * (Math.PI / 180);
           }
-        } catch (error) {
+        } catch {
           console.log('Could not find object to rotate');
         }
       }
@@ -200,12 +200,12 @@ const SplineScene: React.FC<SplineSceneProps> = ({
     >
       {isLoading && (
         <motion.div 
-          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-900/90 via-indigo-900/80 to-blue-900/90"
+          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#E3FDFD]/90 via-[#CBF1F5]/80 to-[#A6E3E9]/70"
           initial={{ opacity: 1 }}
           animate={{ opacity: isLoading ? 1 : 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" />
+          <div className="w-12 h-12 border-4 border-[#0C6980] border-t-transparent rounded-full animate-spin" />
         </motion.div>
       )}
       <Spline

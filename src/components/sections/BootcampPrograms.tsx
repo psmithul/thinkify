@@ -12,7 +12,7 @@ const bootcamps = [
     duration: "12 weeks",
     outcomes: "Job placement assistance, Industry-recognized certification",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#71C9CE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 18a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12Z"></path>
         <path d="m9 22 3-3 3 3"></path>
         <path d="M9 6h6"></path>
@@ -26,7 +26,7 @@ const bootcamps = [
     duration: "14 weeks",
     outcomes: "Job placement assistance, Industry-recognized certification",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#71C9CE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
         <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
         <line x1="6" y1="6" x2="6.01" y2="6"></line>
@@ -40,7 +40,7 @@ const bootcamps = [
     duration: "10 weeks",
     outcomes: "Job placement assistance, Industry-recognized certification",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#71C9CE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="m18 16 4-4-4-4"></path>
         <path d="m6 8-4 4 4 4"></path>
         <path d="m14.5 4-5 16"></path>
@@ -53,7 +53,7 @@ const bootcamps = [
     duration: "14 weeks",
     outcomes: "Job placement assistance, Industry-recognized certification",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#71C9CE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 6c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v0Z"></path>
         <path d="M3 13c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v0Z"></path>
         <path d="M10 6v13"></path>
@@ -67,7 +67,7 @@ const bootcamps = [
     duration: "12 weeks",
     outcomes: "Job placement assistance, Industry-recognized certification",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[#71C9CE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 3a9 9 0 1 0 9 9"></path>
         <path d="M12 16.2V12l5.5-2.4"></path>
         <path d="M21 12a9 9 0 0 0-9.5-8.9"></path>
@@ -93,7 +93,7 @@ const BootcampPrograms = () => {
   };
 
   return (
-    <section id="bootcamps" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="bootcamps" className="py-20 bg-gradient-to-b from-[#E3FDFD]/80 to-[#CBF1F5]/70">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
@@ -102,8 +102,8 @@ const BootcampPrograms = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4">Bootcamp Programs</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-[#0C6980]">Bootcamp Programs</h2>
+          <p className="text-lg text-[#0C6980]/90 max-w-2xl mx-auto">
             Intensive, mentor-led training programs to help developers level up their skills and land their dream jobs.
           </p>
         </motion.div>
@@ -117,23 +117,23 @@ const BootcampPrograms = () => {
         >
           {bootcamps.map((bootcamp, index) => (
             <motion.div key={index} variants={item}>
-              <Card className="h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg overflow-hidden">
+              <Card className="glass-card h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-lg overflow-hidden border border-[#71C9CE]/20">
                 <CardHeader className="pb-2">
                   <div className="mb-4">{bootcamp.icon}</div>
-                  <CardTitle>{bootcamp.title}</CardTitle>
-                  <CardDescription className="text-sm">
+                  <CardTitle className="text-[#0C6980]">{bootcamp.title}</CardTitle>
+                  <CardDescription className="text-sm text-[#0C6980]/70">
                     Duration: {bootcamp.duration}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{bootcamp.description}</p>
+                  <p className="text-sm text-[#0C6980]/80">{bootcamp.description}</p>
                   <div className="mt-4">
-                    <h4 className="text-sm font-medium mb-1">Outcomes:</h4>
-                    <p className="text-xs text-muted-foreground">{bootcamp.outcomes}</p>
+                    <h4 className="text-sm font-medium mb-1 text-[#0C6980]">Outcomes:</h4>
+                    <p className="text-xs text-[#0C6980]/70">{bootcamp.outcomes}</p>
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full">Learn more</Button>
+                  <Button className="w-full bg-[#71C9CE] text-white hover:bg-[#0C6980] hover:text-white">Learn more</Button>
                 </CardFooter>
               </Card>
             </motion.div>

@@ -2,10 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,14 +33,14 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "backdrop-blur-md bg-purple-950/50 border-b border-white/10 shadow-lg"
+          ? "backdrop-blur-md bg-[#0C6980]/60 border-b border-[#71C9CE]/30 shadow-lg"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="text-xl font-bold text-white">Thinkify Labs</span>
+          <span className="text-xl font-bold text-[#E3FDFD]">Thinkify Labs</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -50,7 +49,7 @@ const Navbar = () => {
             <Link
               key={link.title}
               href={link.href}
-              className="text-sm font-medium text-white/80 transition-colors hover:text-white"
+              className="text-sm font-medium text-[#CBF1F5]/90 transition-colors hover:text-[#E3FDFD]"
             >
               {link.title}
             </Link>
@@ -59,7 +58,7 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button className="bg-white text-purple-700 hover:bg-white/90">Get Started</Button>
+          <Button className="bg-[#71C9CE] text-white hover:bg-[#A6E3E9] hover:text-[#0C6980]">Get Started</Button>
         </div>
 
         {/* Mobile Menu */}
@@ -68,7 +67,7 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-white hover:bg-white/10"
+              className="md:hidden text-[#E3FDFD] hover:bg-[#71C9CE]/20"
               aria-label="Open menu"
             >
               <svg
@@ -88,18 +87,18 @@ const Navbar = () => {
               </svg>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="backdrop-blur-md bg-purple-950/90 border-l border-white/10">
+          <SheetContent side="right" className="backdrop-blur-md bg-[#0C6980]/90 border-l border-[#71C9CE]/30">
             <div className="flex flex-col gap-6 mt-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="text-lg font-medium text-white/80 transition-colors hover:text-white"
+                  className="text-lg font-medium text-[#CBF1F5]/90 transition-colors hover:text-[#E3FDFD]"
                 >
                   {link.title}
                 </Link>
               ))}
-              <Button className="mt-4 w-full bg-white text-purple-700 hover:bg-white/90">Get Started</Button>
+              <Button className="mt-4 w-full bg-[#71C9CE] text-white hover:bg-[#A6E3E9] hover:text-[#0C6980]">Get Started</Button>
             </div>
           </SheetContent>
         </Sheet>

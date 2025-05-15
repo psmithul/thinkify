@@ -50,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({ persistentSpline }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-950/80 via-indigo-950/80 to-blue-950/80 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#E3FDFD]/90 via-[#CBF1F5]/80 to-[#A6E3E9]/70 z-0" />
       
       {/* Content Container - with Parallax */}
       <motion.div 
@@ -64,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ persistentSpline }) => {
         >
           <div className="glass-card p-8">
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0C6980] mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
@@ -73,12 +73,12 @@ const Hero: React.FC<HeroProps> = ({ persistentSpline }) => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-white/90 mb-8"
+              className="text-xl md:text-2xl text-[#0C6980]/90 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              We screen candidates so your startup doesn't have to. Elite engineers, zero hassle.
+              We screen candidates so your startup doesn&apos;t have to. Elite engineers, zero hassle.
             </motion.p>
             
             <motion.div 
@@ -88,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({ persistentSpline }) => {
             >
               <Button 
                 size="lg" 
-                className="bg-white text-purple-700 hover:bg-white/90 px-8 text-base font-medium"
+                className="bg-[#71C9CE] text-white hover:bg-[#0C6980] hover:text-white px-8 text-base font-medium transition-colors"
               >
                 Hire Talent
               </Button>
@@ -100,8 +100,8 @@ const Hero: React.FC<HeroProps> = ({ persistentSpline }) => {
         {!persistentSpline && mounted && (
           <div className="w-full md:w-2/5 relative md:h-[600px] h-[300px]">
             <div className="absolute inset-0 z-0 overflow-visible">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-purple-950/30 z-10 pointer-events-none mix-blend-multiply" />
-              <SplineScene className="absolute inset-0 mix-blend-lighten" enableScrollRotation={false} />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#A6E3E9]/30 z-10 pointer-events-none mix-blend-multiply" />
+              <SplineScene className="absolute inset-0 mix-blend-multiply" enableScrollRotation={false} />
             </div>
           </div>
         )}
@@ -123,10 +123,10 @@ const Hero: React.FC<HeroProps> = ({ persistentSpline }) => {
         style={{ opacity: useTransform(scrollY, [0, 300], [1, 0]) }}
       >
         <div className="flex flex-col items-center glass p-3 rounded-full">
-          <span className="text-white/70 text-sm mb-2">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
+          <span className="text-[#0C6980] text-sm mb-2 font-semibold">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-[#71C9CE] rounded-full flex justify-center pt-2">
             <motion.div 
-              className="w-1.5 h-1.5 bg-white rounded-full"
+              className="w-1.5 h-1.5 bg-[#0C6980] rounded-full"
               animate={{ 
                 y: [0, 12, 0],
               }}
