@@ -19,11 +19,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { title: "Why Thinkify", href: "#why-thinkify" },
-    { title: "For Startups", href: "#for-companies" },
-    { title: "Success Stories", href: "#success-stories" },
-    { title: "Blog", href: "/blog" },
-    { title: "Contact", href: "#contact" },
+    { title: "How it works", href: "#how-it-works" },
+    { title: "For engineers", href: "#engineers" },
+    { title: "For companies", href: "#companies" },
+    { title: "Testimonials", href: "#testimonials" },
+    { title: "About us", href: "#about" },
   ];
 
   return (
@@ -33,14 +33,14 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "backdrop-blur-md bg-[#0C6980]/60 border-b border-[#71C9CE]/30 shadow-lg"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100"
+          : "bg-white/40 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="text-xl font-bold text-[#E3FDFD]">Thinkify Labs</span>
+          <span className="text-xl font-bold text-indigo-600">Thinkify Labs</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -49,7 +49,7 @@ const Navbar = () => {
             <Link
               key={link.title}
               href={link.href}
-              className="text-sm font-medium text-[#CBF1F5]/90 transition-colors hover:text-[#E3FDFD]"
+              className="text-sm font-medium text-gray-700 transition-colors hover:text-indigo-600"
             >
               {link.title}
             </Link>
@@ -57,8 +57,10 @@ const Navbar = () => {
         </nav>
 
         {/* CTA Button */}
-        <div className="hidden md:block">
-          <Button className="bg-[#71C9CE] text-white hover:bg-[#A6E3E9] hover:text-[#0C6980]">Get Started</Button>
+        <div className="hidden md:flex items-center">
+          <Button className="mercor-button">
+            Get started
+          </Button>
         </div>
 
         {/* Mobile Menu */}
@@ -67,7 +69,7 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-[#E3FDFD] hover:bg-[#71C9CE]/20"
+              className="md:hidden text-indigo-600 hover:bg-indigo-50"
               aria-label="Open menu"
             >
               <svg
@@ -87,18 +89,18 @@ const Navbar = () => {
               </svg>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="backdrop-blur-md bg-[#0C6980]/90 border-l border-[#71C9CE]/30">
+          <SheetContent side="right" className="bg-white border-l border-gray-100">
             <div className="flex flex-col gap-6 mt-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="text-lg font-medium text-[#CBF1F5]/90 transition-colors hover:text-[#E3FDFD]"
+                  className="text-lg font-medium text-gray-800 transition-colors hover:text-indigo-600"
                 >
                   {link.title}
                 </Link>
               ))}
-              <Button className="mt-4 w-full bg-[#71C9CE] text-white hover:bg-[#A6E3E9] hover:text-[#0C6980]">Get Started</Button>
+              <Button className="mt-4 w-full mercor-button">Get started</Button>
             </div>
           </SheetContent>
         </Sheet>

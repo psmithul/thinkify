@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import SocialProof from "@/components/sections/SocialProof";
@@ -9,17 +9,46 @@ import Testimonials from "@/components/sections/Testimonials";
 import ForCompanies from "@/components/sections/ForCompanies";
 import CTABanner from "@/components/sections/CTABanner";
 import Footer from "@/components/layout/Footer";
-import SplineScene from "@/components/features/SplineScene";
 
 export default function Home() {
-  const splineRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Remove any Spline watermarks on the global level
   useEffect(() => {
+    // Mark as loaded
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+
     const removeSplineBranding = () => {
-      const elements = document.querySelectorAll(
-        '.spline-watermark, [data-name="watermark"], [class*="watermark"], a[href*="spline.design"], div[class*="builder"], div[class*="Watermark"]'
-      );
+      // Target all possible branding elements
+      const elements = document.querySelectorAll(`
+        .spline-watermark, 
+        [data-name="watermark"], 
+        [class*="watermark"], 
+        a[href*="spline.design"], 
+        div[class*="builder"], 
+        div[class*="Watermark"],
+        canvas + div:last-child,
+        .spline-viewer [data-name="watermark"],
+        .spline-viewer [class*="watermark"],
+        .spline-viewer [id*="watermark"],
+        [data-source*="spline"],
+        [data-powered-by*="spline"],
+        [class*="built-with"],
+        [class*="powered-by"],
+        [data-variant*="spline"],
+        div[class*="attribution"],
+        .spline-builder,
+        #spline-attribution,
+        .attribution-badge,
+        div[data-variant="dark"],
+        div[data-source="spline.design"],
+        div[style*="position: absolute; bottom: 0"],
+        div[style*="position:absolute;bottom:0"],
+        div[style*="right:0;bottom:0"],
+        div[style*="right: 0; bottom: 0"]
+      `);
       
       elements.forEach(el => {
         if (el instanceof HTMLElement) {
@@ -27,44 +56,97 @@ export default function Home() {
           el.style.opacity = '0';
           el.style.visibility = 'hidden';
           el.style.pointerEvents = 'none';
+          el.style.height = '0';
+          el.style.width = '0';
+          el.style.position = 'absolute';
+          el.style.top = '-9999px';
+          el.style.left = '-9999px';
+          el.style.zIndex = '-9999';
+          
+          // Try to remove the element from the DOM if possible
+          try {
+            el.remove();
+          } catch (e) {
+            // Ignore removal errors
+          }
         }
       });
+      
+      // Specific check for the "Built with Spline" banner that appears in bottom corners
+      try {
+        const canvasElements = document.querySelectorAll('canvas');
+        canvasElements.forEach(canvas => {
+          // Check all siblings after the canvas element
+          let sibling = canvas.nextElementSibling;
+          while (sibling) {
+            if (sibling instanceof HTMLElement && sibling.tagName === 'DIV') {
+              const computedStyle = window.getComputedStyle(sibling);
+              
+              // Check if it's positioned at the bottom of the container
+              if (computedStyle.position === 'absolute' && 
+                  (computedStyle.bottom === '0px' || parseFloat(computedStyle.bottom) < 30)) {
+                // This is likely the Spline attribution
+                sibling.style.display = 'none';
+                sibling.style.opacity = '0';
+                sibling.style.visibility = 'hidden';
+                
+                // Try to remove it completely
+                try {
+                  sibling.remove();
+                } catch (e) {
+                  // Ignore errors
+                }
+              }
+            }
+            sibling = sibling.nextElementSibling;
+          }
+        });
+      } catch (e) {
+        // Ignore errors in this more aggressive approach
+      }
     };
     
     // Run immediately and then at intervals
     removeSplineBranding();
     const intervals = [
       setInterval(removeSplineBranding, 1000),
-      setInterval(removeSplineBranding, 2000)
+      setInterval(removeSplineBranding, 2000),
+      setInterval(removeSplineBranding, 5000)
     ];
     
-    return () => intervals.forEach(interval => clearInterval(interval));
+    // Also use a MutationObserver to detect when new elements are added to the DOM
+    const observer = new MutationObserver((mutations) => {
+      removeSplineBranding();
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    return () => {
+      intervals.forEach(interval => clearInterval(interval));
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
   
   return (
-    <main className="min-h-screen relative bg-gradient-to-b from-purple-950 via-indigo-950 to-blue-950">
-      {/* Fixed gradient background that extends throughout */}
-      <div className="fixed inset-0 bg-gradient-to-br from-purple-950 via-indigo-950 to-blue-950 -z-10" />
-      
-      {/* Persistent Spline scene that follows throughout the page */}
-      <div className="fixed top-0 bottom-0 right-0 w-3/5 md:w-2/3 lg:w-1/2 ml-auto z-5 pointer-events-none" style={{ height: '120vh', width: '120%', right: '-10%', top: '-10vh' }} ref={splineRef}>
-        <SplineScene 
-          className="opacity-90 mix-blend-lighten" 
-          enableScrollRotation={true} 
-        />
-      </div>
-      
+    <main className={`min-h-screen bg-white ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
       {/* Content */}
-      <div className="relative z-10">
-        <Navbar />
-        <Hero persistentSpline={splineRef} />
-        <SocialProof />
+      <Navbar />
+      <Hero />
+      <div className="bg-gradient-to-b from-white to-gray-50">
         <HowItWorks />
-        <Testimonials />
         <ForCompanies />
+        <SocialProof />
+        <Testimonials />
         <CTABanner />
-        <Footer />
       </div>
+      <Footer />
+      
+      {/* Spline Badge Blocker - position fixed in bottom right corner */}
+      <div className="fixed bottom-0 right-0 w-48 h-16 bg-white z-[99999] pointer-events-none"></div>
       
       <style jsx global>{`
         /* Global styles to hide Spline branding */
@@ -90,70 +172,11 @@ export default function Home() {
           z-index: -9999 !important;
         }
         
-        /* Glassmorphism styles */
-        .glass {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
-        }
-        
-        .glass-card {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border-radius: 12px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.2);
-          transition: all 0.3s ease;
-        }
-        
-        .glass-card:hover {
-          background: rgba(255, 255, 255, 0.1);
-          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-          transform: translateY(-5px);
-        }
-        
-        /* Global text styles */
-        h1, h2, h3, h4, h5, h6 {
-          color: white;
-        }
-        
-        p {
-          color: rgba(255, 255, 255, 0.85);
-        }
-        
-        /* Improved blending for Spline elements */
-        .spline-container canvas {
-          mix-blend-mode: lighten !important;
-          z-index: 5 !important;
-        }
-        
-        /* Remove default card styles */
-        .card {
-          background: transparent;
-          border: none;
-          box-shadow: none;
-        }
-        
-        /* Dark scrollbar */
-        ::-webkit-scrollbar {
-          width: 8px;
-          height: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: rgba(0, 0, 0, 0.1);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.2);
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.3);
+        /* Fix Safari height issues */
+        @supports (-webkit-touch-callout: none) {
+          .min-h-screen {
+            min-height: -webkit-fill-available;
+          }
         }
       `}</style>
     </main>
