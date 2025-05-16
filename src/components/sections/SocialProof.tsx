@@ -86,7 +86,7 @@ const SocialProof = () => {
         >
           <h2 className="text-3xl font-bold mb-2 text-gray-900">Who We Work With</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We've partnered with some of the most ambitious teams in the world.
+            We&apos;ve partnered with some of the most ambitious teams in the world.
           </p>
         </motion.div>
         

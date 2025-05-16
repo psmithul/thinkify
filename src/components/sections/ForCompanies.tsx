@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -50,13 +50,6 @@ const features = [
 ];
 
 const ForCompanies = () => {
-  const { scrollYProgress } = useScroll({
-    offset: ["start end", "end end"] 
-  });
-  
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-  const y = useTransform(scrollYProgress, [0, 0.2], [50, 0]);
-  
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -94,7 +87,7 @@ const ForCompanies = () => {
           >
             <h2 className="text-3xl font-bold mb-6 text-gray-900">What We Do</h2>
             <p className="text-lg text-gray-600 mb-6">
-              We are a consulting collective founded by Ex-Flipkart engineers, built to serve Tier 1 companies and VC-backed startups across the globe. Whether you're building from 0 to 1 or scaling fast, we embed elite talent into your teams — engineers who think like founders and build like owners.
+              We are a consulting collective founded by Ex-Flipkart engineers, built to serve Tier 1 companies and VC-backed startups across the globe. Whether you&apos;re building from 0 to 1 or scaling fast, we embed elite talent into your teams — engineers who think like founders and build like owners.
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start">
@@ -102,14 +95,14 @@ const ForCompanies = () => {
                   <polyline points="9 11 12 14 22 4"></polyline>
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                 </svg>
-                <span className="text-gray-600">We're not a recruitment agency, we're your execution partner</span>
+                <span className="text-gray-600">We&apos;re not a recruitment agency, we&apos;re your execution partner</span>
               </li>
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600 mr-3 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 11 12 14 22 4"></polyline>
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                 </svg>
-                <span className="text-gray-600">Flipkart's high-growth DNA in our approach to speed and quality</span>
+                <span className="text-gray-600">Flipkart&apos;s high-growth DNA in our approach to speed and quality</span>
               </li>
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600 mr-3 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

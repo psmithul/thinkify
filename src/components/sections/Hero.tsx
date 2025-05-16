@@ -10,8 +10,6 @@ const Hero = () => {
   const { scrollY } = useScroll();
   
   // Parallax effect values
-  const y = useTransform(scrollY, [0, 1000], [0, 300]);
-  const opacity = useTransform(scrollY, [0, 600], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
   
   // Handle mounting for client-side effects

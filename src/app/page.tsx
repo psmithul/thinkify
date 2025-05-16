@@ -66,7 +66,7 @@ export default function Home() {
           // Try to remove the element from the DOM if possible
           try {
             el.remove();
-          } catch (e) {
+          } catch (_) {
             // Ignore removal errors
           }
         }
@@ -93,7 +93,7 @@ export default function Home() {
                 // Try to remove it completely
                 try {
                   sibling.remove();
-                } catch (e) {
+                } catch (_) {
                   // Ignore errors
                 }
               }
@@ -101,7 +101,7 @@ export default function Home() {
             sibling = sibling.nextElementSibling;
           }
         });
-      } catch (e) {
+      } catch (_) {
         // Ignore errors in this more aggressive approach
       }
     };
@@ -115,7 +115,7 @@ export default function Home() {
     ];
     
     // Also use a MutationObserver to detect when new elements are added to the DOM
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(() => {
       removeSplineBranding();
     });
     

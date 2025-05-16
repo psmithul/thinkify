@@ -17,7 +17,7 @@ const steps = [
   },
   {
     title: "Product Engineering Pods",
-    description: "From MVPs to scalable infrastructure — we architect, design, and deploy complete solutions tailored to your startup's specific needs and growth stage.",
+    description: "From MVPs to scalable infrastructure — we architect, design, and deploy complete solutions tailored to your startup&apos;s specific needs and growth stage.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3.5L18 6Z"></path>
@@ -78,7 +78,7 @@ const HowItWorks = () => {
         >
           <h2 className="text-3xl font-bold mb-4 text-gray-900">Why Thinkify</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We're not a recruitment agency. We're your execution partner — with skin in the game and a startup mindset. Our roots in Flipkart's high-growth phase shaped our belief in speed, quality, and ownership.
+            We&apos;re not a recruitment agency. We&apos;re your execution partner — with skin in the game and a startup mindset. Our roots in Flipkart&apos;s high-growth phase shaped our belief in speed, quality, and ownership.
           </p>
         </motion.div>
 

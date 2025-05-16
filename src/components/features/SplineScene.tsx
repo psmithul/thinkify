@@ -47,11 +47,13 @@ const SplineScene: React.FC<SplineSceneProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const mousePos = useRef({ x: 0, y: 0 });
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   
   // Function to handle the Spline scene loading
   const onLoad = (splineApp: Application) => {
     splineRef.current = splineApp;
     setIsLoading(false);
+    setHasError(false);
     console.log('Spline scene loaded');
     
     try {
@@ -92,19 +94,19 @@ const SplineScene: React.FC<SplineSceneProps> = ({
         }
         
         // Additional attempt to set background color on the scene directly
-        if ((splineApp as any).setBackgroundColor) {
-          (splineApp as any).setBackgroundColor('#ffffff');
+        if ((splineApp as unknown as { setBackgroundColor?: (color: string) => void }).setBackgroundColor) {
+          (splineApp as unknown as { setBackgroundColor: (color: string) => void }).setBackgroundColor('#ffffff');
         }
         
         // Try to find and modify any background objects
         const bgObject = splineApp.findObjectByName('Background');
         if (bgObject) {
-          const obj = bgObject as any;
+          const obj = bgObject as unknown as { material?: { color?: string } };
           if (obj.material && obj.material.color) {
             obj.material.color = '#ffffff';
           }
         }
-      } catch (e) {
+      } catch (_) {
         console.log('Could not modify scene background');
       }
       
@@ -154,10 +156,10 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             });
           }
         }
-      } catch {
+      } catch (_) {
         console.log('Could not modify mesh materials');
       }
-    } catch {
+    } catch (_) {
       console.log('Could not find or modify scene elements');
     }
   };
@@ -189,7 +191,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             mainObject.position.x = 0.2 + (mousePos.current.x * 0.03); // Base position + subtle mouse movement
             mainObject.position.y = (mousePos.current.y * 0.03); // Subtle vertical movement with mouse
           }
-        } catch {
+        } catch (_) {
           console.log('Could not find object to rotate with mouse');
         }
       }
@@ -225,7 +227,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             // Apply rotation
             mainObject.rotation.y = rotationY * (Math.PI / 180);
           }
-        } catch {
+        } catch (_) {
           console.log('Could not find object to rotate');
         }
       }
@@ -284,7 +286,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
           // Also try to remove the element from the DOM if possible
           try {
             el.remove();
-          } catch (e) {
+          } catch (_) {
             // Ignore errors
           }
         }
@@ -310,7 +312,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
                 // Try to remove it completely
                 try {
                   sibling.remove();
-                } catch (e) {
+                } catch (_) {
                   // Ignore errors
                 }
               }
@@ -318,7 +320,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             sibling = sibling.nextElementSibling;
           }
         });
-      } catch (e) {
+      } catch (_) {
         // Ignore errors in this more aggressive approach
       }
     };
@@ -336,7 +338,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
     ];
     
     // Also add a MutationObserver to catch dynamically added elements
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver((_mutations) => {
       hideWatermark();
     });
     
@@ -384,19 +386,29 @@ const SplineScene: React.FC<SplineSceneProps> = ({
     const patchSplineRuntime = () => {
       try {
         // Access the window object to find Spline's runtime
-        const win = window as any;
+        const win = window as unknown as { 
+          __SPLINE_RUNTIME__?: { 
+            Timeline?: { 
+              prototype: { 
+                buildTimeline?: (...args: unknown[]) => unknown;
+                originalBuildTimeline?: (...args: unknown[]) => unknown;
+              } 
+            } 
+          } 
+        };
         
         // Check if we can find the Spline runtime
         if (win.__SPLINE_RUNTIME__ && win.__SPLINE_RUNTIME__.Timeline) {
           // Create a safe buildTimeline method that won't throw errors
-          const safeBuildTimeline = function(this: any) {
+          const safeBuildTimeline = function(this: unknown, ...args: unknown[]) {
             try {
               // Call the original method if it exists
-              if (this.originalBuildTimeline) {
-                return this.originalBuildTimeline.apply(this, arguments);
+              const self = this as { originalBuildTimeline?: (...args: unknown[]) => unknown };
+              if (self.originalBuildTimeline) {
+                return self.originalBuildTimeline(...args);
               }
               return null;
-            } catch (e) {
+            } catch (_) {
               // Silently handle errors
               return null;
             }
@@ -409,7 +421,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
             win.__SPLINE_RUNTIME__.Timeline.prototype.buildTimeline = safeBuildTimeline;
           }
         }
-      } catch (e) {
+      } catch (_) {
         // Silent catch for any errors during patching
       }
     };
@@ -426,12 +438,33 @@ const SplineScene: React.FC<SplineSceneProps> = ({
   }, []);
 
   // Using the Spline URL provided in the requirements
-  const hostedSplineUrl = "/ai_brain.spline";
+  const hostedSplineUrl = "/ai_brain.splinecode";
+  // Fallback to a known working URL if local file fails
+  const fallbackSplineUrl = "https://prod.spline.design/PNcqVv8xUr3jGA-W/scene.splinecode";
+  const [currentSplineUrl, setCurrentSplineUrl] = useState(hostedSplineUrl);
 
-  const handleSplineError = () => {
-    console.log('Spline error handled');
-    // Keep the loading state if there's an error
-    setIsLoading(false);
+  const handleSplineError = (error: Error | unknown) => {
+    console.log('Spline error handled:', error);
+    
+    // If we're already using the fallback URL, just show the error
+    if (currentSplineUrl === fallbackSplineUrl) {
+      setIsLoading(false);
+      setHasError(true);
+      return;
+    }
+    
+    // Try to recover by using the fallback URL
+    console.log('Attempting recovery with fallback URL...');
+    setCurrentSplineUrl(fallbackSplineUrl);
+    
+    // Keep loading state active while we try the fallback
+    setTimeout(() => {
+      if (isLoading) {
+        // If still loading after timeout, show error
+        setIsLoading(false);
+        setHasError(true);
+      }
+    }, 10000); // 10 second timeout
   };
 
   return (
@@ -549,17 +582,44 @@ const SplineScene: React.FC<SplineSceneProps> = ({
         </motion.div>
       )}
       <div className="w-full h-full">
-        <ErrorBoundary fallback={<div className="w-full h-full bg-white flex items-center justify-center">
-          <div className="text-indigo-600 font-medium">Interactive model loading...</div>
-        </div>}>
-          <Spline
-            scene={hostedSplineUrl}
-            onLoad={onLoad}
-            onError={handleSplineError}
-            className="spline-scene w-full h-full"
-            style={{ backgroundColor: 'white', height: '100%', minHeight: '500px' }}
-          />
-        </ErrorBoundary>
+        {hasError ? (
+          <div className="w-full h-full bg-white flex flex-col items-center justify-center p-8 text-center">
+            <div className="text-indigo-600 font-medium mb-2">Sorry, we couldn&apos;t load the 3D model</div>
+            <div className="text-gray-500 text-sm mb-4">We&apos;re having trouble loading the 3D visualization</div>
+            <button 
+              className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+              onClick={() => {
+                setIsLoading(true);
+                setHasError(false);
+                
+                // Try the original URL again
+                setCurrentSplineUrl(hostedSplineUrl);
+                
+                // Set a fallback timeout
+                setTimeout(() => {
+                  if (isLoading) {
+                    // If still loading after timeout, try the fallback
+                    setCurrentSplineUrl(fallbackSplineUrl);
+                  }
+                }, 5000);
+              }}
+            >
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <ErrorBoundary fallback={<div className="w-full h-full bg-white flex items-center justify-center">
+            <div className="text-indigo-600 font-medium">Interactive model loading...</div>
+          </div>}>
+            <Spline
+              scene={currentSplineUrl}
+              onLoad={onLoad}
+              onError={handleSplineError}
+              className="spline-scene w-full h-full"
+              style={{ backgroundColor: 'white', height: '100%', minHeight: '500px' }}
+            />
+          </ErrorBoundary>
+        )}
       </div>
       <style jsx global>{`
         .spline-watermark, 
