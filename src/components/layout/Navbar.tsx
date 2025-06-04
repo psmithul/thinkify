@@ -96,23 +96,23 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-4 left-4 right-4 z-50 transition-all duration-500 rounded-2xl ${
         isScrolled
-          ? "bg-white/85 backdrop-blur-2xl shadow-2xl border border-white/30"
-          : "bg-white/70 backdrop-blur-xl shadow-lg border border-white/20"
+          ? "bg-white/90 backdrop-blur-2xl shadow-2xl border border-yellow-200/50"
+          : "bg-white/75 backdrop-blur-xl shadow-lg border border-yellow-100/30"
       }`}
       style={{
         backdropFilter: isScrolled ? 'blur(24px) saturate(200%)' : 'blur(20px) saturate(180%)',
         backgroundColor: isScrolled 
-          ? 'rgba(255, 255, 255, 0.9)' 
-          : 'rgba(255, 255, 255, 0.75)',
+          ? 'rgba(255, 255, 255, 0.95)' 
+          : 'rgba(255, 255, 255, 0.8)',
       }}
     >
       {/* Enhanced glassmorphism border glow */}
       <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
         isScrolled ? 'opacity-100' : 'opacity-70'
       }`}>
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/10 to-indigo-500/20 rounded-2xl" />
-        <div className="absolute inset-[1px] bg-white/30 rounded-2xl" />
-        <div className="absolute inset-[2px] bg-gradient-to-b from-white/40 to-transparent rounded-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-400/10 to-yellow-400/20 rounded-2xl" />
+        <div className="absolute inset-[1px] bg-white/40 rounded-2xl" />
+        <div className="absolute inset-[2px] bg-gradient-to-b from-white/50 to-transparent rounded-2xl" />
       </div>
 
       <div className="container mx-auto px-6 h-16 flex items-center justify-between relative z-10">
@@ -124,14 +124,23 @@ const Navbar = () => {
         >
           <Link href="/" className="flex items-center">
             <motion.span 
-              className="text-xl font-bold text-indigo-600 hover:text-indigo-700 transition-colors"
+              className="text-xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent hover:from-orange-600 hover:to-yellow-600 transition-all duration-300"
               animate={{
+                backgroundPosition: isScrolled ? ["0%", "100%", "0%"] : "0%"
+              }}
+              transition={{
+                duration: 3,
+                repeat: isScrolled ? Infinity : 0,
+                ease: "linear"
+              }}
+              style={{
+                backgroundSize: "200% 100%",
                 textShadow: isScrolled 
-                  ? "0 0 20px rgba(79, 70, 229, 0.3)" 
-                  : "0 0 10px rgba(79, 70, 229, 0.2)"
+                  ? "0 0 20px rgba(251, 191, 36, 0.3)" 
+                  : "0 0 10px rgba(251, 191, 36, 0.2)"
               }}
             >
-              Thinkify Labs
+              ⚡ Thinkify Labs
             </motion.span>
           </Link>
         </motion.div>
@@ -149,23 +158,37 @@ const Navbar = () => {
                 onClick={(e) => handleNavClick(e, link.id)}
                 className={`text-sm font-medium transition-all duration-300 relative group ${
                   activeSection === link.id
-                    ? "text-indigo-600"
-                    : "text-gray-700 hover:text-indigo-600"
+                    ? "text-yellow-600"
+                    : "text-gray-700 hover:text-yellow-600"
                 }`}
                 title={`Navigate to ${link.title} (Alt+${index + 1})`}
               >
                 {link.title}
                 <motion.span 
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300 ${
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 ${
                     activeSection === link.id ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                   layoutId="activeSection"
                 />
-                {/* Glassmorphism hover effect */}
+                {/* Enhanced glassmorphism hover effect */}
                 <motion.div
-                  className="absolute inset-0 -m-2 rounded-lg bg-white/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                  whileHover={{ scale: 1.05 }}
+                  className="absolute inset-0 -m-2 rounded-lg bg-yellow-100/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                  whileHover={{ scale: 1.05, y: -1 }}
                 />
+                {/* Sparkle effect on hover */}
+                <motion.div
+                  className="absolute -top-1 -right-1 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{ 
+                    rotate: [0, 360],
+                    scale: [0.8, 1.2, 0.8]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity 
+                  }}
+                >
+                  ✨
+                </motion.div>
               </button>
             </motion.div>
           ))}
@@ -177,25 +200,39 @@ const Navbar = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.95 }}
+            className="relative"
           >
             <Button 
               onClick={handleCTAClick}
-              className="relative overflow-hidden group bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="relative overflow-hidden group bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
               title="Get Started (Alt+C)"
             >
-              <span className="relative z-10 font-medium">Get Started</span>
+              <span className="relative z-10 font-medium">🚀 Get Started</span>
               
-              {/* Glassmorphism overlay */}
+              {/* Enhanced glassmorphism overlay */}
               <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               {/* Shine effect */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.6 }}
+              />
+              
+              {/* Pulse effect */}
+              <motion.div
+                className="absolute inset-0 bg-yellow-400 rounded-lg opacity-20"
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  opacity: [0.2, 0.3, 0.2] 
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity 
+                }}
               />
             </Button>
           </motion.div>
@@ -212,7 +249,7 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-indigo-600 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 border border-white/20"
+                className="text-yellow-600 hover:bg-yellow-100/50 backdrop-blur-sm transition-all duration-300 border border-yellow-200/30 relative overflow-hidden group"
                 aria-label="Open menu (Alt+M)"
                 title="Open menu (Alt+M)"
               >
@@ -247,12 +284,16 @@ const Navbar = () => {
                     )}
                   </motion.svg>
                 </AnimatePresence>
+                <motion.div
+                  className="absolute inset-0 bg-yellow-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  whileHover={{ scale: 1.1 }}
+                />
               </Button>
             </motion.div>
           </SheetTrigger>
           <SheetContent 
             side="right" 
-            className="bg-white/90 backdrop-blur-xl border-l border-white/20"
+            className="bg-white/95 backdrop-blur-xl border-l border-yellow-200/30"
             style={{ backdropFilter: 'blur(20px) saturate(180%)' }}
           >
             <motion.div 
@@ -270,16 +311,24 @@ const Navbar = () => {
                   onClick={(e) => handleNavClick(e, link.id)}
                   className={`text-lg font-medium transition-all duration-300 text-left relative group ${
                     activeSection === link.id
-                      ? "text-indigo-600"
-                      : "text-gray-800 hover:text-indigo-600"
+                      ? "text-yellow-600"
+                      : "text-gray-800 hover:text-yellow-600"
                   }`}
                 >
                   <span className="flex items-center justify-between">
-                    {link.title}
+                    <span className="flex items-center gap-2">
+                      <motion.span
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                      >
+                        {activeSection === link.id ? "🌟" : "⭐"}
+                      </motion.span>
+                      {link.title}
+                    </span>
                     <span className="text-xs text-gray-400">Alt+{index + 1}</span>
                   </span>
                   <motion.div
-                    className="absolute inset-0 -m-2 rounded-lg bg-indigo-50/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                    className="absolute inset-0 -m-2 rounded-lg bg-yellow-100/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
                     whileHover={{ scale: 1.02, x: 5 }}
                   />
                 </motion.button>
@@ -288,12 +337,20 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
+                className="relative"
               >
                 <Button 
                   onClick={handleCTAClick}
-                  className="mt-4 w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-0 shadow-lg"
+                  className="mt-4 w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 shadow-lg relative overflow-hidden group"
                 >
-                  Get Started
+                  <span className="relative z-10">🚀 Get Started</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6 }}
+                    style={{ opacity: 0.3 }}
+                  />
                 </Button>
               </motion.div>
 
@@ -302,9 +359,12 @@ const Navbar = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.5 }}
-                className="mt-6 pt-6 border-t border-gray-200"
+                className="mt-6 pt-6 border-t border-yellow-200"
               >
-                <h4 className="text-sm font-semibold text-gray-600 mb-2">Keyboard Shortcuts</h4>
+                <h4 className="text-sm font-semibold text-gray-600 mb-2 flex items-center gap-1">
+                  <span>⌨️</span>
+                  Keyboard Shortcuts
+                </h4>
                 <div className="text-xs text-gray-500 space-y-1">
                   <div>Alt + M: Toggle Menu</div>
                   <div>Alt + C: Get Started</div>
@@ -320,7 +380,7 @@ const Navbar = () => {
 
       {/* Progress indicator */}
       <motion.div
-        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 origin-left"
+        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 origin-left"
         style={{
           scaleX: isScrolled ? 1 : 0,
         }}

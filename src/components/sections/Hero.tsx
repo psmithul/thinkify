@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pt-24">
       {/* Background with subtle pattern */}
-      <div className="absolute inset-0 bg-white z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/40 via-white to-orange-50/40 z-0" />
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.01] mix-blend-overlay z-0"></div>
       
       {/* Floating background elements */}
@@ -39,18 +39,20 @@ const Hero = () => {
           animate={{
             y: [0, -20, 0],
             rotate: [0, 5, 0],
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full opacity-30"
+          className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-yellow-200 to-orange-200 rounded-full opacity-40"
         />
         <motion.div
           animate={{
             y: [0, 30, 0],
             rotate: [0, -5, 0],
+            x: [0, 10, 0],
           }}
           transition={{
             duration: 10,
@@ -58,12 +60,13 @@ const Hero = () => {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-full opacity-20"
+          className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-amber-200 to-yellow-200 rounded-full opacity-30"
         />
         <motion.div
           animate={{
             y: [0, -15, 0],
             x: [0, 10, 0],
+            rotate: [0, 10, 0],
           }}
           transition={{
             duration: 12,
@@ -71,7 +74,21 @@ const Hero = () => {
             ease: "easeInOut",
             delay: 4,
           }}
-          className="absolute bottom-40 left-1/4 w-16 h-16 bg-gradient-to-br from-indigo-200 to-blue-200 rounded-full opacity-25"
+          className="absolute bottom-40 left-1/4 w-16 h-16 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full opacity-35"
+        />
+        <motion.div
+          animate={{
+            y: [0, 25, 0],
+            x: [0, -15, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 6,
+          }}
+          className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-yellow-300 to-amber-300 rounded-full opacity-25"
         />
       </div>
       
@@ -87,19 +104,28 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.p 
-              className="text-sm font-medium text-indigo-600 mb-3 tracking-wide"
+              className="text-sm font-medium text-yellow-600 mb-3 tracking-wide"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.span
-                animate={{ opacity: [0.7, 1, 0.7] }}
+                animate={{ 
+                  opacity: [0.7, 1, 0.7],
+                  scale: [1, 1.05, 1] 
+                }}
                 transition={{ duration: 2, repeat: Infinity }}
+                className="relative"
               >
-                Thinkify Labs
+                ⚡ Thinkify Labs
+                <motion.div
+                  className="absolute -inset-1 bg-yellow-200 rounded-lg opacity-20 -z-10"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
               </motion.span>
               {" • "}
-              <span className="underline cursor-pointer hover:text-indigo-700 transition-colors">
+              <span className="underline cursor-pointer hover:text-orange-600 transition-colors duration-300">
                 For companies
               </span>
             </motion.p>
@@ -114,26 +140,53 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
+                className="relative"
               >
                 Engineering Excellence
+                <motion.div
+                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 1, delay: 1 }}
+                />
               </motion.span>{" "}
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+                animate={{ 
+                  opacity: 1, 
+                  scale: 1,
+                  backgroundPosition: ["0%", "100%", "0%"]
+                }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.7,
+                  backgroundPosition: {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }
+                }}
+                className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent relative"
+                style={{
+                  backgroundSize: "200% 100%"
+                }}
               >
                 for startups, scaleups and enterprises
               </motion.span>
             </motion.h1>
 
             <motion.p 
-              className="mercor-subheading text-gray-600 mb-6 md:mb-8"
+              className="mercor-subheading text-gray-600 mb-6 md:mb-8 relative"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Thinkify labs scale exceptional engineering talent and deliver innovative solutions that power your growth.
+              <motion.span
+                animate={{ opacity: [0.8, 1, 0.8] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Thinkify labs scale exceptional engineering talent and deliver innovative solutions that power your growth.
+              </motion.span>
             </motion.p>
               
             <motion.div 
@@ -143,37 +196,52 @@ const Hero = () => {
               className="flex flex-wrap gap-4"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                className="relative"
               >
                 <Button 
                   size="lg" 
                   onClick={handleCTAClick}
-                  className="bg-indigo-600 text-white hover:bg-indigo-700 font-medium px-8 py-3 rounded-full shadow-lg relative overflow-hidden group transition-all duration-300"
+                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl relative overflow-hidden group transition-all duration-300"
                 >
                   <span className="relative z-10">Let&apos;s Build Together</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6 }}
+                    style={{ opacity: 0.3 }}
+                  />
                   <motion.div
                     className="absolute inset-0 bg-white"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
                     style={{ opacity: 0.1 }}
                   />
                 </Button>
+                <motion.div
+                  className="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-20 -z-10"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    opacity: [0.2, 0.3, 0.2] 
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
               </motion.div>
               
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button 
                   size="lg" 
                   variant="outline"
                   onClick={handleLearnMoreClick}
-                  className="border-indigo-200 text-indigo-600 hover:bg-indigo-50 px-8 py-3 rounded-full font-medium flex items-center gap-2 transition-all duration-300 group"
+                  className="border-yellow-300 text-yellow-600 hover:bg-yellow-50 px-8 py-3 rounded-full font-medium flex items-center gap-2 transition-all duration-300 group relative overflow-hidden"
                 >
-                  Who we are
+                  <span className="relative z-10">Who we are</span>
                   <motion.svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="16" 
@@ -184,14 +252,69 @@ const Hero = () => {
                     strokeWidth="2" 
                     strokeLinecap="round" 
                     strokeLinejoin="round" 
-                    className="ml-1"
+                    className="ml-1 relative z-10"
                     animate={{ x: [0, 3, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
                     <path d="M5 12h14"></path>
                     <path d="m12 5 7 7-7 7"></path>
                   </motion.svg>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-yellow-100 to-orange-100"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "0%" }}
+                    transition={{ duration: 0.3 }}
+                    style={{ opacity: 0.8 }}
+                  />
                 </Button>
+              </motion.div>
+            </motion.div>
+
+            {/* Trust indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="mt-8 flex items-center gap-6 text-sm text-gray-500"
+            >
+              <motion.div 
+                className="flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="text-yellow-500"
+                >
+                  ⭐
+                </motion.div>
+                <span>Trusted by 50+ startups</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-green-500"
+                >
+                  ✅
+                </motion.div>
+                <span>100% Success Rate</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+              >
+                <motion.div
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="text-blue-500"
+                >
+                  🚀
+                </motion.div>
+                <span>Fast Delivery</span>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -212,8 +335,14 @@ const Hero = () => {
                 <AnimatedLogos />
               </motion.div>
               
-              {/* Optional light gradient to help blend the logos */}
-              <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent pointer-events-none"></div>
+              {/* Glow effect */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-yellow-50/20 to-transparent pointer-events-none rounded-3xl"
+                animate={{
+                  opacity: [0.2, 0.4, 0.2]
+                }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
             </motion.div>
           )}
         </div>
@@ -228,11 +357,25 @@ const Hero = () => {
         >
           <div className="text-center">
             <motion.p 
-              className="text-sm text-gray-500"
+              className="text-sm text-gray-500 flex items-center justify-center gap-2"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
+              <motion.span
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                className="text-yellow-500"
+              >
+                🌟
+              </motion.span>
               Trusted by companies worldwide
+              <motion.span
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-yellow-500"
+              >
+                ✨
+              </motion.span>
             </motion.p>
           </div>
         </motion.div>

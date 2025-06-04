@@ -46,7 +46,7 @@ WhatsApp: https://wa.me/919902417369`;
         </svg>
       ),
       action: () => window.open('https://connect.thinkify.io', '_blank'),
-      color: "bg-indigo-600 hover:bg-indigo-700",
+      color: "bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600",
       tooltip: "Visit our contact page"
     },
     {
@@ -57,7 +57,7 @@ WhatsApp: https://wa.me/919902417369`;
         </svg>
       ),
       action: () => window.open('https://connect.thinkify.io', '_blank'),
-      color: "bg-blue-600 hover:bg-blue-700",
+      color: "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700",
       tooltip: "Schedule a call with us"
     },
     {
@@ -68,7 +68,7 @@ WhatsApp: https://wa.me/919902417369`;
         </svg>
       ),
       action: () => openWhatsApp("Hi! I'm interested in Thinkify Labs' services."),
-      color: "bg-green-600 hover:bg-green-700",
+      color: "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700",
       tooltip: "Chat on WhatsApp"
     },
     {
@@ -80,7 +80,7 @@ WhatsApp: https://wa.me/919902417369`;
         </svg>
       ),
       action: handleCopyContact,
-      color: "bg-purple-600 hover:bg-purple-700",
+      color: "bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700",
       tooltip: "Copy contact info"
     }
   ];
@@ -155,7 +155,7 @@ WhatsApp: https://wa.me/919902417369`;
       {/* Main Toggle Button */}
       <motion.button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-14 h-14 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 group relative"
+        className="w-14 h-14 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 group relative overflow-hidden"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         animate={{
@@ -205,13 +205,13 @@ WhatsApp: https://wa.me/919902417369`;
           )}
         </AnimatePresence>
 
-        {/* Pulse animation when not expanded */}
+        {/* Enhanced pulse animation when not expanded */}
         {!isExpanded && (
           <motion.div
-            className="absolute inset-0 rounded-full bg-indigo-600"
+            className="absolute inset-0 rounded-full bg-yellow-400"
             animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.7, 0, 0.7],
+              scale: [1, 1.3, 1],
+              opacity: [0.6, 0, 0.6],
             }}
             transition={{
               duration: 2,
@@ -220,6 +220,14 @@ WhatsApp: https://wa.me/919902417369`;
             }}
           />
         )}
+
+        {/* Shine effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-full"
+          initial={{ x: "-100%" }}
+          whileHover={{ x: "100%" }}
+          transition={{ duration: 0.6 }}
+        />
       </motion.button>
     </div>
   );
