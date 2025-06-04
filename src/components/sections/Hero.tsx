@@ -103,7 +103,7 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.p 
+            <motion.div 
               className="text-sm font-medium text-yellow-600 mb-3 tracking-wide"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,7 +128,7 @@ const Hero = () => {
               <span className="underline cursor-pointer hover:text-orange-600 transition-colors duration-300">
                 For companies
               </span>
-            </motion.p>
+            </motion.div>
 
             <motion.h1 
               className="mercor-heading text-gray-900 mb-4 md:mb-6"
@@ -175,7 +175,7 @@ const Hero = () => {
               </motion.span>
             </motion.h1>
 
-            <motion.p 
+            <motion.div 
               className="mercor-subheading text-gray-600 mb-6 md:mb-8 relative"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -187,7 +187,7 @@ const Hero = () => {
               >
                 Thinkify labs scale exceptional engineering talent and deliver innovative solutions that power your growth.
               </motion.span>
-            </motion.p>
+            </motion.div>
               
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
