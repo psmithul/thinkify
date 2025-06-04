@@ -12,31 +12,18 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-// Email template utility
+// Connect URL redirect utility - replaces email template
 export function createEmailTemplate(subject: string = "Partnership Inquiry", source: string = "Website") {
-  const emailSubject = encodeURIComponent(subject);
-  const emailBody = encodeURIComponent(`Hi Karthik,
-
-I'm interested in learning more about Thinkify Labs and how you can help with our engineering needs.
-
-Company/Role: [Please fill]
-Current Challenge: [Please describe your current engineering challenges]
-Timeline: [When do you need help?]
-Budget Range: [If applicable]
-
-Best time to connect: [Your preferred time]
-Phone: [Your contact number]
-
-Looking forward to hearing from you!
-
-Best regards,
-[Your Name]
-
----
-Source: ${source}
-Contact: kulkarni.karthik@thinkify.io | 9902417369`);
+  // Track the source for analytics if needed
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'cta_click', {
+      source: source,
+      subject: subject
+    });
+  }
   
-  return `mailto:kulkarni.karthik@thinkify.io?subject=${emailSubject}&body=${emailBody}`;
+  // Always redirect to connect URL
+  return 'https://connect.thinkify.io';
 }
 
 // Enhanced smooth scroll utility with options
@@ -70,12 +57,12 @@ export function smoothScrollTo(elementId: string, offset: number = 80, duration:
   }
 }
 
-// Phone call utility
+// Phone call utility - redirect to connect URL instead
 export function makePhoneCall() {
-  window.open('tel:9902417369', '_self');
+  window.open('https://connect.thinkify.io', '_blank');
 }
 
-// WhatsApp utility
+// WhatsApp utility - keep as is since user requested WhatsApp button to remain
 export function openWhatsApp(message: string = "Hi! I'm interested in Thinkify Labs' services.") {
   const whatsappUrl = `https://wa.me/919902417369?text=${encodeURIComponent(message)}`;
   window.open(whatsappUrl, '_blank');

@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import SplineScene from "@/components/features/SplineScene";
-import { createEmailTemplate, smoothScrollTo } from "@/lib/utils";
+import AnimatedLogos from "@/components/features/AnimatedLogos";
+import { smoothScrollTo } from "@/lib/utils";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -17,34 +17,10 @@ const Hero = () => {
   // Handle mounting for client-side effects
   useEffect(() => {
     setMounted(true);
-    
-    // Additional check to remove any Spline watermarks that might persist
-    const removeWatermarks = () => {
-      const watermarks = document.querySelectorAll(
-        '.spline-watermark, [data-name="watermark"], [class*="watermark"], a[href*="spline.design"]'
-      );
-      watermarks.forEach(el => {
-        if (el instanceof HTMLElement) {
-          el.style.display = 'none';
-          el.style.opacity = '0';
-          el.style.visibility = 'hidden';
-        }
-      });
-    };
-    
-    // Run multiple times to catch any that load after initial render
-    removeWatermarks();
-    const timers = [
-      setTimeout(removeWatermarks, 500),
-      setTimeout(removeWatermarks, 1500),
-      setTimeout(removeWatermarks, 3000)
-    ];
-    
-    return () => timers.forEach(t => clearTimeout(t));
   }, []);
 
   const handleCTAClick = () => {
-    window.location.href = createEmailTemplate("Partnership Inquiry - Let's Build Together", "Hero Section");
+    window.open('https://connect.thinkify.io', '_blank');
   };
 
   const handleLearnMoreClick = () => {
@@ -147,17 +123,17 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.7 }}
                 className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
               >
-                for Ambitious Startups
+                for startups, scaleups and enterprises
               </motion.span>
             </motion.h1>
-              
+
             <motion.p 
               className="mercor-subheading text-gray-600 mb-6 md:mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              At Thinkify Labs, we help visionary startups hire exceptional engineering talent and build their Version 1 — the foundation of world-changing products.
+              Thinkify labs scale exceptional engineering talent and deliver innovative solutions that power your growth.
             </motion.p>
               
             <motion.div 
@@ -220,7 +196,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content (3D Model) */}
+          {/* Right Content (Animated Logos) */}
           {mounted && (
             <motion.div 
               className="w-full lg:w-1/2 h-[50vh] md:h-[60vh] lg:h-[70vh] relative"
@@ -233,10 +209,10 @@ const Hero = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <SplineScene className="absolute inset-0 h-full" enableScrollRotation={false} />
+                <AnimatedLogos />
               </motion.div>
               
-              {/* Optional light gradient to help blend the model */}
+              {/* Optional light gradient to help blend the logos */}
               <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent pointer-events-none"></div>
             </motion.div>
           )}
@@ -261,27 +237,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-      
-      <style jsx global>{`
-        /* Additional styles to hide Spline branding */
-        .spline-watermark,
-        [data-name="watermark"],
-        [class*="watermark"],
-        a[href*="spline.design"],
-        div[class*="builder"],
-        div[class*="Watermark"] {
-          display: none !important;
-          opacity: 0 !important;
-          visibility: hidden !important;
-          pointer-events: none !important;
-          height: 0 !important;
-          width: 0 !important;
-          overflow: hidden !important;
-          position: absolute !important;
-          top: -9999px !important;
-          left: -9999px !important;
-        }
-      `}</style>
     </section>
   );
 };

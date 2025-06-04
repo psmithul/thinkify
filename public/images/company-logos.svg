@@ -1,0 +1,100 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Company Logo 1 - Tech Corp -->
+  <g id="logo1">
+    <rect x="50" y="50" width="100" height="60" rx="10" fill="#4F46E5" opacity="0.1"/>
+    <rect x="60" y="60" width="20" height="20" rx="4" fill="#4F46E5"/>
+    <rect x="90" y="60" width="20" height="20" rx="4" fill="#7C3AED"/>
+    <rect x="120" y="60" width="20" height="20" rx="4" fill="#4F46E5"/>
+    <text x="75" y="100" font-family="Arial" font-size="12" font-weight="600" fill="#374151">TechCorp</text>
+  </g>
+
+  <!-- Company Logo 2 - InnovateLabs -->
+  <g id="logo2">
+    <circle cx="250" cy="80" r="30" fill="#10B981" opacity="0.1"/>
+    <circle cx="240" cy="75" r="8" fill="#10B981"/>
+    <circle cx="260" cy="75" r="8" fill="#059669"/>
+    <circle cx="250" cy="90" r="8" fill="#10B981"/>
+    <text x="220" y="115" font-family="Arial" font-size="12" font-weight="600" fill="#374151">InnovateLabs</text>
+  </g>
+
+  <!-- Company Logo 3 - DataFlow -->
+  <g id="logo3">
+    <rect x="350" y="50" width="100" height="60" rx="10" fill="#F59E0B" opacity="0.1"/>
+    <path d="M370 70 L380 60 L390 70 L400 60 L410 70 L420 60 L430 70" stroke="#F59E0B" stroke-width="3" fill="none"/>
+    <path d="M370 90 L380 80 L390 90 L400 80 L410 90 L420 80 L430 90" stroke="#D97706" stroke-width="2" fill="none"/>
+    <text x="375" y="105" font-family="Arial" font-size="12" font-weight="600" fill="#374151">DataFlow</text>
+  </g>
+
+  <!-- Company Logo 4 - CloudSync -->
+  <g id="logo4">
+    <ellipse cx="550" cy="80" rx="50" ry="30" fill="#3B82F6" opacity="0.1"/>
+    <ellipse cx="540" cy="75" rx="15" ry="10" fill="#3B82F6"/>
+    <ellipse cx="560" cy="75" rx="15" ry="10" fill="#1D4ED8"/>
+    <ellipse cx="550" cy="85" rx="20" ry="8" fill="#3B82F6"/>
+    <text x="520" y="110" font-family="Arial" font-size="12" font-weight="600" fill="#374151">CloudSync</text>
+  </g>
+
+  <!-- Company Logo 5 - NextGen -->
+  <g id="logo5">
+    <polygon points="50,200 100,150 150,200 125,250 75,250" fill="#EF4444" opacity="0.1"/>
+    <polygon points="70,180 100,160 130,180 115,210 85,210" fill="#EF4444"/>
+    <text x="80" y="275" font-family="Arial" font-size="12" font-weight="600" fill="#374151">NextGen</text>
+  </g>
+
+  <!-- Company Logo 6 - AlphaWorks -->
+  <g id="logo6">
+    <rect x="200" y="150" width="100" height="60" rx="30" fill="#8B5CF6" opacity="0.1"/>
+    <text x="225" y="175" font-family="Arial" font-size="18" font-weight="bold" fill="#8B5CF6">α</text>
+    <text x="245" y="190" font-family="Arial" font-size="14" font-weight="600" fill="#7C3AED">W</text>
+    <text x="220" y="235" font-family="Arial" font-size="12" font-weight="600" fill="#374151">AlphaWorks</text>
+  </g>
+
+  <!-- Company Logo 7 - VelocityIO -->
+  <g id="logo7">
+    <rect x="350" y="150" width="100" height="60" rx="10" fill="#14B8A6" opacity="0.1"/>
+    <path d="M360 170 L390 160 L390 200 L420 170 L440 180 L410 210 L360 190 Z" fill="#14B8A6"/>
+    <text x="370" y="235" font-family="Arial" font-size="12" font-weight="600" fill="#374151">VelocityIO</text>
+  </g>
+
+  <!-- Company Logo 8 - Quantum -->
+  <g id="logo8">
+    <circle cx="550" cy="180" r="30" fill="#F97316" opacity="0.1"/>
+    <circle cx="530" cy="170" r="6" fill="#F97316"/>
+    <circle cx="550" cy="165" r="6" fill="#EA580C"/>
+    <circle cx="570" cy="170" r="6" fill="#F97316"/>
+    <circle cx="530" cy="190" r="6" fill="#EA580C"/>
+    <circle cx="550" cy="195" r="6" fill="#F97316"/>
+    <circle cx="570" cy="190" r="6" fill="#EA580C"/>
+    <text x="520" y="225" font-family="Arial" font-size="12" font-weight="600" fill="#374151">Quantum</text>
+  </g>
+
+  <!-- Company Logo 9 - Pinnacle -->
+  <g id="logo9">
+    <polygon points="50,300 100,250 150,300 100,350" fill="#6366F1" opacity="0.1"/>
+    <polygon points="70,290 100,270 130,290 100,320" fill="#6366F1"/>
+    <circle cx="100" cy="290" r="8" fill="#4F46E5"/>
+    <text x="75" y="375" font-family="Arial" font-size="12" font-weight="600" fill="#374151">Pinnacle</text>
+  </g>
+
+  <!-- Company Logo 10 - FlexiTech -->
+  <g id="logo10">
+    <rect x="200" y="250" width="100" height="60" rx="15" fill="#EC4899" opacity="0.1"/>
+    <path d="M220 270 Q250 260 280 270 Q250 290 220 280 Q235 275 220 270" fill="#EC4899"/>
+    <text x="220" y="335" font-family="Arial" font-size="12" font-weight="600" fill="#374151">FlexiTech</text>
+  </g>
+
+  <!-- Company Logo 11 - MetaCore -->
+  <g id="logo11">
+    <hexagon cx="400" cy="280" r="30" fill="#22C55E" opacity="0.1"/>
+    <polygon points="370,280 385,260 415,260 430,280 415,300 385,300" fill="#22C55E"/>
+    <text x="370" y="325" font-family="Arial" font-size="12" font-weight="600" fill="#374151">MetaCore</text>
+  </g>
+
+  <!-- Company Logo 12 - ZenithAI -->
+  <g id="logo12">
+    <circle cx="550" cy="280" r="30" fill="#A855F7" opacity="0.1"/>
+    <path d="M530 270 L550 250 L570 270 L550 290 Z" fill="#A855F7"/>
+    <circle cx="550" cy="270" r="8" fill="#9333EA"/>
+    <text x="520" y="325" font-family="Arial" font-size="12" font-weight="600" fill="#374151">ZenithAI</text>
+  </g>
+</svg> 

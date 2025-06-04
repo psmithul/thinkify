@@ -86,7 +86,7 @@ const Navbar = () => {
   };
 
   const handleCTAClick = () => {
-    window.location.href = createEmailTemplate("Partnership Inquiry - Navbar CTA", "Navbar");
+    window.open('https://connect.thinkify.io', '_blank');
   };
 
   return (
