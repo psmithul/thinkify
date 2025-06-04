@@ -1,109 +1,145 @@
 "use client";
 
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-const steps = [
-  {
-    title: "Recruitment-as-a-Service",
-    description: "Onboard top-tier developers, handpicked for culture and craft. We help you find exceptional engineers who fit your technical needs and company culture.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-      </svg>
-    ),
-  },
-  {
-    title: "Product Engineering Pods",
-    description: "From MVPs to scalable infrastructure — we architect, design, and deploy complete solutions tailored to your startup&apos;s specific needs and growth stage.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4-3.5L18 6Z"></path>
-        <path d="M12 13v8"></path>
-        <path d="M12 3v3"></path>
-      </svg>
-    ),
-  },
-  {
-    title: "Fractional CTOs & Strategy",
-    description: "Engineering leadership to guide your product roadmap and technical decisions. We act as your technical partners, helping you build the right foundation.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-      </svg>
-    ),
-  },
-];
+import { motion } from "framer-motion";
 
 const HowItWorks = () => {
-  const { scrollYProgress } = useScroll();
-  
-  // Parallax and animation values
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.3], [0, 0.5, 1]);
-  const scale = useTransform(scrollYProgress, [0.1, 0.3], [0.95, 1]);
-  
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section id="how-it-works" className="py-32 relative overflow-hidden bg-white">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.01] mix-blend-overlay"></div>
-      
-      {/* Content */}
-      <motion.div 
-        className="container mx-auto px-4 relative z-10"
-        style={{ opacity, scale }}
-      >
-        <motion.div 
-          className="text-center mb-16 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
+    <section id="how-it-works" className="py-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">Why Thinkify</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We&apos;re not a recruitment agency. We&apos;re your execution partner — with skin in the game and a startup mindset. Our roots in Flipkart&apos;s high-growth phase shaped our belief in speed, quality, and ownership.
-          </p>
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Get all of your initiatives back on the table
+          </motion.h2>
         </motion.div>
 
-        <motion.div 
-          className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
+        {/* Two Main Sections */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Hire Anywhere Section */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-600">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">Hire anywhere. Deliver everywhere.</h3>
+            </div>
+            
+            <div className="space-y-4">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Find the right talent and increase productivity when you prioritize skill and experience over location.
+              </p>
+              
+              <p className="text-gray-600 leading-relaxed">
+                Andela talent is rigorously qualified and certified, assessed by fully transparent code tests, and identified by our proprietary AI-powered Talent Decision Engine™.
+              </p>
+            </div>
+
+            <motion.div
+              className="pt-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center space-x-2 text-indigo-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+                <span className="text-sm font-medium">AI-powered talent matching</span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Make Work Happen Fast Section */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-600">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M12 1v6m0 6v6"></path>
+                  <path d="m15.5 3.5-3 3 3 3"></path>
+                  <path d="m8.5 3.5 3 3-3 3"></path>
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">Make work happen fast.</h3>
+            </div>
+            
+            <div className="space-y-4">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Get the resources you need, when you need them. Onboard easily. Reduce backlog. Quickly generate proof of concepts. Accelerate time to results.
+              </p>
+            </div>
+
+            <motion.div
+              className="pt-4 space-y-2"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center space-x-2 text-purple-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+                <span className="text-sm font-medium">Fast onboarding</span>
+              </div>
+              <div className="flex items-center space-x-2 text-purple-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+                <span className="text-sm font-medium">Rapid proof of concepts</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Bottom decorative element */}
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           viewport={{ once: true }}
         >
-          {steps.map((step, index) => (
-            <motion.div key={index} variants={item}>
-              <Card className="mercor-card h-full overflow-hidden">
-                <CardHeader className="pb-2">
-                  <div className="mb-4">{step.icon}</div>
-                  <CardTitle className="text-xl text-gray-900">{step.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base text-gray-600">{step.description}</CardDescription>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+          <div className="inline-flex items-center space-x-2 text-gray-400">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-gray-300"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <div className="w-8 h-px bg-gradient-to-l from-transparent to-gray-300"></div>
+          </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };

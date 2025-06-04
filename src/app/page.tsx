@@ -6,7 +6,6 @@ import Hero from "@/components/sections/Hero";
 import SocialProof from "@/components/sections/SocialProof";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Testimonials from "@/components/sections/Testimonials";
-import ForCompanies from "@/components/sections/ForCompanies";
 import CTABanner from "@/components/sections/CTABanner";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/ui/floating-contact";
@@ -208,7 +207,6 @@ export default function Home() {
         <Hero />
         <div className="bg-gradient-to-b from-white to-gray-50">
           <HowItWorks />
-          <ForCompanies />
           <SocialProof />
           <Testimonials />
           <CTABanner />

@@ -124,7 +124,7 @@ const Hero = () => {
               </motion.span>
               {" • "}
               <span className="underline cursor-pointer hover:text-indigo-700 transition-colors">
-                For companies
+                For startups/scaleups and enterprise
               </span>
             </motion.p>
 
@@ -139,7 +139,7 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                Engineering Excellence
+                Thinkify Labs
               </motion.span>{" "}
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -147,7 +147,7 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.7 }}
                 className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
               >
-                for Ambitious Startups
+                Scale Exceptional Engineering Talent
               </motion.span>
             </motion.h1>
               
@@ -157,7 +157,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              At Thinkify Labs, we help visionary startups hire exceptional engineering talent and build their Version 1 — the foundation of world-changing products.
+              We're your execution partner — with skin in the game. We believe in speed, quality and ownership.
             </motion.p>
               
             <motion.div 
