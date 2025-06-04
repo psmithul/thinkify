@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 
 const features = [
   {
-    title: "Recruitment-as-a-Service",
-    description: "Onboard top-tier developers, handpicked for culture and craft by our ex-Flipkart engineers.",
+    title: "Hire anywhere. Deliver everywhere.",
+    description: "Find the right talent and increase productivity when you prioritize skill and experience over location. Andela talent is rigorously qualified and certified, assessed by fully transparent code tests, and identified by our proprietary AI-powered Talent Decision Engine™.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="8"></circle>
@@ -17,8 +17,8 @@ const features = [
     ),
   },
   {
-    title: "Product Engineering Pods",
-    description: "From MVPs to scalable infra — we architect, design, and deploy solutions tailored to your startup needs.",
+    title: "Make work happen fast.",
+    description: "Get the resources you need, when you need them. Onboard easily. Reduce backlog. Quickly generate proof of concepts. Accelerate time to results.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 17.2a3 3 0 1 0 0-5.8V5.5a3 3 0 1 1 6 0v.8M15 8a3 3 0 1 0 0 5.8v.7a3 3 0 1 1-6 0v-.8"></path>
@@ -26,24 +26,12 @@ const features = [
     ),
   },
   {
-    title: "Fractional CTOs",
-    description: "Engineering leadership to guide your product roadmap and technical decision-making process.",
+    title: "Scale with confidence.",
+    description: "Build high-performing teams with vetted engineering talent. Our rigorous screening process ensures you get developers who can hit the ground running and deliver results from day one.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 11.7l2.5 2.5 4-4"></path>
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-      </svg>
-    ),
-  },
-  {
-    title: "Technical Strategy",
-    description: "Strategic guidance on tech stack, architecture, and scaling plans for growth-focused founders.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path>
-        <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path>
-        <path d="M2 7a5 5 0 0 1 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path>
-        <path d="M12 7a5 5 0 0 1 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"></path>
       </svg>
     ),
   },
@@ -85,33 +73,30 @@ const ForCompanies = () => {
             transition={{ duration: 0.7 }}
             className="mercor-card p-8"
           >
-            <h2 className="text-3xl font-bold mb-6 text-gray-900">What We Do</h2>
+            <motion.p 
+              className="text-sm font-medium text-indigo-600 mb-3 tracking-wide"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              for startups/scaleups and enterprise
+            </motion.p>
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">Thinkify labs scale exceptional engineering talent</h2>
             <p className="text-lg text-gray-600 mb-6">
-              We are a consulting collective founded by Ex-Flipkart engineers, built to serve Tier 1 companies and VC-backed startups across the globe. Whether you&apos;re building from 0 to 1 or scaling fast, we embed elite talent into your teams — engineers who think like founders and build like owners.
+              We're your execution partner — with skin in the game we believe in speed quality and ownership
             </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600 mr-3 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 11 12 14 22 4"></polyline>
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                </svg>
-                <span className="text-gray-600">We&apos;re not a recruitment agency, we&apos;re your execution partner</span>
-              </li>
-              <li className="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600 mr-3 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 11 12 14 22 4"></polyline>
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                </svg>
-                <span className="text-gray-600">Flipkart&apos;s high-growth DNA in our approach to speed and quality</span>
-              </li>
-              <li className="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-600 mr-3 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 11 12 14 22 4"></polyline>
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                </svg>
-                <span className="text-gray-600">Partners with startups from seed to Series A and beyond</span>
-              </li>
-            </ul>
+            
+            <motion.div 
+              className="mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Get all of your initiatives back on the table</h3>
+            </motion.div>
+            
             <Button 
               className="bg-indigo-600 text-white hover:bg-indigo-700 font-medium px-6 py-2.5 rounded-full inline-block shadow-sm transition-all"
             >
@@ -124,7 +109,7 @@ const ForCompanies = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 gap-6"
           >
             {features.map((feature, index) => (
               <motion.div key={index} variants={item}>

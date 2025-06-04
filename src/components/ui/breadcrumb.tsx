@@ -11,7 +11,7 @@ interface BreadcrumbProps {
 
 const sectionTitles: Record<string, string> = {
   "": "Home",
-  "how-it-works": "How It Works",
+  "companies": "Who we are",
   "testimonials": "Testimonials",
   "contact": "Contact"
 };

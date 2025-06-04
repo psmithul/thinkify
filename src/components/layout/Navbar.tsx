@@ -74,7 +74,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { title: "How it works", href: "#how-it-works", id: "how-it-works" },
+    { title: "Who we are", href: "#companies", id: "companies" },
     { title: "Testimonials", href: "#testimonials", id: "testimonials" },
     { title: "Contact", href: "#contact", id: "contact" },
   ];

@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
-import SocialProof from "@/components/sections/SocialProof";
-import HowItWorks from "@/components/sections/HowItWorks";
 import Testimonials from "@/components/sections/Testimonials";
+import ForCompanies from "@/components/sections/ForCompanies";
 import CTABanner from "@/components/sections/CTABanner";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/ui/floating-contact";
@@ -206,8 +205,7 @@ export default function Home() {
         {/* Content */}
         <Hero />
         <div className="bg-gradient-to-b from-white to-gray-50">
-          <HowItWorks />
-          <SocialProof />
+          <ForCompanies />
           <Testimonials />
           <CTABanner />
         </div>
@@ -248,8 +246,8 @@ export default function Home() {
           )}
         </AnimatePresence>
         
-        {/* Spline Badge Blocker - position fixed in bottom right corner */}
-        <div className="fixed bottom-0 right-0 w-48 h-16 bg-white z-[99999] pointer-events-none"></div>
+        {/* Spline Badge Blocker - more precise positioning to avoid covering other buttons */}
+        <div className="fixed bottom-0 right-0 w-32 h-12 bg-white z-[99999] pointer-events-none opacity-0"></div>
         
         <style jsx global>{`
           /* Global styles to hide Spline branding */

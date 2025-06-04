@@ -107,7 +107,7 @@ const SplineScene: React.FC<SplineSceneProps> = ({
               console.log('Spline scene loaded successfully');
               
               // Remove watermarks after load
-              setTimeout(() => {
+                setTimeout(() => {
                 const removeWatermarks = () => {
                   const watermarks = document.querySelectorAll(
                     '.spline-watermark, [data-name="watermark"], [class*="watermark"], a[href*="spline.design"]'

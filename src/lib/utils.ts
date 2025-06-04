@@ -110,7 +110,7 @@ export function throttle<T extends (...args: any[]) => any>(
 
 // Get current section based on scroll position
 export function getCurrentSection(): string {
-  const sections = ["how-it-works", "companies", "partners", "testimonials", "contact"];
+  const sections = ["companies", "testimonials", "contact"];
   const scrollPosition = window.scrollY + 100; // Offset for header
 
   for (const sectionId of sections) {
@@ -143,7 +143,7 @@ export function createSectionObserver(callback: (sectionId: string) => void) {
   }, options);
 
   // Observe all sections
-  const sections = ["how-it-works", "companies", "partners", "testimonials", "contact"];
+  const sections = ["companies", "testimonials", "contact"];
   sections.forEach(sectionId => {
     const element = document.getElementById(sectionId);
     if (element) {
