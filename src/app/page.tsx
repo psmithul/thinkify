@@ -10,7 +10,6 @@ import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/ui/floating-contact";
 import LoadingScreen from "@/components/ui/loading-screen";
 import Breadcrumb from "@/components/ui/breadcrumb";
-import AnimatedLogos from "@/components/features/AnimatedLogos";
 import { motion, AnimatePresence } from "framer-motion";
 import { createSectionObserver, throttle } from "@/lib/utils";
 
@@ -189,9 +188,6 @@ export default function Home() {
     <>
       {/* Loading Screen */}
       <LoadingScreen isLoading={!isLoaded} />
-      
-      {/* Full Page Floating Logos */}
-      {isLoaded && <AnimatedLogos />}
       
       {/* Main Content */}
       <motion.main 

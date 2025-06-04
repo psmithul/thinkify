@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import AnimatedLogos from "@/components/features/AnimatedLogos";
 import { smoothScrollTo } from "@/lib/utils";
 
 const Hero = () => {
@@ -318,7 +319,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content (Visual Display) */}
+          {/* Right Content (Animated Logos) */}
           {mounted && (
             <motion.div 
               className="w-full lg:w-1/2 h-[50vh] md:h-[60vh] lg:h-[70vh] relative"
@@ -327,72 +328,18 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <motion.div 
-                className="absolute inset-0 z-0 overflow-hidden bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 rounded-3xl border border-yellow-200/50 backdrop-blur-sm flex items-center justify-center"
+                className="absolute inset-0 z-0 overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Central Visual Content */}
-                <div className="text-center space-y-6">
-                  <motion.div
-                    animate={{ 
-                      rotate: [0, 360],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ 
-                      duration: 20, 
-                      repeat: Infinity, 
-                      ease: "linear" 
-                    }}
-                    className="text-6xl md:text-8xl"
-                  >
-                    ⚡
-                  </motion.div>
-                  
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 }}
-                    className="space-y-2"
-                  >
-                    <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
-                      Innovation in Motion
-                    </h3>
-                    <p className="text-gray-600 text-sm md:text-base">
-                      Watch our partner logos float around the page
-                    </p>
-                  </motion.div>
-                  
-                  {/* Floating Elements */}
-                  {[...Array(8)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute rounded-full bg-gradient-to-r from-yellow-200/40 to-orange-200/40"
-                      style={{
-                        width: Math.random() * 20 + 10,
-                        height: Math.random() * 20 + 10,
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                      }}
-                      animate={{
-                        y: [0, -20, 0],
-                        opacity: [0.3, 0.7, 0.3],
-                        scale: [1, 1.2, 1]
-                      }}
-                      transition={{
-                        duration: 3 + i * 0.5,
-                        repeat: Infinity,
-                        delay: i * 0.3
-                      }}
-                    />
-                  ))}
-                </div>
+                <AnimatedLogos />
               </motion.div>
               
               {/* Enhanced glow effect */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-yellow-100/30 to-transparent pointer-events-none rounded-3xl"
+                className="absolute inset-0 bg-gradient-to-t from-yellow-100/20 to-transparent pointer-events-none rounded-3xl"
                 animate={{
-                  opacity: [0.2, 0.5, 0.2]
+                  opacity: [0.2, 0.4, 0.2]
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
               />
