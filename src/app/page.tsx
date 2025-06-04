@@ -222,7 +222,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={scrollToTop}
-              className="fixed bottom-6 left-6 w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-full shadow-lg flex items-center justify-center z-40 transition-colors"
+              className="fixed bottom-6 left-6 w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white rounded-full shadow-lg flex items-center justify-center z-40 transition-all duration-300 relative overflow-hidden group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               title="Scroll to top"
@@ -239,9 +239,31 @@ export default function Home() {
                 strokeLinejoin="round"
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
+                className="relative z-10"
               >
                 <path d="M18 15l-6-6-6 6" />
               </motion.svg>
+              
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-full"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.6 }}
+              />
+              
+              {/* Pulse effect */}
+              <motion.div
+                className="absolute inset-0 bg-yellow-400 rounded-full opacity-20"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  opacity: [0.2, 0.3, 0.2] 
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity 
+                }}
+              />
             </motion.button>
           )}
         </AnimatePresence>

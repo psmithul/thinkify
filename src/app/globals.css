@@ -51,7 +51,7 @@
   --card-foreground: #111827;
   --popover: #ffffff;
   --popover-foreground: #111827;
-  --primary: #4f46e5; /* Mercor primary purple */
+  --primary: #f59e0b; /* Thinkify primary yellow */
   --primary-foreground: #ffffff;
   --secondary: #f9fafb;
   --secondary-foreground: #111827;
@@ -63,28 +63,28 @@
   --border: #e5e7eb;
   --input: #e5e7eb;
   --ring: #e5e7eb;
-  --chart-1: #4f46e5; /* Mercor purple */
-  --chart-2: #6366f1;
-  --chart-3: #8b5cf6;
-  --chart-4: #a855f7;
-  --chart-5: #d946ef;
+  --chart-1: #f59e0b; /* Thinkify yellow */
+  --chart-2: #f97316; /* Orange */
+  --chart-3: #eab308; /* Amber */
+  --chart-4: #fb923c; /* Light orange */
+  --chart-5: #fbbf24; /* Light yellow */
   --sidebar: #f9fafb;
   --sidebar-foreground: #111827;
-  --sidebar-primary: #4f46e5; /* Mercor primary purple */
+  --sidebar-primary: #f59e0b; /* Thinkify primary yellow */
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f9fafb;
   --sidebar-accent-foreground: #111827;
   --sidebar-border: #e5e7eb;
   --sidebar-ring: #d1d5db;
 
-  /* Mercor specific colors */
-  --mercor-purple: #4f46e5;
-  --mercor-purple-dark: #4338ca;
-  --mercor-purple-light: #6366f1;
-  --mercor-indigo: #4f46e5;
-  --mercor-indigo-light: #6366f1;
-  --mercor-indigo-dark: #4338ca;
-  --mercor-violet: #8b5cf6;
+  /* Thinkify specific colors */
+  --thinkify-yellow: #f59e0b;
+  --thinkify-yellow-dark: #d97706;
+  --thinkify-yellow-light: #fbbf24;
+  --thinkify-orange: #f97316;
+  --thinkify-orange-light: #fb923c;
+  --thinkify-orange-dark: #ea580c;
+  --thinkify-amber: #eab308;
 }
 
 .dark {
@@ -94,8 +94,8 @@
   --card-foreground: #f9fafb;
   --popover: #111827;
   --popover-foreground: #f9fafb;
-  --primary: #6366f1; /* Mercor primary purple (slightly lighter for dark mode) */
-  --primary-foreground: #ffffff;
+  --primary: #fbbf24; /* Thinkify primary yellow (lighter for dark mode) */
+  --primary-foreground: #111827;
   --secondary: #1f2937;
   --secondary-foreground: #f9fafb;
   --muted: #1f2937;
@@ -106,15 +106,15 @@
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
   --ring: #6b7280;
-  --chart-1: #6366f1; /* Mercor purple */
-  --chart-2: #8b5cf6;
-  --chart-3: #a855f7;
-  --chart-4: #d946ef;
-  --chart-5: #ec4899;
+  --chart-1: #fbbf24; /* Thinkify yellow */
+  --chart-2: #fb923c; /* Orange */
+  --chart-3: #f59e0b; /* Amber */
+  --chart-4: #f97316; /* Dark orange */
+  --chart-5: #eab308; /* Dark yellow */
   --sidebar: #111827;
   --sidebar-foreground: #f9fafb;
-  --sidebar-primary: #6366f1; /* Mercor primary purple */
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary: #fbbf24; /* Thinkify primary yellow */
+  --sidebar-primary-foreground: #111827;
   --sidebar-accent: #1f2937;
   --sidebar-accent-foreground: #f9fafb;
   --sidebar-border: rgba(255, 255, 255, 0.1);

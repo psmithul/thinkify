@@ -349,32 +349,32 @@ const Hero = () => {
         
         {/* Subtle banner at bottom with logos */}
         <motion.div 
-          className="w-full max-w-4xl mx-auto mb-4 z-20"
+          className="w-full max-w-4xl mx-auto mb-4 z-20 opacity-70"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 0.7, y: 0 }}
           transition={{ delay: 1.2, duration: 1 }}
-          style={{ opacity: useTransform(scrollY, [0, 300], [1, 0]) }}
+          style={{ opacity: useTransform(scrollY, [0, 300], [0.7, 0]) }}
         >
           <div className="text-center">
             <motion.p 
-              className="text-sm text-gray-500 flex items-center justify-center gap-2"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 3, repeat: Infinity }}
+              className="text-xs text-gray-400 flex items-center justify-center gap-2"
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity }}
             >
               <motion.span
                 animate={{ rotate: [0, 360] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="text-yellow-500"
-              >
-                🌟
-              </motion.span>
-              Trusted by companies worldwide
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-yellow-500"
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="text-yellow-400 text-xs"
               >
                 ✨
+              </motion.span>
+              <span className="text-xs">Trusted by companies worldwide</span>
+              <motion.span
+                animate={{ scale: [0.8, 1.2, 0.8] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="text-yellow-400 text-xs"
+              >
+                ⭐
               </motion.span>
             </motion.p>
           </div>
