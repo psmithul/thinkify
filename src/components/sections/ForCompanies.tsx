@@ -83,19 +83,6 @@ const ForCompanies = () => {
               for startups/scaleups and enterprise
             </motion.p>
             <h2 className="text-3xl font-bold mb-6 text-gray-900">Thinkify labs scale exceptional engineering talent</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              We're your execution partner — with skin in the game we believe in speed quality and ownership
-            </p>
-            
-            <motion.div 
-              className="mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Get all of your initiatives back on the table</h3>
-            </motion.div>
             
             <Button 
               className="bg-indigo-600 text-white hover:bg-indigo-700 font-medium px-6 py-2.5 rounded-full inline-block shadow-sm transition-all"
