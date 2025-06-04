@@ -171,10 +171,61 @@ export default function Home() {
           console.log('Search focus shortcut triggered');
         }
       }
+
+      // Escape key to close any modals or return to top
+      if (e.key === 'Escape') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Space bar for smooth page scroll
+      if (e.key === ' ' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const activeElement = document.activeElement;
+        if (activeElement?.tagName !== 'INPUT' && activeElement?.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+        }
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Page visibility handling for performance
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Pause heavy animations when page is hidden
+        document.body.style.animationPlayState = 'paused';
+      } else {
+        // Resume animations when page is visible
+        document.body.style.animationPlayState = 'running';
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
+
+  // Preload critical resources
+  useEffect(() => {
+    const preloadResources = () => {
+      // Preload fonts
+      const fontLink = document.createElement('link');
+      fontLink.rel = 'preload';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+      fontLink.as = 'style';
+      document.head.appendChild(fontLink);
+
+      // Preload critical images if any
+      const criticalImages = ['/favicon.ico'];
+      criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+
+    preloadResources();
   }, []);
 
   const scrollToTop = () => {

@@ -265,6 +265,175 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
                 ))}
               </div>
             </motion.div>
+
+            {/* Progress Animation */}
+            <motion.div className="w-full max-w-xs mb-8">
+              <motion.div
+                className="h-1 bg-gradient-to-r from-yellow-200 to-orange-200 rounded-full overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
+              >
+                <motion.div
+                  className="h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ 
+                    duration: 2.5, 
+                    delay: 1.2,
+                    ease: "easeInOut" 
+                  }}
+                />
+              </motion.div>
+              <motion.p
+                className="text-center text-sm text-gray-500 mt-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.5 }}
+              >
+                <motion.span
+                  animate={{ 
+                    content: ["Initializing...", "Loading components...", "Preparing experience...", "Almost ready..."]
+                  }}
+                  transition={{ 
+                    duration: 0.8,
+                    repeat: 3,
+                    repeatType: "loop"
+                  }}
+                >
+                  Initializing...
+                </motion.span>
+              </motion.p>
+            </motion.div>
+
+            {/* Enhanced Logo Animation */}
+            <motion.div 
+              className="relative mb-6"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ 
+                scale: 1, 
+                rotate: 0,
+                y: [0, -10, 0]
+              }}
+              transition={{ 
+                scale: { duration: 0.8, ease: "easeOut" },
+                rotate: { duration: 0.8, ease: "easeOut" },
+                y: { 
+                  duration: 2, 
+                  repeat: Infinity, 
+                  ease: "easeInOut",
+                  delay: 0.5
+                }
+              }}
+            >
+              <motion.div
+                className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                animate={{
+                  boxShadow: [
+                    "0 10px 25px rgba(245, 158, 11, 0.3)",
+                    "0 15px 35px rgba(249, 115, 22, 0.4)",
+                    "0 10px 25px rgba(245, 158, 11, 0.3)"
+                  ]
+                }}
+                transition={{
+                  boxShadow: {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }
+                }}
+              >
+                <motion.div
+                  className="text-white font-bold text-xl"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  T
+                </motion.div>
+              </motion.div>
+
+              {/* Orbiting Elements */}
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full"
+                  animate={{
+                    rotate: [0, 360],
+                    x: [0, 30 * Math.cos(2 * Math.PI * i / 3), 0],
+                    y: [0, 30 * Math.sin(2 * Math.PI * i / 3), 0],
+                  }}
+                  transition={{
+                    duration: 3 + i * 0.5,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: i * 0.2
+                  }}
+                  style={{
+                    originX: 0.5,
+                    originY: 0.5,
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)"
+                  }}
+                />
+              ))}
+            </motion.div>
+
+            {/* Company Name with Letter Animation */}
+            <motion.div
+              className="flex items-center space-x-1 mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {"Thinkify Labs".split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  className="text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    opacity: { duration: 0.3, delay: 0.4 + i * 0.05 },
+                    y: { duration: 0.3, delay: 0.4 + i * 0.05 },
+                    scale: { 
+                      duration: 0.6, 
+                      delay: 0.8 + i * 0.05,
+                      repeat: Infinity,
+                      repeatDelay: 2
+                    }
+                  }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            {/* Tagline */}
+            <motion.p
+              className="text-sm text-gray-600 mb-8 text-center max-w-xs"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              <motion.span
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                Engineering Excellence for Ambitious Startups
+              </motion.span>
+            </motion.p>
           </div>
 
           {/* Corner Decorations */}
