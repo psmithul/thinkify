@@ -116,7 +116,7 @@ const ForCompanies = () => {
       >
         {/* Vertical Layout - Header Section */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <motion.p 
+          <motion.div 
             className="text-sm font-medium text-yellow-600 mb-3 tracking-wide relative"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ const ForCompanies = () => {
                 transition={{ duration: 2, repeat: Infinity }}
               />
             </motion.span>
-          </motion.p>
+          </motion.div>
           
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 relative"
