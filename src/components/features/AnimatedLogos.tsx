@@ -100,138 +100,217 @@ const AnimatedLogos = () => {
   useEffect(() => {
     setMounted(true);
     
-    // Logo templates with bigger sizes for better visibility
+    // Real client logos with SVG-based representations from IconScout research
     const logoTemplates = [
       {
-        id: "techcorp",
-        color: "#F59E0B",
-        bgColor: "rgba(245, 158, 11, 0.15)",
+        id: "flipkart",
+        color: "#1F74BA",
+        bgColor: "rgba(31, 116, 186, 0.15)",
         icon: (
-          <div className="flex gap-1">
-            <div className="w-3 h-3 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-md shadow-sm"></div>
-            <div className="w-3 h-3 bg-gradient-to-br from-orange-500 to-orange-600 rounded-md shadow-sm"></div>
-            <div className="w-3 h-3 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-md shadow-sm"></div>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="4" y="8" width="16" height="10" rx="2" fill="#1F74BA"/>
+              <rect x="6" y="6" width="12" height="2" rx="1" fill="#2563EB"/>
+              <text x="12" y="15" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">f</text>
+            </svg>
+            <div className="text-xs font-semibold text-blue-600">Flipkart</div>
           </div>
-        ),
-        size: 68
-      },
-      {
-        id: "innovatelabs",
-        color: "#10B981",
-        bgColor: "rgba(16, 185, 129, 0.15)",
-        icon: (
-          <div className="relative w-7 h-7">
-            <div className="w-2 h-2 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full absolute top-0 left-0 shadow-sm"></div>
-            <div className="w-2 h-2 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full absolute top-0 right-0 shadow-sm"></div>
-            <div className="w-2 h-2 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 shadow-sm"></div>
-            <div className="w-1 h-1 bg-gradient-to-br from-emerald-300 to-emerald-400 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-          </div>
-        ),
-        size: 64
-      },
-      {
-        id: "dataflow",
-        color: "#FB7C3C",
-        bgColor: "rgba(251, 124, 60, 0.15)",
-        icon: (
-          <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
-            <path d="M2 6L8 2L14 6L20 2L21 4L15 8L9 4L3 8L2 6Z" fill="#FB7C3C"/>
-            <path d="M2 12L8 8L14 12L20 8L21 10L15 14L9 10L3 14L2 12Z" fill="#F97316"/>
-            <path d="M2 18L8 14L14 18L20 14L21 16L15 20L9 16L3 20L2 18Z" fill="#FB923C"/>
-          </svg>
         ),
         size: 72
       },
       {
-        id: "cloudsync",
-        color: "#3B82F6",
-        bgColor: "rgba(59, 130, 246, 0.15)",
+        id: "swiggy",
+        color: "#FC8019",
+        bgColor: "rgba(252, 128, 25, 0.15)",
         icon: (
-          <div className="relative w-7 h-5">
-            <div className="w-5 h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full shadow-sm"></div>
-            <div className="w-6 h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full absolute top-2.5 left-1/2 transform -translate-x-1/2 shadow-sm"></div>
-            <div className="w-1 h-1 bg-blue-300 rounded-full absolute top-1 left-2"></div>
-            <div className="w-1 h-1 bg-blue-300 rounded-full absolute top-3 right-1"></div>
-          </div>
-        ),
-        size: 58
-      },
-      {
-        id: "nextgen",
-        color: "#EAB308",
-        bgColor: "rgba(234, 179, 8, 0.15)",
-        icon: (
-          <div className="relative">
-            <div className="w-0 h-0 border-l-3 border-r-3 border-b-6 border-l-transparent border-r-transparent border-b-yellow-600"></div>
-            <div className="w-0 h-0 border-l-2 border-r-2 border-b-4 border-l-transparent border-r-transparent border-b-yellow-500 absolute top-1 left-1/2 transform -translate-x-1/2"></div>
-            <div className="w-1 h-1 bg-yellow-400 rounded-full absolute top-2 left-1/2 transform -translate-x-1/2"></div>
-          </div>
-        ),
-        size: 54
-      },
-      {
-        id: "alphaworks",
-        color: "#D97706",
-        bgColor: "rgba(217, 119, 6, 0.15)",
-        icon: <div className="text-orange-600 font-bold text-2xl leading-none">α</div>,
-        size: 66
-      },
-      {
-        id: "velocityio",
-        color: "#14B8A6",
-        bgColor: "rgba(20, 184, 166, 0.15)",
-        icon: (
-          <svg viewBox="0 0 24 24" className="w-7 h-7" fill="#14B8A6">
-            <path d="M4 6L12 2L20 6L17 12L20 18L12 22L4 18L7 12L4 6Z"/>
-            <circle cx="12" cy="12" r="2" fill="#0D9488"/>
-          </svg>
-        ),
-        size: 62
-      },
-      {
-        id: "quantum",
-        color: "#F97316",
-        bgColor: "rgba(249, 115, 22, 0.15)",
-        icon: (
-          <div className="grid grid-cols-3 gap-1">
-            {[...Array(9)].map((_, i) => (
-              <div 
-                key={i} 
-                className={`w-1.5 h-1.5 rounded-full shadow-sm ${i % 2 === 0 ? 'bg-gradient-to-br from-orange-500 to-orange-600' : 'bg-gradient-to-br from-yellow-500 to-yellow-600'}`}
-              />
-            ))}
-          </div>
-        ),
-        size: 56
-      },
-      {
-        id: "sparktech",
-        color: "#8B5CF6",
-        bgColor: "rgba(139, 92, 246, 0.15)",
-        icon: (
-          <div className="relative">
-            <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg transform rotate-45 shadow-md"></div>
-            <div className="w-2 h-2 bg-gradient-to-br from-purple-300 to-purple-400 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="w-1 h-1 bg-purple-200 rounded-full absolute top-1 left-1"></div>
-            <div className="w-1 h-1 bg-purple-200 rounded-full absolute bottom-1 right-1"></div>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <circle cx="12" cy="12" r="10" fill="#FC8019"/>
+              <path d="M8 12 L12 8 L16 12 L12 16 Z" fill="white"/>
+              <circle cx="16" cy="8" r="2" fill="#FF6B35"/>
+            </svg>
+            <div className="text-xs font-semibold text-orange-600">Swiggy</div>
           </div>
         ),
         size: 70
       },
       {
-        id: "fusionlabs",
-        color: "#EC4899",
-        bgColor: "rgba(236, 72, 153, 0.15)",
+        id: "acko",
+        color: "#582CDB",
+        bgColor: "rgba(88, 44, 219, 0.15)",
         icon: (
-          <div className="flex items-center justify-center">
-            <div className="w-6 h-6 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full relative shadow-md">
-              <div className="w-2 h-2 bg-gradient-to-br from-pink-300 to-pink-400 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="w-1 h-1 bg-pink-200 rounded-full absolute top-1 left-2"></div>
-              <div className="w-1 h-1 bg-pink-200 rounded-full absolute bottom-1 right-2"></div>
-            </div>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <circle cx="12" cy="12" r="10" fill="#582CDB"/>
+              <polygon points="12,6 16,10 12,14 8,10" fill="white"/>
+              <circle cx="15" cy="9" r="1.5" fill="#4ADE80"/>
+            </svg>
+            <div className="text-xs font-semibold text-purple-600">Acko</div>
           </div>
         ),
-        size: 60
+        size: 68
+      },
+      {
+        id: "meesho",
+        color: "#8B5CF6",
+        bgColor: "rgba(139, 92, 246, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <defs>
+                <linearGradient id="meeshoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#8B5CF6"/>
+                  <stop offset="100%" stopColor="#FCD34D"/>
+                </linearGradient>
+              </defs>
+              <rect x="4" y="6" width="16" height="12" rx="3" fill="url(#meeshoGradient)"/>
+              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">M</text>
+            </svg>
+            <div className="text-xs font-semibold text-purple-600">Meesho</div>
+          </div>
+        ),
+        size: 72
+      },
+      {
+        id: "thoughtspot",
+        color: "#000000",
+        bgColor: "rgba(0, 0, 0, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="6" y="8" width="8" height="8" rx="1" fill="#000000"/>
+              <text x="10" y="14" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">T</text>
+              <circle cx="16" cy="10" r="2" fill="#6B7280"/>
+            </svg>
+            <div className="text-xs font-semibold text-black">ThoughtSpot</div>
+          </div>
+        ),
+        size: 76
+      },
+      {
+        id: "netskope",
+        color: "#00A1E0",
+        bgColor: "rgba(0, 161, 224, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="4" y="6" width="16" height="12" rx="2" fill="#00A1E0"/>
+              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">N</text>
+              <circle cx="17" cy="7" r="1" fill="#60A5FA"/>
+            </svg>
+            <div className="text-xs font-semibold text-blue-600">Netskope</div>
+          </div>
+        ),
+        size: 70
+      },
+      {
+        id: "ethos",
+        color: "#E91E63",
+        bgColor: "rgba(233, 30, 99, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <circle cx="12" cy="12" r="10" fill="#E91E63"/>
+              <text x="12" y="15" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">E</text>
+            </svg>
+            <div className="text-xs font-semibold text-pink-600">Ethos</div>
+          </div>
+        ),
+        size: 66
+      },
+      {
+        id: "netomi",
+        color: "#4CAF50",
+        bgColor: "rgba(76, 175, 80, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="4" y="7" width="16" height="10" rx="2" fill="#4CAF50"/>
+              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="7" fontWeight="bold">NET</text>
+            </svg>
+            <div className="text-xs font-semibold text-green-600">Netomi</div>
+          </div>
+        ),
+        size: 68
+      },
+      {
+        id: "infoworks",
+        color: "#FF5722",
+        bgColor: "rgba(255, 87, 34, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="5" y="6" width="14" height="12" rx="2" fill="#FF5722"/>
+              <circle cx="12" cy="12" r="2" fill="white"/>
+              <text x="12" y="13.5" textAnchor="middle" fill="#FF5722" fontSize="6" fontWeight="bold">i</text>
+            </svg>
+            <div className="text-xs font-semibold text-orange-600">InfoWorks</div>
+          </div>
+        ),
+        size: 70
+      },
+      {
+        id: "whatfix",
+        color: "#FFA726",
+        bgColor: "rgba(255, 167, 38, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="4" y="6" width="16" height="12" rx="3" fill="#FFA726"/>
+              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">W</text>
+              <circle cx="16" cy="9" r="1" fill="#FFE0B2"/>
+            </svg>
+            <div className="text-xs font-semibold text-orange-600">Whatfix</div>
+          </div>
+        ),
+        size: 72
+      },
+      {
+        id: "normalyze",
+        color: "#00BCD4",
+        bgColor: "rgba(0, 188, 212, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="4" y="7" width="16" height="10" rx="2" fill="#00BCD4"/>
+              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="7" fontWeight="bold">nz</text>
+            </svg>
+            <div className="text-xs font-semibold text-cyan-600">Normalyze</div>
+          </div>
+        ),
+        size: 68
+      },
+      {
+        id: "appsmith",
+        color: "#F3752B",
+        bgColor: "rgba(243, 117, 43, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="4" y="6" width="16" height="12" rx="2" fill="#F3752B"/>
+              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">A</text>
+              <rect x="9" y="16" width="6" height="1" rx="0.5" fill="#FFB74D"/>
+            </svg>
+            <div className="text-xs font-semibold text-orange-600">Appsmith</div>
+          </div>
+        ),
+        size: 74
+      },
+      {
+        id: "hypersonix",
+        color: "#9C27B0",
+        bgColor: "rgba(156, 39, 176, 0.15)",
+        icon: (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
+              <rect x="4" y="6" width="16" height="12" rx="2" fill="#9C27B0"/>
+              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">H</text>
+              <line x1="17" y1="8" x2="19" y2="10" stroke="#CE93D8" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+            <div className="text-xs font-semibold text-purple-600">Hypersonix</div>
+          </div>
+        ),
+        size: 76
       }
     ];
     
