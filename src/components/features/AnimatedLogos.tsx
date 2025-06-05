@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Logo {
@@ -10,92 +10,14 @@ interface Logo {
   icon: React.ReactNode;
   x: number;
   y: number;
-  vx: number; // velocity x
-  vy: number; // velocity y
-  targetX: number; // target position x
-  targetY: number; // target position y
   size: number;
+  gridIndex: number;
 }
 
 const AnimatedLogos = () => {
   const [mounted, setMounted] = useState(false);
   const [logos, setLogos] = useState<Logo[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number | undefined>(undefined);
-
-  const animate = useCallback(() => {
-    if (!containerRef.current) return;
-    
-    const container = containerRef.current.getBoundingClientRect();
-    
-    setLogos(prevLogos => 
-      prevLogos.map(logo => {
-        let newX = logo.x;
-        let newY = logo.y;
-        let newVx = logo.vx;
-        let newVy = logo.vy;
-        let newTargetX = logo.targetX;
-        let newTargetY = logo.targetY;
-
-        // Move towards target with smooth interpolation
-        const dx = newTargetX - newX;
-        const dy = newTargetY - newY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        // If close to target or target is invalid, set new random target
-        if (distance < 20 || Math.random() < 0.005) {
-          newTargetX = Math.random() * (container.width - logo.size);
-          newTargetY = Math.random() * (container.height - logo.size);
-        }
-
-        // Calculate velocity towards target with easing
-        const speed = 0.5;
-        newVx += ((newTargetX - newX) * speed - newVx) * 0.02;
-        newVy += ((newTargetY - newY) * speed - newVy) * 0.02;
-
-        // Add some random drift for organic movement
-        newVx += (Math.random() - 0.5) * 0.3;
-        newVy += (Math.random() - 0.5) * 0.3;
-
-        // Limit maximum velocity
-        const maxVelocity = 2;
-        const currentSpeed = Math.sqrt(newVx * newVx + newVy * newVy);
-        if (currentSpeed > maxVelocity) {
-          newVx = (newVx / currentSpeed) * maxVelocity;
-          newVy = (newVy / currentSpeed) * maxVelocity;
-        }
-
-        // Update position
-        newX += newVx;
-        newY += newVy;
-
-        // Keep within bounds with soft bouncing
-        if (newX <= 0 || newX >= container.width - logo.size) {
-          newX = Math.max(0, Math.min(container.width - logo.size, newX));
-          newVx *= -0.8;
-          newTargetX = Math.random() * (container.width - logo.size);
-        }
-
-        if (newY <= 0 || newY >= container.height - logo.size) {
-          newY = Math.max(0, Math.min(container.height - logo.size, newY));
-          newVy *= -0.8;
-          newTargetY = Math.random() * (container.height - logo.size);
-        }
-
-        return {
-          ...logo,
-          x: newX,
-          y: newY,
-          vx: newVx,
-          vy: newVy,
-          targetX: newTargetX,
-          targetY: newTargetY,
-        };
-      })
-    );
-
-    animationRef.current = requestAnimationFrame(animate);
-  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -295,40 +217,49 @@ const AnimatedLogos = () => {
           </div>
         ),
         size: 74
-      },
-      {
-        id: "hypersonix",
-        color: "#9C27B0",
-        bgColor: "rgba(156, 39, 176, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="4" y="6" width="16" height="12" rx="2" fill="#9C27B0"/>
-              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">H</text>
-              <line x1="17" y1="8" x2="19" y2="10" stroke="#CE93D8" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            <div className="text-xs font-semibold text-purple-600">Hypersonix</div>
-          </div>
-        ),
-        size: 76
       }
     ];
     
-    const initializeLogos = () => {
+    // Create hexagonal grid positions for logos to stay fixed
+    const createHexagonalGrid = () => {
       if (!containerRef.current) return;
       
       const container = containerRef.current.getBoundingClientRect();
-      const newLogos: Logo[] = logoTemplates.map((template) => {
-        const x = Math.random() * (container.width - template.size);
-        const y = Math.random() * (container.height - template.size);
+      const centerX = container.width / 2;
+      const centerY = container.height / 2;
+      const radius = Math.min(container.width, container.height) * 0.3;
+      
+      // Define fixed positions in a hexagonal/circular pattern
+      const positions: Array<{x: number, y: number}> = [];
+      
+      // Center position
+      positions.push({ x: centerX, y: centerY });
+      
+      // Inner ring (6 positions)
+      for (let i = 0; i < 6; i++) {
+        const angle = (i * Math.PI * 2) / 6;
+        positions.push({
+          x: centerX + Math.cos(angle) * radius * 0.6,
+          y: centerY + Math.sin(angle) * radius * 0.6
+        });
+      }
+      
+      // Outer ring (if needed - 6 more positions)
+      for (let i = 0; i < 5; i++) {
+        const angle = (i * Math.PI * 2) / 5 + Math.PI / 10; // Offset for better distribution
+        positions.push({
+          x: centerX + Math.cos(angle) * radius * 1.1,
+          y: centerY + Math.sin(angle) * radius * 1.1
+        });
+      }
+      
+      const newLogos: Logo[] = logoTemplates.map((template, index) => {
+        const position = positions[index % positions.length];
         return {
           ...template,
-          x: x,
-          y: y,
-          vx: (Math.random() - 0.5) * 1,
-          vy: (Math.random() - 0.5) * 1,
-          targetX: Math.random() * (container.width - template.size),
-          targetY: Math.random() * (container.height - template.size),
+          x: position.x - template.size / 2,
+          y: position.y - template.size / 2,
+          gridIndex: index
         };
       });
       
@@ -337,32 +268,56 @@ const AnimatedLogos = () => {
     
     // Initialize after a short delay to ensure container is ready
     const timer = setTimeout(() => {
-      initializeLogos();
-      animate();
+      createHexagonalGrid();
     }, 100);
 
     return () => {
       clearTimeout(timer);
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
     };
-  }, [animate]);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      // Reinitialize on resize
+      // Recalculate positions on resize while maintaining fixed grid
       if (!containerRef.current) return;
       
       const container = containerRef.current.getBoundingClientRect();
+      const centerX = container.width / 2;
+      const centerY = container.height / 2;
+      const radius = Math.min(container.width, container.height) * 0.3;
+      
+      const positions: Array<{x: number, y: number}> = [];
+      
+      // Center position
+      positions.push({ x: centerX, y: centerY });
+      
+      // Inner ring
+      for (let i = 0; i < 6; i++) {
+        const angle = (i * Math.PI * 2) / 6;
+        positions.push({
+          x: centerX + Math.cos(angle) * radius * 0.6,
+          y: centerY + Math.sin(angle) * radius * 0.6
+        });
+      }
+      
+      // Outer ring
+      for (let i = 0; i < 5; i++) {
+        const angle = (i * Math.PI * 2) / 5 + Math.PI / 10;
+        positions.push({
+          x: centerX + Math.cos(angle) * radius * 1.1,
+          y: centerY + Math.sin(angle) * radius * 1.1
+        });
+      }
+      
       setLogos(prevLogos =>
-        prevLogos.map(logo => ({
-          ...logo,
-          x: Math.min(logo.x, container.width - logo.size),
-          y: Math.min(logo.y, container.height - logo.size),
-          targetX: Math.random() * (container.width - logo.size),
-          targetY: Math.random() * (container.height - logo.size),
-        }))
+        prevLogos.map((logo, index) => {
+          const position = positions[index % positions.length];
+          return {
+            ...logo,
+            x: position.x - logo.size / 2,
+            y: position.y - logo.size / 2,
+          };
+        })
       );
     };
 
@@ -378,49 +333,52 @@ const AnimatedLogos = () => {
       className="relative w-full h-full overflow-hidden bg-gradient-to-br from-white/60 via-gray-50/30 to-white/50 rounded-3xl border border-white/40 backdrop-blur-sm"
       style={{ minHeight: '400px' }}
     >
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
+      {/* Elegant background pattern */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(156, 163, 175, 0.08) 0%, transparent 50%),
-                           radial-gradient(circle at 75% 75%, rgba(156, 163, 175, 0.08) 0%, transparent 50%)`
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                           radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)`
         }}></div>
+        
+        {/* Subtle grid lines connecting logo positions */}
+        <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(156, 163, 175, 0.1)" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
       </div>
 
       <AnimatePresence>
-        {logos.map((logo) => (
+        {logos.map((logo, index) => (
           <motion.div
             key={logo.id}
             className="absolute cursor-pointer group"
             style={{
-              x: logo.x,
-              y: logo.y,
+              left: logo.x,
+              top: logo.y,
               width: logo.size,
               height: logo.size,
+              zIndex: 10
             }}
-            whileHover={{ 
-              scale: 1.25,
-              zIndex: 50,
-              transition: { duration: 0.3, ease: "easeOut" }
-            }}
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0, rotate: -180 }}
             animate={{ 
               opacity: 1, 
-              scale: [1, 1.02, 1],
-              rotate: [0, 1, 0, -1, 0]
+              scale: 1,
+              rotate: 0
             }}
-            exit={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0, rotate: 180 }}
             transition={{ 
-              duration: 0.4,
-              scale: {
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              },
-              rotate: {
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }
+              duration: 0.8,
+              delay: index * 0.1,
+              ease: "easeOut"
+            }}
+            whileHover={{ 
+              scale: 1.2,
+              zIndex: 50,
+              transition: { duration: 0.3, ease: "easeOut" }
             }}
           >
             <motion.div
@@ -429,29 +387,67 @@ const AnimatedLogos = () => {
                 backgroundColor: logo.bgColor,
                 boxShadow: `0 4px 20px ${logo.color}25`
               }}
-              whileHover={{
-                backgroundColor: logo.bgColor.replace('0.15', '0.3'),
-                boxShadow: `0 8px 32px ${logo.color}40, 0 0 0 2px ${logo.color}30`,
-                borderColor: `${logo.color}50`,
-                scale: 1.05
-              }}
               animate={{
+                scale: [1, 1.02, 1],
                 boxShadow: [
                   `0 4px 20px ${logo.color}25`,
                   `0 6px 25px ${logo.color}35`,
                   `0 4px 20px ${logo.color}25`
                 ]
               }}
-              transition={{ 
-                duration: 0.2,
+              transition={{
+                scale: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.3
+                },
                 boxShadow: {
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
+                  delay: index * 0.2
                 }
               }}
+              whileHover={{
+                backgroundColor: logo.bgColor.replace('0.15', '0.3'),
+                boxShadow: `0 8px 32px ${logo.color}40, 0 0 0 2px ${logo.color}30`,
+                borderColor: `${logo.color}50`,
+                scale: 1.05
+              }}
             >
-              {/* Enhanced glow effect on hover */}
+              {/* Orbital rings around logo */}
+              <motion.div
+                className="absolute inset-0 rounded-full border opacity-30"
+                style={{ borderColor: logo.color }}
+                animate={{
+                  scale: [1, 1.3, 1],
+                  opacity: [0.1, 0.3, 0.1],
+                  rotate: 360
+                }}
+                transition={{
+                  scale: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.5
+                  },
+                  opacity: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.5
+                  },
+                  rotate: {
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: index * 0.5
+                  }
+                }}
+              />
+              
+              {/* Enhanced glow effect */}
               <motion.div
                 className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
@@ -459,147 +455,87 @@ const AnimatedLogos = () => {
                 }}
                 animate={{
                   scale: [1, 1.1, 1],
-                  opacity: [0, 0.3, 0]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              
-              {/* Icon container with breathing animation */}
-              <motion.div
-                className="relative z-10 flex items-center justify-center"
-                whileHover={{ 
-                  scale: 1.15, 
-                  rotate: 10,
-                  transition: { duration: 0.3 }
-                }}
-                animate={{
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 2, 0, -2, 0]
-                }}
-                transition={{
-                  scale: {
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  },
-                  rotate: {
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }
-                }}
-              >
-                {logo.icon}
-              </motion.div>
-
-              {/* Enhanced shine effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100"
-                style={{
-                  background: `linear-gradient(135deg, transparent 30%, ${logo.color}25 50%, transparent 70%)`
-                }}
-                animate={{
-                  rotate: [0, 360],
-                  opacity: [0, 0.3, 0]
-                }}
-                transition={{
-                  rotate: {
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "linear"
-                  },
-                  opacity: {
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }
-                }}
-              />
-
-              {/* Pulsing ring effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-2 opacity-0"
-                style={{ borderColor: logo.color }}
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0, 0.4, 0]
+                  opacity: [0, 0.2, 0]
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: Math.random() * 2
+                  delay: index * 0.4
                 }}
               />
-
-              {/* Floating particles around logo */}
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 rounded-full opacity-0 group-hover:opacity-100"
-                  style={{
-                    backgroundColor: logo.color,
-                    left: `${20 + i * 20}%`,
-                    top: `${20 + i * 15}%`
-                  }}
-                  animate={{
-                    y: [0, -10, 0],
-                    x: [0, 5, 0],
-                    opacity: [0, 0.6, 0]
-                  }}
-                  transition={{
-                    duration: 2 + i * 0.5,
+              
+              {/* Icon container with subtle breathing */}
+              <motion.div
+                className="relative z-10 flex items-center justify-center"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 1, 0, -1, 0]
+                }}
+                transition={{
+                  scale: {
+                    duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: i * 0.3
+                    delay: index * 0.2
+                  },
+                  rotate: {
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.3
+                  }
+                }}
+                whileHover={{ 
+                  scale: 1.15, 
+                  rotate: 5,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {logo.icon}
+              </motion.div>
+
+              {/* Connecting lines to center (subtle) */}
+              {index > 0 && (
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-30"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 0.1, 0] }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.5
+                  }}
+                  style={{
+                    background: `linear-gradient(45deg, transparent 40%, ${logo.color}20 50%, transparent 60%)`
                   }}
                 />
-              ))}
+              )}
             </motion.div>
           </motion.div>
         ))}
       </AnimatePresence>
 
-      {/* Floating particles within container */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-br from-yellow-300/20 to-orange-300/20"
-            style={{
-              width: Math.random() * 4 + 2,
-              height: Math.random() * 4 + 2,
-            }}
-            initial={{
-              x: Math.random() * 300,
-              y: Math.random() * 200,
-            }}
-            animate={{
-              x: [
-                Math.random() * 300,
-                Math.random() * 300,
-                Math.random() * 300,
-              ],
-              y: [
-                Math.random() * 200,
-                Math.random() * 200,
-                Math.random() * 200,
-              ],
-              opacity: [0.2, 0.5, 0.2]
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5
-            }}
-          />
-        ))}
-      </div>
+      {/* Central connecting node (subtle) */}
+      <motion.div
+        className="absolute w-2 h-2 bg-gradient-to-br from-yellow-400/30 to-orange-400/30 rounded-full"
+        style={{
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 5
+        }}
+        animate={{
+          scale: [1, 1.5, 1],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
     </div>
   );
 };
