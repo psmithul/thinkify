@@ -116,12 +116,6 @@ const Hero = () => {
                 className="relative"
               >
                 World-Class Talent,
-                <motion.div
-                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 1, delay: 1 }}
-                />
               </motion.span>{" "}
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}

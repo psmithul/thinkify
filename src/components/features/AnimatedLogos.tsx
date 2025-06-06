@@ -173,7 +173,7 @@ const AnimatedLogos = () => {
         prevLogos.map((logo, index) => {
           const position = positions[index % positions.length];
           return {
-            ...logo,
+          ...logo,
             x: position.x - logo.size / 2,
             y: position.y - logo.size / 2,
           };
@@ -190,17 +190,17 @@ const AnimatedLogos = () => {
   return (
     <div className="relative w-full">
       {/* Logo Grid Container */}
-      <div 
-        ref={containerRef}
+    <div 
+      ref={containerRef}
         className="relative w-full h-full overflow-hidden bg-gradient-to-br from-white/60 via-yellow-50/30 to-orange-50/50 rounded-3xl border border-yellow-100/60 backdrop-blur-sm"
         style={{ minHeight: '650px' }}
-      >
+    >
         {/* Enhanced background pattern */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <div className="absolute inset-0" style={{
+        <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 25% 25%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
                              radial-gradient(circle at 75% 75%, rgba(251, 146, 60, 0.1) 0%, transparent 50%)`
-          }}></div>
+        }}></div>
           
           {/* Subtle grid lines connecting logo positions */}
           <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
@@ -211,22 +211,22 @@ const AnimatedLogos = () => {
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
-        </div>
+      </div>
 
-        <AnimatePresence>
+      <AnimatePresence>
           {logos.map((logo, index) => (
-            <motion.div
-              key={logo.id}
-              className="absolute cursor-pointer group"
-              style={{
+          <motion.div
+            key={logo.id}
+            className="absolute cursor-pointer group"
+            style={{
                 left: logo.x,
                 top: logo.y,
-                width: logo.size,
-                height: logo.size,
+              width: logo.size,
+              height: logo.size,
                 zIndex: 10
               }}
               initial={{ opacity: 0, scale: 0, rotate: -180 }}
-              animate={{ 
+              animate={{
                 opacity: 1, 
                 scale: 1,
                 rotate: 0
@@ -259,23 +259,23 @@ const AnimatedLogos = () => {
                 }}
               >
                 {/* Subtle glow effect on hover */}
-                <motion.div
+              <motion.div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
-                  style={{
+                style={{
                     background: `radial-gradient(circle at center, ${logo.color}15, transparent 70%)`
-                  }}
-                  animate={{
+                }}
+                animate={{
                     scale: [1, 1.1, 1],
                     opacity: [0, 0.1, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                     delay: index * 0.4
-                  }}
-                />
-                
+                }}
+              />
+
                 {/* Logo image - much bigger */}
                 <motion.div
                   className="relative w-full h-full flex items-center justify-center"
@@ -285,8 +285,8 @@ const AnimatedLogos = () => {
                   transition={{
                     rotate: {
                       duration: 8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
+                    repeat: Infinity,
+                    ease: "easeInOut",
                       delay: index * 0.3
                     }
                   }}
@@ -324,29 +324,29 @@ const AnimatedLogos = () => {
                   />
                 )}
               </motion.div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+          </motion.div>
+        ))}
+      </AnimatePresence>
 
         {/* Central connecting node (very subtle) */}
-        <motion.div
+          <motion.div
           className="absolute w-1.5 h-1.5 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full"
-          style={{
+            style={{
             left: '50%',
             top: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 5
-          }}
-          animate={{
+            }}
+            animate={{
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{
+            }}
+            transition={{
             duration: 5,
-            repeat: Infinity,
+              repeat: Infinity,
             ease: "easeInOut"
-          }}
-        />
+            }}
+          />
       </div>
     </div>
   );
