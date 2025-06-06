@@ -205,13 +205,6 @@ const Testimonials = () => {
             >
               Engineers Love Working With Us
             </motion.span>
-            <motion.div
-              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-            />
           </motion.h2>
           
           {/* Success metrics */}

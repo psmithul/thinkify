@@ -156,13 +156,6 @@ const ForCompanies = () => {
               className="bg-gradient-to-r from-gray-900 via-yellow-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent relative"
             >
               Real Engineers. Real Code. Real Results.
-              <motion.div
-                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.8 }}
-              />
             </motion.span>
           </motion.h2>
           
@@ -188,29 +181,6 @@ const ForCompanies = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center space-y-6"
           >
-            {/* Urgency messaging */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-50 to-orange-50 rounded-full border border-red-200"
-            >
-              <motion.div
-                animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-2 h-2 bg-red-500 rounded-full"
-              />
-              <span className="text-sm font-medium text-red-700">
-                <motion.span
-                  animate={{ opacity: [0.8, 1, 0.8] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  Only 3 spots left in Q1 cohort - Applications close Friday
-                </motion.span>
-              </span>
-            </motion.div>
-
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -228,7 +198,7 @@ const ForCompanies = () => {
                   >
                     🎯
                   </motion.span>
-                  Reserve Your Q1 Engineering Team Now
+                  Secure Vetted Engineers Now
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
@@ -255,57 +225,52 @@ const ForCompanies = () => {
               />
             </motion.div>
             
-            {/* Scarcity indicators */}
+            {/* Trust indicators */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap justify-center gap-6 text-sm text-gray-600"
+              className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-500"
             >
               <motion.div 
                 className="flex items-center gap-2"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+                whileHover={{ scale: 1.05 }}
               >
-                <motion.div
+                <motion.span
                   animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className="text-green-500"
-                >
-                  ⏰
-                </motion.div>
-                <span className="font-medium">3 Days Left to Apply</span>
-              </motion.div>
-              
-              <motion.div 
-                className="flex items-center gap-2"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.7 }}
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                   className="text-blue-500"
                 >
-                  🎯
-                </motion.div>
-                <span className="font-medium">9/12 Teams Secured</span>
+                  ⚙️
+                </motion.span>
+                <span>40+ Tech Stacks</span>
               </motion.div>
-              
               <motion.div 
                 className="flex items-center gap-2"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1.4 }}
+                whileHover={{ scale: 1.05 }}
               >
-                <motion.div
+                <motion.span
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-green-500"
+                >
+                  🎯
+                </motion.span>
+                <span>Top 2% Pass Our Vetting process</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+              >
+                <motion.span
                   animate={{ y: [0, -3, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-yellow-500"
+                  className="text-orange-500"
                 >
-                  🚀
-                </motion.div>
-                <span className="font-medium">100% Engineering-Led</span>
+                  ⚡
+                </motion.span>
+                <span>Ready in 72 Hours</span>
               </motion.div>
             </motion.div>
           </motion.div>

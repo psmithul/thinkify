@@ -119,14 +119,7 @@ const CTABanner = () => {
               }}
               className="bg-gradient-to-r from-gray-900 via-yellow-600 to-gray-900 bg-[length:200%_100%] bg-clip-text text-transparent relative"
             >
-              ⚡ Last 3 Teams This Quarter - Don't Miss Out
-              <motion.div
-                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
+              ⚡ Ready to Build Your Dream Team?
             </motion.span>
           </motion.h2>
           
@@ -141,41 +134,9 @@ const CTABanner = () => {
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              🏆 We're limiting Q1 intake to ensure quality. 9 companies already secured their vetted engineering teams. Join the select few.
+              🏆 Get access to pre-vetted engineering talent from top companies. Start building with world-class developers who ship production code from day one.
             </motion.span>
           </motion.p>
-          
-          {/* Urgency indicator bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="mb-8 bg-white rounded-lg p-4 border border-gray-200 shadow-sm max-w-md mx-auto relative z-10"
-          >
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-700">Q1 Team Spots</span>
-              <span className="text-sm font-bold text-red-600">3 of 12 left</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-3 relative overflow-hidden">
-              <motion.div
-                className="bg-gradient-to-r from-red-500 to-orange-500 h-3 rounded-full relative"
-                initial={{ width: "0%" }}
-                whileInView={{ width: "75%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-              >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                  animate={{ x: ["-100%", "100%"] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                />
-              </motion.div>
-            </div>
-            <p className="text-xs text-gray-500 mt-2 text-center">
-              🔥 75% filled - Q2 waitlist starts next week
-            </p>
-          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -201,7 +162,7 @@ const CTABanner = () => {
                   >
                     ⚡
                   </motion.span>
-                  Secure Last 3 Spots - Free Strategy Call
+                  Get Your Free Strategy Call
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
