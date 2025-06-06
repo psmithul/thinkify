@@ -155,7 +155,7 @@ const ForCompanies = () => {
               }}
               className="bg-gradient-to-r from-gray-900 via-yellow-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent relative"
             >
-              Thinkify labs scale exceptional engineering talent
+              Ship Faster Than Your Competition Ever Could
               <motion.div
                 className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -177,7 +177,7 @@ const ForCompanies = () => {
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              We're your execution partner — with skin in the game we believe in speed quality and ownership
+              ⏰ While your competitors spend 6+ months hiring, you'll be shipping. Get a world-class team in 48 hours — we guarantee it.
             </motion.span>
           </motion.p>
           
@@ -200,7 +200,7 @@ const ForCompanies = () => {
               >
                 🚀
               </motion.span>
-              Get all of your initiatives back on the table
+              Stop Waiting. Start Shipping This Week.
             </motion.h3>
           </motion.div>
           
@@ -219,7 +219,7 @@ const ForCompanies = () => {
                 onClick={handleCTAClick}
                 className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
               >
-                <span className="relative z-10">Get in touch</span>
+                <span className="relative z-10">🔥 Get Team Ready in 48hrs - Free Call</span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
                   initial={{ x: "-100%" }}

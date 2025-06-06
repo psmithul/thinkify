@@ -2,12 +2,14 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface Logo {
   id: string;
   color: string;
   bgColor: string;
-  icon: React.ReactNode;
+  logoPath: string;
+  name: string;
   x: number;
   y: number;
   size: number;
@@ -22,201 +24,79 @@ const AnimatedLogos = () => {
   useEffect(() => {
     setMounted(true);
     
-    // Real client logos with SVG-based representations from IconScout research
+    // Real client logos using actual logo files
     const logoTemplates = [
       {
         id: "flipkart",
         color: "#1F74BA",
         bgColor: "rgba(31, 116, 186, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="4" y="8" width="16" height="10" rx="2" fill="#1F74BA"/>
-              <rect x="6" y="6" width="12" height="2" rx="1" fill="#2563EB"/>
-              <text x="12" y="15" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">f</text>
-            </svg>
-            <div className="text-xs font-semibold text-blue-600">Flipkart</div>
-          </div>
-        ),
+        logoPath: "/images/Flipkart_Symbol_0.svg",
+        name: "Flipkart",
         size: 72
       },
       {
         id: "swiggy",
         color: "#FC8019",
         bgColor: "rgba(252, 128, 25, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <circle cx="12" cy="12" r="10" fill="#FC8019"/>
-              <path d="M8 12 L12 8 L16 12 L12 16 Z" fill="white"/>
-              <circle cx="16" cy="8" r="2" fill="#FF6B35"/>
-            </svg>
-            <div className="text-xs font-semibold text-orange-600">Swiggy</div>
-          </div>
-        ),
+        logoPath: "/images/swiggy.svg",
+        name: "Swiggy",
         size: 70
       },
       {
         id: "acko",
         color: "#582CDB",
         bgColor: "rgba(88, 44, 219, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <circle cx="12" cy="12" r="10" fill="#582CDB"/>
-              <polygon points="12,6 16,10 12,14 8,10" fill="white"/>
-              <circle cx="15" cy="9" r="1.5" fill="#4ADE80"/>
-            </svg>
-            <div className="text-xs font-semibold text-purple-600">Acko</div>
-          </div>
-        ),
+        logoPath: "/images/Acko_id4WtbwSds_0.svg",
+        name: "Acko",
         size: 68
       },
       {
         id: "meesho",
         color: "#8B5CF6",
         bgColor: "rgba(139, 92, 246, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <defs>
-                <linearGradient id="meeshoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#8B5CF6"/>
-                  <stop offset="100%" stopColor="#FCD34D"/>
-                </linearGradient>
-              </defs>
-              <rect x="4" y="6" width="16" height="12" rx="3" fill="url(#meeshoGradient)"/>
-              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">M</text>
-            </svg>
-            <div className="text-xs font-semibold text-purple-600">Meesho</div>
-          </div>
-        ),
+        logoPath: "/images/meesho.png",
+        name: "Meesho",
         size: 72
       },
       {
         id: "thoughtspot",
-        color: "#000000",
-        bgColor: "rgba(0, 0, 0, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="6" y="8" width="8" height="8" rx="1" fill="#000000"/>
-              <text x="10" y="14" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">T</text>
-              <circle cx="16" cy="10" r="2" fill="#6B7280"/>
-            </svg>
-            <div className="text-xs font-semibold text-black">ThoughtSpot</div>
-          </div>
-        ),
+        color: "#FF6B35",
+        bgColor: "rgba(255, 107, 53, 0.15)",
+        logoPath: "/images/ThoughtSpot_idEiE5Z1Gr_0.svg",
+        name: "ThoughtSpot",
         size: 76
       },
       {
         id: "netskope",
         color: "#00A1E0",
         bgColor: "rgba(0, 161, 224, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="4" y="6" width="16" height="12" rx="2" fill="#00A1E0"/>
-              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">N</text>
-              <circle cx="17" cy="7" r="1" fill="#60A5FA"/>
-            </svg>
-            <div className="text-xs font-semibold text-blue-600">Netskope</div>
-          </div>
-        ),
+        logoPath: "/images/Netskope_idPk6JKSHR_0.svg",
+        name: "Netskope",
         size: 70
       },
       {
         id: "ethos",
         color: "#E91E63",
         bgColor: "rgba(233, 30, 99, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <circle cx="12" cy="12" r="10" fill="#E91E63"/>
-              <text x="12" y="15" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">E</text>
-            </svg>
-            <div className="text-xs font-semibold text-pink-600">Ethos</div>
-          </div>
-        ),
+        logoPath: "/images/Ethos_idILGnoxOt_0.svg",
+        name: "Ethos",
         size: 66
       },
       {
         id: "netomi",
         color: "#4CAF50",
         bgColor: "rgba(76, 175, 80, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="4" y="7" width="16" height="10" rx="2" fill="#4CAF50"/>
-              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="7" fontWeight="bold">NET</text>
-            </svg>
-            <div className="text-xs font-semibold text-green-600">Netomi</div>
-          </div>
-        ),
+        logoPath: "/images/netomi.png",
+        name: "Netomi",
         size: 68
-      },
-      {
-        id: "infoworks",
-        color: "#FF5722",
-        bgColor: "rgba(255, 87, 34, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="5" y="6" width="14" height="12" rx="2" fill="#FF5722"/>
-              <circle cx="12" cy="12" r="2" fill="white"/>
-              <text x="12" y="13.5" textAnchor="middle" fill="#FF5722" fontSize="6" fontWeight="bold">i</text>
-            </svg>
-            <div className="text-xs font-semibold text-orange-600">InfoWorks</div>
-          </div>
-        ),
-        size: 70
       },
       {
         id: "whatfix",
         color: "#FFA726",
         bgColor: "rgba(255, 167, 38, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="4" y="6" width="16" height="12" rx="3" fill="#FFA726"/>
-              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">W</text>
-              <circle cx="16" cy="9" r="1" fill="#FFE0B2"/>
-            </svg>
-            <div className="text-xs font-semibold text-orange-600">Whatfix</div>
-          </div>
-        ),
+        logoPath: "/images/Whatfix_idc18D79RQ_0.svg",
+        name: "Whatfix",
         size: 72
-      },
-      {
-        id: "normalyze",
-        color: "#00BCD4",
-        bgColor: "rgba(0, 188, 212, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="4" y="7" width="16" height="10" rx="2" fill="#00BCD4"/>
-              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="7" fontWeight="bold">nz</text>
-            </svg>
-            <div className="text-xs font-semibold text-cyan-600">Normalyze</div>
-          </div>
-        ),
-        size: 68
-      },
-      {
-        id: "appsmith",
-        color: "#F3752B",
-        bgColor: "rgba(243, 117, 43, 0.15)",
-        icon: (
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <svg width="24" height="24" viewBox="0 0 24 24" className="mb-1">
-              <rect x="4" y="6" width="16" height="12" rx="2" fill="#F3752B"/>
-              <text x="12" y="14" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold">A</text>
-              <rect x="9" y="16" width="6" height="1" rx="0.5" fill="#FFB74D"/>
-            </svg>
-            <div className="text-xs font-semibold text-orange-600">Appsmith</div>
-          </div>
-        ),
-        size: 74
       }
     ];
     
@@ -244,9 +124,9 @@ const AnimatedLogos = () => {
         });
       }
       
-      // Outer ring (if needed - 6 more positions)
-      for (let i = 0; i < 5; i++) {
-        const angle = (i * Math.PI * 2) / 5 + Math.PI / 10; // Offset for better distribution
+      // Outer ring (2 more positions for the remaining logos)
+      for (let i = 0; i < 2; i++) {
+        const angle = (i * Math.PI * 2) / 2 + Math.PI / 4; // Offset for better distribution
         positions.push({
           x: centerX + Math.cos(angle) * radius * 1.1,
           y: centerY + Math.sin(angle) * radius * 1.1
@@ -301,8 +181,8 @@ const AnimatedLogos = () => {
       }
       
       // Outer ring
-      for (let i = 0; i < 5; i++) {
-        const angle = (i * Math.PI * 2) / 5 + Math.PI / 10;
+      for (let i = 0; i < 2; i++) {
+        const angle = (i * Math.PI * 2) / 2 + Math.PI / 4;
         positions.push({
           x: centerX + Math.cos(angle) * radius * 1.1,
           y: centerY + Math.sin(angle) * radius * 1.1
@@ -465,9 +345,9 @@ const AnimatedLogos = () => {
                 }}
               />
               
-              {/* Icon container with subtle breathing */}
+              {/* Logo image container */}
               <motion.div
-                className="relative z-10 flex items-center justify-center"
+                className="relative z-10 flex flex-col items-center justify-center w-full h-full p-2"
                 animate={{
                   scale: [1, 1.05, 1],
                   rotate: [0, 1, 0, -1, 0]
@@ -492,7 +372,18 @@ const AnimatedLogos = () => {
                   transition: { duration: 0.3 }
                 }}
               >
-                {logo.icon}
+                <div className="relative w-8 h-8 mb-1">
+                  <Image
+                    src={logo.logoPath}
+                    alt={`${logo.name} logo`}
+                    fill
+                    className="object-contain"
+                    sizes="32px"
+                  />
+                </div>
+                <div className="text-xs font-semibold" style={{ color: logo.color }}>
+                  {logo.name}
+                </div>
               </motion.div>
 
               {/* Connecting lines to center (subtle) */}

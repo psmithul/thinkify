@@ -209,7 +209,7 @@ const Navbar = () => {
               className="relative overflow-hidden group bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
               title="Get Started (Alt+C)"
             >
-              <span className="relative z-10 font-medium">🚀 Get Started</span>
+              <span className="relative z-10 font-medium">🚀 Start Today - Free Call</span>
               
               {/* Enhanced glassmorphism overlay */}
               <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -343,7 +343,7 @@ const Navbar = () => {
                   onClick={handleCTAClick}
                   className="mt-4 w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 shadow-lg relative overflow-hidden group"
                 >
-                  <span className="relative z-10">🚀 Get Started</span>
+                  <span className="relative z-10">🚀 Start Today</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
                     initial={{ x: "-100%" }}

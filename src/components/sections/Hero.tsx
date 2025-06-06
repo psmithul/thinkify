@@ -126,7 +126,7 @@ const Hero = () => {
               </motion.span>
               {" • "}
               <span className="underline cursor-pointer hover:text-orange-600 transition-colors duration-300">
-                For companies
+                🔥 Limited Time: Fast-Track Your Growth
               </span>
             </motion.div>
 
@@ -171,7 +171,7 @@ const Hero = () => {
                   backgroundSize: "200% 100%"
                 }}
               >
-                for startups, scaleups and enterprises
+                that Ships in Weeks, Not Months
               </motion.span>
             </motion.h1>
 
@@ -185,7 +185,7 @@ const Hero = () => {
                 animate={{ opacity: [0.8, 1, 0.8] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                Thinkify labs scale exceptional engineering talent and deliver innovative solutions that power your growth.
+                ⏰ Don't wait months for perfect hires. Get world-class engineers ready to ship TODAY. Join 50+ startups that chose speed over endless recruitment.
               </motion.span>
             </motion.div>
               
@@ -205,7 +205,7 @@ const Hero = () => {
                   onClick={handleCTAClick}
                   className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl relative overflow-hidden group transition-all duration-300"
                 >
-                  <span className="relative z-10">Let&apos;s Build Together</span>
+                  <span className="relative z-10">🚀 Start Building Today - Free Consultation</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
                     initial={{ x: "-100%" }}
@@ -241,7 +241,7 @@ const Hero = () => {
                   onClick={handleLearnMoreClick}
                   className="border-yellow-300 text-yellow-600 hover:bg-yellow-50 px-8 py-3 rounded-full font-medium flex items-center gap-2 transition-all duration-300 group relative overflow-hidden"
                 >
-                  <span className="relative z-10">Who we are</span>
+                  <span className="relative z-10">⚡ See Results in 48 Hours</span>
                   <motion.svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="16" 
@@ -288,7 +288,7 @@ const Hero = () => {
                 >
                   ⭐
                 </motion.div>
-                <span>Trusted by 50+ startups</span>
+                <span>50+ Startups Chose Us This Month</span>
               </motion.div>
               <motion.div 
                 className="flex items-center gap-2"
@@ -301,7 +301,7 @@ const Hero = () => {
                 >
                   ✅
                 </motion.div>
-                <span>100% Success Rate</span>
+                <span>Ships in 2-4 Weeks</span>
               </motion.div>
               <motion.div 
                 className="flex items-center gap-2"
@@ -314,7 +314,7 @@ const Hero = () => {
                 >
                   🚀
                 </motion.div>
-                <span>Fast Delivery</span>
+                <span>24hr Response Time</span>
               </motion.div>
             </motion.div>
           </motion.div>

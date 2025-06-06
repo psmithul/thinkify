@@ -119,7 +119,7 @@ const CTABanner = () => {
               }}
               className="bg-gradient-to-r from-gray-900 via-yellow-600 to-gray-900 bg-[length:200%_100%] bg-clip-text text-transparent relative"
             >
-              Looking to Build Fast, and Right?
+              ⏰ Your Competition is Moving Fast. Are You?
               <motion.div
                 className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -141,7 +141,7 @@ const CTABanner = () => {
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              Whether you&apos;re a founder building your MVP, a scale-up hiring engineering leaders, or a VC looking to accelerate your portfolio — Thinkify Labs is your unfair advantage.
+              🚀 This month only: Get a world-class engineering team ready to ship in 48 hours. While others wait months for hiring, you'll already be in market.
             </motion.span>
           </motion.p>
           
@@ -169,7 +169,7 @@ const CTABanner = () => {
                   >
                     ⚡
                   </motion.span>
-                  Let&apos;s Build Together
+                  🔥 Claim Your Free Strategy Call (Limited Spots)
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
