@@ -141,15 +141,15 @@ const Testimonials = () => {
   );
 
   return (
-    <section id="testimonials" className="py-32 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-yellow-50/30">
+    <section id="testimonials" className="py-32 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-orange-50/30">
       {/* Enhanced animated background */}
       <div className="absolute inset-0">
         <motion.div
           animate={{
             background: [
-              "radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(251, 146, 60, 0.05) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.05) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(251, 146, 60, 0.05) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(251, 146, 60, 0.05) 0%, transparent 50%)"
+              "radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(244, 63, 94, 0.05) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(244, 63, 94, 0.05) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(244, 63, 94, 0.05) 0%, transparent 50%)"
             ]
           }}
           transition={{ duration: 8, repeat: Infinity }}
@@ -209,7 +209,7 @@ const Testimonials = () => {
                 repeat: Infinity,
                 ease: "linear"
               }}
-              className="bg-gradient-to-r from-gray-900 via-yellow-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-gray-900 via-rose-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent"
             >
               Engineers Love Working With Us
             </motion.span>
@@ -284,9 +284,9 @@ const Testimonials = () => {
                 <motion.div
                   animate={{
                     background: [
-                      "linear-gradient(135deg, rgba(251, 191, 36, 0.05), rgba(255, 255, 255, 0.9))",
-                      "linear-gradient(135deg, rgba(251, 146, 60, 0.05), rgba(255, 255, 255, 0.9))",
-                      "linear-gradient(135deg, rgba(251, 191, 36, 0.05), rgba(255, 255, 255, 0.9))"
+                      "linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(255, 255, 255, 0.9))",
+                      "linear-gradient(135deg, rgba(244, 63, 94, 0.05), rgba(255, 255, 255, 0.9))",
+                      "linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(255, 255, 255, 0.9))"
                     ]
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
@@ -308,7 +308,7 @@ const Testimonials = () => {
                   {/* Author info with enhanced styling */}
                   <div className="flex items-center gap-4 mb-6">
                     <motion.div 
-                      className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg"
+                      className="w-16 h-16 bg-gradient-to-br from-indigo-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -322,10 +322,10 @@ const Testimonials = () => {
                         {testimonials[activeIndex].title}
                       </p>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded-full font-medium">
+                        <span className="px-2 py-1 bg-rose-100 text-rose-700 text-xs rounded-full font-medium">
                           {testimonials[activeIndex].company}
                         </span>
-                        <span className="text-green-600 text-xs font-medium">
+                        <span className="text-indigo-600 text-xs font-medium">
                           {testimonials[activeIndex].impact}
                         </span>
                       </div>
@@ -380,7 +380,7 @@ const Testimonials = () => {
                   >
                     <Card className="w-32 h-32 bg-white/80 backdrop-blur-sm border border-yellow-200 shadow-lg hover:shadow-xl transition-all duration-300">
                       <CardContent className="p-3 flex flex-col items-center justify-center text-center">
-                        <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm mb-2">
+                        <div className="w-8 h-8 bg-gradient-to-br from-indigo-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm mb-2">
                           {testimonial.name.charAt(0)}
                         </div>
                         <p className="text-xs font-medium text-gray-800 truncate w-full">
@@ -391,7 +391,7 @@ const Testimonials = () => {
                         </p>
                         <div className="flex gap-1 mt-1">
                           {[...Array(testimonial.rating)].map((_, i) => (
-                            <svg key={i} className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <svg key={i} className="w-3 h-3 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                             </svg>
                           ))}
@@ -416,7 +416,7 @@ const Testimonials = () => {
               onClick={prevTestimonial}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
+              className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-orange-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
             >
               ←
             </motion.button>
@@ -429,7 +429,7 @@ const Testimonials = () => {
                   onClick={() => setActiveIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === activeIndex 
-                      ? 'bg-gradient-to-r from-yellow-500 to-orange-500 scale-125' 
+                      ? 'bg-gradient-to-r from-indigo-500 to-orange-500 scale-125' 
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                   whileHover={{ scale: 1.2 }}
@@ -442,7 +442,7 @@ const Testimonials = () => {
               onClick={nextTestimonial}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
+              className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-orange-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
             >
               →
             </motion.button>

@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 pb-8">
       {/* Background with subtle pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/40 via-white to-orange-50/40 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/40 via-rose-50/30 to-orange-50/40 z-0" />
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.01] mix-blend-overlay z-0"></div>
       
       {/* Floating background elements */}
@@ -46,7 +46,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-yellow-200 to-orange-200 rounded-full opacity-40"
+          className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-indigo-200 to-rose-200 rounded-full opacity-40"
         />
         <motion.div
           animate={{
@@ -60,7 +60,7 @@ const Hero = () => {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-amber-200 to-yellow-200 rounded-full opacity-30"
+          className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-rose-200 to-orange-200 rounded-full opacity-30"
         />
         <motion.div
           animate={{
@@ -74,7 +74,7 @@ const Hero = () => {
             ease: "easeInOut",
             delay: 4,
           }}
-          className="absolute bottom-40 left-1/4 w-16 h-16 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full opacity-35"
+          className="absolute bottom-40 left-1/4 w-16 h-16 bg-gradient-to-br from-orange-300 to-rose-300 rounded-full opacity-35"
         />
         <motion.div
           animate={{
@@ -88,7 +88,7 @@ const Hero = () => {
             ease: "easeInOut",
             delay: 6,
           }}
-          className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-yellow-300 to-amber-300 rounded-full opacity-25"
+          className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-indigo-300 to-orange-300 rounded-full opacity-25"
         />
       </div>
       
@@ -133,7 +133,7 @@ const Hero = () => {
                     ease: "linear"
                   }
                 }}
-                className="bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent relative"
+                className="bg-gradient-to-r from-gray-900 via-indigo-600 via-rose-600 to-orange-600 bg-[length:300%_100%] bg-clip-text text-transparent relative"
                 style={{
                   backgroundSize: "200% 100%"
                 }}
@@ -170,7 +170,7 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   onClick={handleCTAClick}
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl relative overflow-hidden group transition-all duration-300"
+                  className="bg-gradient-to-r from-indigo-500 to-orange-500 hover:from-indigo-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-xl shadow-lg hover:shadow-xl relative overflow-hidden group transition-all duration-300"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <motion.span
@@ -183,7 +183,7 @@ const Hero = () => {
                     Book an intro call
                   </span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-indigo-500"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: "100%" }}
                     transition={{ duration: 0.6 }}
@@ -198,10 +198,10 @@ const Hero = () => {
                   />
                 </Button>
                 <motion.div
-                  className="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-20 -z-10"
+                  className="absolute -inset-1 bg-gradient-to-r from-indigo-400 to-orange-400 rounded-xl opacity-20 -z-10"
                   animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0.2, 0.3, 0.2] 
+                    scale: [1, 1.05, 1],
+                    opacity: [0.2, 0.25, 0.2] 
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
@@ -215,7 +215,7 @@ const Hero = () => {
                   size="lg" 
                   variant="outline"
                   onClick={handleLearnMoreClick}
-                  className="border-yellow-300 text-yellow-600 hover:bg-yellow-50 px-8 py-3 rounded-full font-medium flex items-center gap-2 transition-all duration-300 group relative overflow-hidden"
+                  className="border-rose-300 text-rose-600 hover:bg-rose-50 px-8 py-3 rounded-xl font-medium flex items-center gap-2 transition-all duration-300 group relative overflow-hidden"
                 >
                   <span className="relative z-10">⚡ See Results in 48 Hours</span>
                   <motion.svg 
@@ -236,7 +236,7 @@ const Hero = () => {
                     <path d="m12 5 7 7-7 7"></path>
                   </motion.svg>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-yellow-100 to-orange-100"
+                    className="absolute inset-0 bg-gradient-to-r from-rose-100 to-orange-100"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: "0%" }}
                     transition={{ duration: 0.3 }}
@@ -262,9 +262,9 @@ const Hero = () => {
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="text-green-500"
+                    className="text-rose-500"
                   >
-                    💰
+                    🎯
                   </motion.div>
                   <span>30% cost savings</span>
                 </motion.div>
@@ -288,7 +288,7 @@ const Hero = () => {
                   <motion.div
                     animate={{ y: [0, -3, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                    className="text-blue-500"
+                    className="text-orange-500"
                   >
                     🚀
                   </motion.div>
@@ -316,7 +316,7 @@ const Hero = () => {
               
               {/* Enhanced glow effect */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-yellow-100/20 to-transparent pointer-events-none rounded-3xl"
+                className="absolute inset-0 bg-gradient-to-t from-orange-100/20 to-transparent pointer-events-none rounded-3xl"
                 animate={{
                   opacity: [0.2, 0.4, 0.2]
                 }}
@@ -343,15 +343,15 @@ const Hero = () => {
               <motion.span
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="text-yellow-400 text-xs"
+                className="text-orange-400 text-xs"
               >
                 ✨
               </motion.span>
-              <span className="text-xs">Trusted by companies in India & USA</span>
+              <span className="text-xs">Trusted by best companies in India & USA</span>
               <motion.span
                 animate={{ scale: [0.8, 1.2, 0.8] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="text-yellow-400 text-xs"
+                className="text-orange-400 text-xs"
               >
                 ⭐
               </motion.span>

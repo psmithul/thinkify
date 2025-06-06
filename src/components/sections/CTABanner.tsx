@@ -43,7 +43,7 @@ const CTABanner = () => {
   }, [metrics.length]);
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-yellow-50/30">
+    <section className="relative py-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50/30">
       {/* Modern geometric background */}
       <div className="absolute inset-0">
         {/* Animated gradient mesh */}
@@ -51,8 +51,8 @@ const CTABanner = () => {
           className="absolute inset-0"
           animate={{
             background: [
-              "radial-gradient(circle at 20% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(251, 146, 60, 0.06) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 50%), radial-gradient(circle at 20% 50%, rgba(251, 146, 60, 0.06) 0%, transparent 50%)"
+              "radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(244, 63, 94, 0.06) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%), radial-gradient(circle at 20% 50%, rgba(244, 63, 94, 0.06) 0%, transparent 50%)"
             ]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -68,7 +68,7 @@ const CTABanner = () => {
           }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="w-full h-full bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-3xl transform rotate-45" />
+          <div className="w-full h-full bg-gradient-to-br from-indigo-400/20 to-rose-400/20 rounded-3xl transform rotate-45" />
         </motion.div>
         
         <motion.div
@@ -80,7 +80,7 @@ const CTABanner = () => {
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         >
-          <div className="w-full h-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full" />
+          <div className="w-full h-full bg-gradient-to-br from-rose-400/20 to-orange-400/20 rounded-full" />
         </motion.div>
       </div>
 
@@ -99,7 +99,7 @@ const CTABanner = () => {
           {/* Glassmorphism container */}
           <div className="relative bg-white/70 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden">
             {/* Gradient border effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-transparent to-orange-500/20 rounded-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-transparent to-orange-500/20 rounded-3xl" />
             
             <div className="relative p-8 md:p-12">
               {/* Split Layout */}
@@ -115,7 +115,7 @@ const CTABanner = () => {
                 >
                   {/* Badge */}
                   <motion.div
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-full border border-yellow-200/50"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-100 to-orange-100 rounded-full border border-rose-200/50"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -141,7 +141,7 @@ const CTABanner = () => {
                   >
                     <span className="block">Get World-Class</span>
                     <motion.span
-                      className="block bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-[length:200%_100%] bg-clip-text text-transparent"
+                      className="block bg-gradient-to-r from-indigo-600 via-rose-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent"
                       animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                     >
@@ -166,15 +166,13 @@ const CTABanner = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                       >
-                        <motion.div
-                          className="w-6 h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0"
-                          whileHover={{ scale: 1.2, rotate: 360 }}
-                          transition={{ duration: 0.3 }}
+                        <div 
+                          className="w-6 h-6 bg-gradient-to-r from-indigo-500 to-orange-500 rounded-full flex items-center justify-center flex-shrink-0"
                         >
                           <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
-                        </motion.div>
+                        </div>
                         <span className="text-gray-700 font-medium">{benefit}</span>
                       </motion.div>
                     ))}
@@ -192,7 +190,7 @@ const CTABanner = () => {
                       onClick={handleWhatsAppClick}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.98 }}
-                      className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
+                      className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-indigo-500 to-orange-500 hover:from-indigo-600 hover:to-orange-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
                     >
                       <motion.svg 
                         width="24" 
@@ -235,7 +233,7 @@ const CTABanner = () => {
                         {metrics[currentMetric].icon}
                       </motion.div>
                       <motion.div
-                        className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent mb-2"
+                        className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-orange-600 bg-clip-text text-transparent mb-2"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -255,7 +253,7 @@ const CTABanner = () => {
                           onClick={() => setCurrentMetric(index)}
                           className={`w-3 h-3 rounded-full transition-all duration-300 ${
                             index === currentMetric 
-                              ? 'bg-gradient-to-r from-yellow-500 to-orange-500 scale-125' 
+                              ? 'bg-gradient-to-r from-indigo-500 to-orange-500 scale-125' 
                               : 'bg-gray-300 hover:bg-gray-400'
                           }`}
                           whileHover={{ scale: 1.3 }}
@@ -265,14 +263,14 @@ const CTABanner = () => {
                     </div>
 
                     {/* Floating mini metrics */}
-                    <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                    <div className="absolute -bottom-4 -left-4 bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
                       24/7 Support
                     </div>
                   </div>
 
                   {/* Background decoration */}
                   <motion.div
-                    className="absolute -inset-8 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-3xl -z-10"
+                    className="absolute -inset-8 bg-gradient-to-r from-indigo-500/10 to-orange-500/10 rounded-3xl -z-10"
                     animate={{ 
                       scale: [1, 1.05, 1],
                       rotate: [0, 1, 0]

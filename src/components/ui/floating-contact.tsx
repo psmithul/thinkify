@@ -48,7 +48,7 @@ Quick Connect via WhatsApp for instant responses!`;
         </svg>
       ),
       action: () => window.open('https://connect.thinkify.io', '_blank'),
-      color: "bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600",
+      color: "bg-gradient-to-r from-indigo-500 to-orange-500 hover:from-indigo-600 hover:to-orange-600",
       tooltip: "Visit our contact page"
     },
     {
@@ -59,7 +59,7 @@ Quick Connect via WhatsApp for instant responses!`;
         </svg>
       ),
       action: () => window.open('https://connect.thinkify.io', '_blank'),
-      color: "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700",
+      color: "bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600",
       tooltip: "Schedule a call with us"
     },
     {
@@ -70,7 +70,7 @@ Quick Connect via WhatsApp for instant responses!`;
         </svg>
       ),
       action: () => openWhatsApp("Hi! I'm interested in Thinkify's services."),
-      color: "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700",
+      color: "bg-gradient-to-r from-indigo-500 to-rose-500 hover:from-indigo-600 hover:to-rose-600",
       tooltip: "Chat on WhatsApp"
     },
     {
@@ -82,7 +82,7 @@ Quick Connect via WhatsApp for instant responses!`;
         </svg>
       ),
       action: handleCopyContact,
-      color: "bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700",
+      color: "bg-gradient-to-r from-rose-500 to-indigo-500 hover:from-rose-600 hover:to-indigo-600",
       tooltip: "Copy contact info"
     }
   ];
@@ -157,7 +157,7 @@ Quick Connect via WhatsApp for instant responses!`;
       {/* Main Toggle Button */}
       <motion.button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-14 h-14 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 group relative overflow-hidden"
+        className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-orange-500 hover:from-indigo-600 hover:to-orange-600 text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 group relative overflow-hidden"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         animate={{
@@ -210,7 +210,7 @@ Quick Connect via WhatsApp for instant responses!`;
         {/* Enhanced pulse animation when not expanded */}
         {!isExpanded && (
           <motion.div
-            className="absolute inset-0 rounded-full bg-yellow-400"
+            className="absolute inset-0 rounded-full bg-indigo-400"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.6, 0, 0.6],

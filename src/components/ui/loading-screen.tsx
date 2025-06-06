@@ -15,14 +15,14 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] bg-gradient-to-br from-yellow-50 via-white to-orange-50 flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-gradient-to-br from-indigo-50 via-white to-orange-50 flex items-center justify-center"
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 20% 30%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-                               radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-                               radial-gradient(circle at 50% 50%, rgba(234, 179, 8, 0.05) 0%, transparent 50%)`
+              backgroundImage: `radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                               radial-gradient(circle at 80% 70%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
+                               radial-gradient(circle at 50% 50%, rgba(251, 146, 60, 0.05) 0%, transparent 50%)`
             }}></div>
             
             {/* Floating Elements */}
@@ -34,10 +34,10 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
                   width: Math.random() * 60 + 20,
                   height: Math.random() * 60 + 20,
                   background: i % 3 === 0 
-                    ? "linear-gradient(45deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1))" 
+                    ? "linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(244, 63, 94, 0.1))" 
                     : i % 3 === 1 
-                    ? "linear-gradient(45deg, rgba(234, 179, 8, 0.1), rgba(245, 158, 11, 0.1))"
-                    : "linear-gradient(45deg, rgba(249, 115, 22, 0.1), rgba(251, 146, 60, 0.1))",
+                    ? "linear-gradient(45deg, rgba(244, 63, 94, 0.1), rgba(251, 146, 60, 0.1))"
+                    : "linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(251, 146, 60, 0.1))",
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
                 }}
@@ -79,13 +79,13 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
               }}
             >
               <motion.div
-                className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg"
+                className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 animate={{
                   boxShadow: [
-                    "0 10px 25px rgba(245, 158, 11, 0.3)",
-                    "0 15px 35px rgba(249, 115, 22, 0.4)",
-                    "0 10px 25px rgba(245, 158, 11, 0.3)"
+                    "0 10px 25px rgba(99, 102, 241, 0.3)",
+                    "0 15px 35px rgba(244, 63, 94, 0.4)",
+                    "0 10px 25px rgba(251, 146, 60, 0.3)"
                   ]
                 }}
                 transition={{
@@ -116,7 +116,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-2 h-2 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full"
+                  className="absolute w-2 h-2 bg-gradient-to-br from-indigo-400 to-rose-400 rounded-full"
                   animate={{
                     rotate: [0, 360],
                     x: [0, 30 * Math.cos(2 * Math.PI * i / 3), 0],
@@ -149,7 +149,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
               {"Thinkify".split("").map((letter, i) => (
                 <motion.span
                   key={i}
-                  className="text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent"
+                  className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-orange-600 bg-clip-text text-transparent"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ 
                     opacity: 1, 
@@ -190,142 +190,102 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
             {/* Progress Animation */}
             <motion.div className="w-full max-w-xs mb-8 mx-auto">
               <motion.div
-                className="h-1 bg-gradient-to-r from-yellow-200 to-orange-200 rounded-full overflow-hidden"
+                className="h-1 bg-gradient-to-r from-indigo-200 to-orange-200 rounded-full overflow-hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
               >
                 <motion.div
-                  className="h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-indigo-500 to-orange-500 rounded-full"
                   initial={{ width: "0%" }}
                   animate={{ width: "100%" }}
-                  transition={{ 
-                    duration: 2.5, 
-                    delay: 1.2,
-                    ease: "easeInOut" 
-                  }}
+                  transition={{ duration: 2, delay: 1.2, ease: "easeInOut" }}
                 />
               </motion.div>
-              <motion.p
-                className="text-center text-sm text-gray-500 mt-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.5 }}
-              >
-                Preparing your experience...
-              </motion.p>
             </motion.div>
 
-            {/* Bouncing Dots */}
-            <div className="flex justify-center space-x-2 mb-8">
-              {[0, 1, 2, 3, 4].map((index) => (
-                <motion.div
-                  key={index}
-                  className="w-3 h-3 rounded-full"
-                  style={{
-                    background: index % 2 === 0 
-                      ? "linear-gradient(45deg, #F59E0B, #F97316)" 
-                      : "linear-gradient(45deg, #EAB308, #FB923C)"
-                  }}
-                  animate={{
-                    y: [0, -20, 0],
-                    scale: [1, 1.2, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 1.2,
-                    repeat: Infinity,
-                    delay: index * 0.15,
-                    ease: "easeInOut",
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Loading Messages */}
+            {/* Loading Text */}
             <motion.div
+              className="flex items-center justify-center gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="relative"
+              transition={{ duration: 0.5, delay: 1.5 }}
             >
-              <motion.p
-                className="text-gray-600 text-base font-medium mb-4"
+              <motion.span
+                className="text-sm text-gray-500"
                 animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                Loading your engineering excellence...
+              </motion.span>
+              
+              {/* Animated Dots */}
+              <div className="flex gap-1">
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="w-1 h-1 bg-gradient-to-r from-indigo-400 to-orange-400 rounded-full"
+                    animate={{
+                      scale: [1, 1.5, 1],
+                      opacity: [0.3, 1, 0.3]
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      repeat: Infinity,
+                      delay: i * 0.2
+                    }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Subtle Brand Elements */}
+            <motion.div
+              className="mt-8 flex items-center justify-center gap-4 text-xs text-gray-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 2 }}
+            >
+              <motion.div
+                className="flex items-center gap-1"
+                animate={{ y: [0, -2, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                Crafting excellence...
-              </motion.p>
-              
-              {/* Progress Indicators */}
-              <motion.div className="flex justify-center items-center space-x-4 text-sm text-gray-500">
-                <motion.div 
-                  className="flex items-center space-x-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                >
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                    className="text-yellow-500"
-                  >
-                    ⚙️
-                  </motion.div>
-                  <span>Loading talent...</span>
-                </motion.div>
-                
-                <motion.div 
-                  className="flex items-center space-x-2"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.3, duration: 0.5 }}
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    className="text-orange-500"
-                  >
-                    🚀
-                  </motion.div>
-                  <span>Preparing innovation...</span>
-                </motion.div>
+                <span>⚡</span>
+                <span>Pre-vetted</span>
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-1"
+                animate={{ y: [0, -2, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+              >
+                <span>🚀</span>
+                <span>48hr Deploy</span>
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-1"
+                animate={{ y: [0, -2, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
+              >
+                <span>🌍</span>
+                <span>Global Talent</span>
               </motion.div>
             </motion.div>
           </div>
 
-          {/* Corner Decorations */}
+          {/* Corner Accent */}
           <motion.div
-            className="absolute top-10 left-10"
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          >
-            <div className="w-16 h-16 border-2 border-yellow-200 rounded-full opacity-30"></div>
-          </motion.div>
-          
+            className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-200/20 to-transparent"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
           <motion.div
-            className="absolute top-10 right-10"
-            animate={{ rotate: [360, 0] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          >
-            <div className="w-12 h-12 border-2 border-orange-200 rounded-full opacity-20"></div>
-          </motion.div>
-          
-          <motion.div
-            className="absolute bottom-10 left-10"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            <div className="w-8 h-8 bg-gradient-to-br from-yellow-300 to-orange-300 rounded-full opacity-25"></div>
-          </motion.div>
-          
-          <motion.div
-            className="absolute bottom-10 right-10"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-300 to-yellow-300 rounded-full opacity-20"></div>
-          </motion.div>
+            className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-indigo-200/20 to-transparent"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.7 }}
+          />
         </motion.div>
       )}
     </AnimatePresence>

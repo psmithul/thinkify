@@ -269,7 +269,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={scrollToTop}
-              className="fixed bottom-6 left-6 w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white rounded-full shadow-lg flex items-center justify-center z-40 transition-all duration-300 relative overflow-hidden group"
+              className="fixed bottom-6 left-6 w-12 h-12 bg-gradient-to-r from-indigo-500 to-orange-500 hover:from-indigo-600 hover:to-orange-600 text-white rounded-full shadow-lg flex items-center justify-center z-40 transition-all duration-300 relative overflow-hidden group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               title="Scroll to top"
@@ -301,7 +301,7 @@ export default function Home() {
               
               {/* Pulse effect */}
               <motion.div
-                className="absolute inset-0 bg-yellow-400 rounded-full opacity-20"
+                className="absolute inset-0 bg-indigo-400 rounded-full opacity-20"
                 animate={{ 
                   scale: [1, 1.2, 1],
                   opacity: [0.2, 0.3, 0.2] 

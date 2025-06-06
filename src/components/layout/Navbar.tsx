@@ -96,8 +96,8 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-4 left-4 right-4 z-50 transition-all duration-500 rounded-2xl ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-2xl shadow-2xl border border-yellow-200/50"
-          : "bg-white/75 backdrop-blur-xl shadow-lg border border-yellow-100/30"
+          ? "bg-white/90 backdrop-blur-2xl shadow-2xl border border-rose-200/50"
+          : "bg-white/75 backdrop-blur-xl shadow-lg border border-rose-100/30"
       }`}
       style={{
         backdropFilter: isScrolled ? 'blur(24px) saturate(200%)' : 'blur(20px) saturate(180%)',
@@ -110,7 +110,7 @@ const Navbar = () => {
       <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
         isScrolled ? 'opacity-100' : 'opacity-70'
       }`}>
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-400/10 to-yellow-400/20 rounded-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-400/20 via-rose-400/10 to-orange-400/20 rounded-2xl" />
         <div className="absolute inset-[1px] bg-white/40 rounded-2xl" />
         <div className="absolute inset-[2px] bg-gradient-to-b from-white/50 to-transparent rounded-2xl" />
       </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
         >
           <Link href="/" className="flex items-center">
             <motion.span 
-              className="text-xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent hover:from-orange-600 hover:to-yellow-600 transition-all duration-300"
+              className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-orange-600 bg-clip-text text-transparent hover:from-orange-600 hover:to-indigo-600 transition-all duration-300"
               animate={{
                 backgroundPosition: isScrolled ? ["0%", "100%", "0%"] : "0%"
               }}
@@ -136,8 +136,8 @@ const Navbar = () => {
               style={{
                 backgroundSize: "200% 100%",
                 textShadow: isScrolled 
-                  ? "0 0 20px rgba(251, 191, 36, 0.3)" 
-                  : "0 0 10px rgba(251, 191, 36, 0.2)"
+                  ? "0 0 20px rgba(99, 102, 241, 0.3)" 
+                  : "0 0 10px rgba(99, 102, 241, 0.2)"
               }}
             >
               ⚡ Thinkify
@@ -158,21 +158,21 @@ const Navbar = () => {
                 onClick={(e) => handleNavClick(e, link.id)}
                 className={`text-sm font-medium transition-all duration-300 relative group ${
                   activeSection === link.id
-                    ? "text-yellow-600"
-                    : "text-gray-700 hover:text-yellow-600"
+                    ? "text-rose-600"
+                    : "text-gray-700 hover:text-rose-600"
                 }`}
                 title={`Navigate to ${link.title} (Alt+${index + 1})`}
               >
                 {link.title}
                 <motion.span 
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 transition-all duration-300 ${
-                    activeSection === link.id ? 'w-full' : 'w-0 group-hover:w-full'
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-orange-500 transition-all duration-300 ${
+                    activeSection === link.id ? 'w-full opacity-100' : 'w-0 opacity-0'
                   }`}
                   layoutId="activeSection"
                 />
                 {/* Enhanced glassmorphism hover effect */}
                 <motion.div
-                  className="absolute inset-0 -m-2 rounded-lg bg-yellow-100/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                  className="absolute inset-0 -m-2 rounded-lg bg-rose-100/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
                   whileHover={{ scale: 1.05, y: -1 }}
                 />
                 {/* Sparkle effect on hover */}
@@ -202,13 +202,13 @@ const Navbar = () => {
           >
             <Button 
               onClick={handleCTAClick}
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+              className="bg-gradient-to-r from-indigo-500 to-orange-500 hover:from-indigo-600 hover:to-orange-600 text-white px-6 py-2 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center gap-1">
                 Get in Touch
               </span>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
+                className="absolute inset-0 bg-gradient-to-r from-orange-500 to-indigo-500"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.6 }}
@@ -229,7 +229,7 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-yellow-600 hover:bg-yellow-100/50 backdrop-blur-sm transition-all duration-300 border border-yellow-200/30 relative overflow-hidden group"
+                className="text-rose-600 hover:bg-rose-100/50 backdrop-blur-sm transition-all duration-300 border border-rose-200/30 relative overflow-hidden group"
                 aria-label="Open menu (Alt+M)"
                 title="Open menu (Alt+M)"
               >
@@ -265,7 +265,7 @@ const Navbar = () => {
                   </motion.svg>
                 </AnimatePresence>
                 <motion.div
-                  className="absolute inset-0 bg-yellow-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-rose-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   whileHover={{ scale: 1.1 }}
                 />
               </Button>
@@ -273,7 +273,7 @@ const Navbar = () => {
           </SheetTrigger>
           <SheetContent 
             side="right" 
-            className="bg-white/95 backdrop-blur-xl border-l border-yellow-200/30"
+            className="bg-white/95 backdrop-blur-xl border-l border-rose-200/30"
             style={{ backdropFilter: 'blur(20px) saturate(180%)' }}
           >
             <motion.div 
@@ -291,8 +291,8 @@ const Navbar = () => {
                   onClick={(e) => handleNavClick(e, link.id)}
                   className={`text-lg font-medium transition-all duration-300 text-left relative group ${
                     activeSection === link.id
-                      ? "text-yellow-600"
-                      : "text-gray-800 hover:text-yellow-600"
+                      ? "text-rose-600"
+                      : "text-gray-800 hover:text-rose-600"
                   }`}
                 >
                   <span className="flex items-center justify-between">
@@ -308,7 +308,7 @@ const Navbar = () => {
                     <span className="text-xs text-gray-400">Alt+{index + 1}</span>
                   </span>
                   <motion.div
-                    className="absolute inset-0 -m-2 rounded-lg bg-yellow-100/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                    className="absolute inset-0 -m-2 rounded-lg bg-rose-100/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
                     whileHover={{ scale: 1.02, x: 5 }}
                   />
                 </motion.button>
@@ -321,11 +321,11 @@ const Navbar = () => {
               >
                 <Button 
                   onClick={handleCTAClick}
-                  className="mt-4 w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 shadow-lg relative overflow-hidden group"
+                  className="mt-4 w-full bg-gradient-to-r from-indigo-500 to-orange-500 hover:from-indigo-600 hover:to-orange-600 text-white border-0 shadow-lg relative overflow-hidden group rounded-xl"
                 >
                   <span className="relative z-10">🚀 Start Today</span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-indigo-500"
                     initial={{ x: "-100%" }}
                     whileHover={{ x: "100%" }}
                     transition={{ duration: 0.6 }}
@@ -339,7 +339,7 @@ const Navbar = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.5 }}
-                className="mt-6 pt-6 border-t border-yellow-200"
+                className="mt-6 pt-6 border-t border-rose-200"
               >
                 <h4 className="text-sm font-semibold text-gray-600 mb-2 flex items-center gap-1">
                   <span>⌨️</span>
@@ -360,10 +360,9 @@ const Navbar = () => {
 
       {/* Progress indicator */}
       <motion.div
-        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-yellow-500 to-orange-500 origin-left"
-        style={{
-          scaleX: isScrolled ? 1 : 0,
-        }}
+        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-orange-500 origin-left"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
         transition={{ duration: 0.3 }}
       />
     </motion.header>
