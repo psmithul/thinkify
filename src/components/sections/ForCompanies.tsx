@@ -457,18 +457,18 @@ const ForCompanies = () => {
               transition={{ duration: 0.6 }}
             >
               <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-full border border-yellow-200 mb-6"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 rounded-full mb-4"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <motion.span
                   animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                   className="text-2xl"
                 >
-                  🌏
+                  🌍
                 </motion.span>
-                <span className="text-sm font-medium text-gray-700">India & USA Expertise</span>
+                <span className="text-sm font-medium text-gray-700">Global Reach, Local Expertise</span>
               </motion.div>
               
               <motion.h3
@@ -489,7 +489,7 @@ const ForCompanies = () => {
                   }}
                   className="bg-gradient-to-r from-gray-900 via-yellow-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent"
                 >
-                  Focused Excellence in Key Markets
+                  Trusted by Companies Worldwide
                 </motion.span>
               </motion.h3>
               
@@ -500,11 +500,11 @@ const ForCompanies = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Deep expertise in India and USA markets. From Silicon Valley startups to Indian unicorns, we understand both cultures and deliver exceptional results.
+                From Silicon Valley startups to European unicorns, we've helped companies across 6 continents build world-class engineering teams.
               </motion.p>
             </motion.div>
 
-            {/* Key Market Stats Grid */}
+            {/* Global Stats Grid */}
             <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
               initial="hidden"
@@ -521,9 +521,9 @@ const ForCompanies = () => {
               }}
             >
               {[
-                { icon: "🇮🇳🇺🇸", number: "2", label: "Key Markets", color: "text-blue-600" },
-                { icon: "🏢", number: "150+", label: "Happy Clients", color: "text-green-600" },
-                { icon: "⏰", number: "24/7", label: "Support Coverage", color: "text-purple-600" },
+                { icon: "🌎", number: "25+", label: "Countries Served", color: "text-blue-600" },
+                { icon: "🏢", number: "150+", label: "Global Clients", color: "text-green-600" },
+                { icon: "⏰", number: "24/7", label: "Global Support", color: "text-purple-600" },
                 { icon: "🚀", number: "500+", label: "Engineers Placed", color: "text-orange-600" },
               ].map((stat, index) => (
                 <motion.div
@@ -565,9 +565,9 @@ const ForCompanies = () => {
               ))}
             </motion.div>
 
-            {/* Market Focus Highlights */}
+            {/* Global Reach Highlights */}
             <motion.div
-              className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+              className="grid md:grid-cols-3 gap-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -575,33 +575,36 @@ const ForCompanies = () => {
             >
               {[
                 {
-                  region: "🇺🇸 United States",
-                  description: "Silicon Valley to Wall Street - we understand the American tech landscape",
-                  clients: "Tech giants, fintech unicorns, healthcare innovators",
-                  highlight: "Pacific & Eastern Time Coverage"
+                  region: "🇺🇸 North America",
+                  description: "Silicon Valley startups to Fortune 500 companies",
+                  clients: "Tech giants, fintech unicorns, healthcare innovators"
                 },
                 {
-                  region: "🇮🇳 India", 
-                  description: "From Bangalore to Mumbai - deep roots in India's tech ecosystem",
-                  clients: "Unicorn startups, global IT services, emerging SaaS companies",
-                  highlight: "24/7 Development Cycles"
+                  region: "🇪🇺 Europe & UK", 
+                  description: "From London fintech to Berlin mobility startups",
+                  clients: "Digital banks, e-commerce leaders, AI companies"
+                },
+                {
+                  region: "🌏 Asia Pacific",
+                  description: "Supporting rapid growth from Singapore to Sydney",
+                  clients: "Gaming studios, edutech platforms, logistics leaders"
                 }
               ].map((region, index) => (
                 <motion.div
                   key={index}
-                  className="text-center p-8 border-2 border-yellow-100 rounded-3xl hover:border-yellow-200 transition-all duration-300 group bg-gradient-to-br from-yellow-50/50 to-orange-50/50"
-                  whileHover={{ scale: 1.02, borderColor: "#FED7AA" }}
+                  className="text-center p-6 border border-yellow-100 rounded-2xl hover:border-yellow-200 transition-all duration-300 group"
+                  whileHover={{ scale: 1.02, backgroundColor: "rgba(254, 243, 199, 0.1)" }}
                   transition={{ duration: 0.3 }}
                 >
                   <motion.h4
-                    className="text-2xl font-bold text-gray-900 mb-4"
+                    className="text-lg font-semibold text-gray-900 mb-3"
                     whileHover={{ color: "#D97706" }}
                     transition={{ duration: 0.3 }}
                   >
                     {region.region}
                   </motion.h4>
                   <motion.p
-                    className="text-gray-600 mb-4 leading-relaxed"
+                    className="text-gray-600 text-sm mb-3 leading-relaxed"
                     initial={{ opacity: 0.8 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -609,18 +612,11 @@ const ForCompanies = () => {
                     {region.description}
                   </motion.p>
                   <motion.div
-                    className="text-sm text-yellow-700 font-medium bg-yellow-100/80 px-4 py-2 rounded-full inline-block mb-3"
-                    whileHover={{ scale: 1.05, backgroundColor: "#FEF3C7" }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {region.clients}
-                  </motion.div>
-                  <motion.div
-                    className="text-xs text-orange-600 font-semibold bg-orange-50 px-3 py-1 rounded-full inline-block"
+                    className="text-xs text-yellow-600 font-medium bg-yellow-50 px-3 py-1 rounded-full inline-block"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    ⭐ {region.highlight}
+                    {region.clients}
                   </motion.div>
                 </motion.div>
               ))}
@@ -639,31 +635,25 @@ const ForCompanies = () => {
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                Join companies in <strong>India & USA</strong> who trust us with their engineering needs
+                Join companies in <strong>25+ countries</strong> who trust us with their engineering needs
               </motion.p>
               <motion.div
-                className="flex justify-center gap-6 text-sm text-gray-600"
+                className="flex flex-wrap justify-center gap-3 text-sm text-gray-500"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <motion.div
-                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-blue-100 rounded-full border border-blue-200"
-                  whileHover={{ scale: 1.1, backgroundColor: "#DBEAFE" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="text-xl">🇺🇸</span>
-                  <span className="font-medium">USA</span>
-                </motion.div>
-                <motion.div
-                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-50 to-orange-100 rounded-full border border-orange-200"
-                  whileHover={{ scale: 1.1, backgroundColor: "#FED7AA" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="text-xl">🇮🇳</span>
-                  <span className="font-medium">India</span>
-                </motion.div>
+                {["🇺🇸 USA", "🇬🇧 UK", "🇩🇪 Germany", "🇸🇬 Singapore", "🇦🇺 Australia", "🇨🇦 Canada", "🇮🇳 India"].map((country, index) => (
+                  <motion.span
+                    key={index}
+                    className="px-3 py-1 bg-gray-100 rounded-full"
+                    whileHover={{ scale: 1.1, backgroundColor: "#FEF3C7" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {country}
+                  </motion.span>
+                ))}
               </motion.div>
             </motion.div>
           </div>

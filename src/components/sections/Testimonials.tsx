@@ -185,9 +185,9 @@ const Testimonials = () => {
         className="container mx-auto px-4 relative z-10"
         style={{ y, opacity }}
       >
-        {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
+        {/* Header Section */}
+        <motion.div
+          className="text-center max-w-4xl mx-auto mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
