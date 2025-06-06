@@ -136,29 +136,6 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <motion.h3 
-              className="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent"
-              whileHover={{ 
-                scale: 1.05,
-                backgroundPosition: ["0%", "100%", "0%"]
-              }}
-              transition={{ duration: 0.3 }}
-              style={{
-                backgroundSize: "200% 100%"
-              }}
-            >
-              Thinkify
-            </motion.h3>
-            <motion.p 
-              className="text-gray-600 mb-6 max-w-sm leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Engineering Excellence for Ambitious Startups. We help visionary startups hire exceptional engineering talent and build innovative solutions that scale.
-            </motion.p>
-            
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -166,7 +143,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <h4 className="text-sm font-semibold mb-4 text-gray-900 flex items-center">
+              <h4 className="text-xl font-semibold mb-6 text-gray-900 flex items-center">
                 <motion.span
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -174,14 +151,14 @@ const Footer = () => {
                 >
                   ⚡
                 </motion.span>
-                Let&apos;s Build Together
+                Let&apos;s Build Brilliance Together
               </h4>
               <div className="space-y-3">
                 <motion.div 
                   className="flex items-center text-gray-600 group cursor-pointer"
                   whileHover={{ scale: 1.02, x: 5 }}
                   transition={{ duration: 0.2 }}
-                  onClick={handleContactClick}
+                  onClick={() => window.open('mailto:hello@thinkify.io', '_blank')}
                 >
                   <motion.div 
                     className="h-10 w-10 mr-3 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600"
@@ -198,33 +175,8 @@ const Footer = () => {
                     </svg>
                   </motion.div>
                   <div>
-                    <div className="font-medium group-hover:text-yellow-600 transition-colors">Get Started Online</div>
-                    <div className="text-sm text-gray-500">Visit our contact portal</div>
-                  </div>
-                </motion.div>
-                
-                <motion.div 
-                  className="flex items-center text-gray-600 group cursor-pointer"
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  transition={{ duration: 0.2 }}
-                  onClick={handleScheduleCall}
-                >
-                  <motion.div 
-                    className="h-10 w-10 mr-3 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"
-                    whileHover={{ 
-                      scale: 1.1,
-                      backgroundColor: "#DBEAFE",
-                      rotate: 15 
-                    }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                  </motion.div>
-                  <div>
-                    <div className="font-medium group-hover:text-blue-600 transition-colors">Schedule a Call</div>
-                    <div className="text-sm text-gray-500">Book a consultation</div>
+                    <div className="font-medium group-hover:text-yellow-600 transition-colors">Email Us</div>
+                    <div className="text-sm text-gray-500">hello@thinkify.io</div>
                   </div>
                 </motion.div>
 
@@ -254,25 +206,7 @@ const Footer = () => {
                 </motion.div>
               </div>
               
-              <motion.div
-                className="mt-6"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  onClick={handleContactClick}
-                  className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white rounded-full px-6 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                >
-                  <span className="relative z-10">Get Started Today</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                    style={{ opacity: 0.9 }}
-                  />
-                </Button>
-              </motion.div>
+              
             </motion.div>
           </motion.div>
 

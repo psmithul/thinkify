@@ -65,6 +65,36 @@ const testimonials = [
     impact: "95% code quality score",
     techStack: ["Go", "Docker", "Kubernetes"]
   },
+  {
+    quote: "We needed to scale our AI team rapidly for our Series B. Thinkify connected us with ML engineers who understood both the technical and business sides of AI deployment.",
+    name: "Rajesh Kumar",
+    title: "Head of AI, Healthcare Startup",
+    avatar: "/images/avatar-placeholder.png",
+    rating: 5,
+    company: "HealthTech",
+    impact: "ML models in production 3x faster",
+    techStack: ["Python", "TensorFlow", "MLOps"]
+  },
+  {
+    quote: "From mobile to backend, Thinkify's engineers brought the full-stack expertise we needed to launch our consumer app. The quality and speed were unmatched.",
+    name: "Meera Patel",
+    title: "Product Director, Consumer App",
+    avatar: "/images/avatar-placeholder.png",
+    rating: 5,
+    company: "ConsumerTech",
+    impact: "Launched 2 months ahead of schedule",
+    techStack: ["React Native", "Firebase", "Swift"]
+  },
+  {
+    quote: "As a non-technical founder, I was worried about finding the right engineering talent. Thinkify not only provided great engineers but also helped me understand the technical decisions.",
+    name: "Amit Singh",
+    title: "Founder & CEO, B2B SaaS",
+    avatar: "/images/avatar-placeholder.png",
+    rating: 5,
+    company: "SaaS Startup",
+    impact: "Technical debt reduced by 60%",
+    techStack: ["Next.js", "PostgreSQL", "Stripe"]
+  },
 ];
 
 const Testimonials = () => {

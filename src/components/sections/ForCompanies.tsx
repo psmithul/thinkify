@@ -7,31 +7,50 @@ import { Button } from "@/components/ui/button";
 
 const features = [
   {
-    title: "Engineers Vet Engineers. Period.",
-    description: "Our ex-lead engineers from Google, Meta, and unicorn startups personally evaluate every developer. No HR screening - just deep technical assessment by people who've built world-class engineering teams.",
+    title: "Scale with Flexibility",
+    description: "Grow or shrink your team whenever you need—add talent on demand or scale back effortlessly. Stay agile as your projects and priorities evolve.",
+    highlights: [
+      "Add or remove engineers instantly",
+      "No long-term commitments required", 
+      "Scale up for launches, down for maintenance",
+      "Adapt team size to project phases"
+    ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-yellow-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 11.7l2.5 2.5 4-4"></path>
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9,22 9,12 15,12 15,22"></polyline>
       </svg>
     ),
   },
   {
-    title: "Ship Production Code Day One.",
-    description: "Skip the ramp-up time. Our engineers have already proven they can architect, code, and deploy at scale. They're not just developers - they're problem solvers who understand your entire tech stack.",
+    title: "We Handle Everything",
+    description: "Thinkify takes the headache out of global hiring by connecting you only with vetted, certified experts. No more wrestling with compliance, legal issues, or payments.",
+    highlights: [
+      "Full compliance & legal handling",
+      "Seamless payment processing",
+      "Pre-vetted certified experts only",
+      "Dedicated hiring manager support"
+    ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-orange-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M8 17.2a3 3 0 1 0 0-5.8V5.5a3 3 0 1 1 6 0v.8M15 8a3 3 0 1 0 0 5.8v.7a3 3 0 1 1-6 0v-.8"></path>
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <path d="M9 9h6v6H9z"></path>
+        <path d="m9 1 3 8 3-8"></path>
       </svg>
     ),
   },
   {
-    title: "Engineering Leadership You Can Trust.",
-    description: "Built by engineers who've scaled teams from 10 to 1000+. We understand your technical challenges because we've faced them. Every placement is backed by our engineering expertise guarantee.",
+    title: "Custom Engagement Models",
+    description: "Bring on specialists for specific roles, plug skill gaps, or get entire projects delivered on time. Whether you want to embed talent into your team or hand off a turnkey solution.",
+    highlights: [
+      "Embed talent in your existing team",
+      "Dedicated project delivery teams",
+      "Specialist roles & skill gap filling",
+      "Turnkey solution development"
+    ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-yellow-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <path d="m21 21-4.3-4.3"></path>
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
       </svg>
     ),
   },
@@ -282,61 +301,362 @@ const ForCompanies = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
           {features.map((feature, index) => (
             <motion.div key={index} variants={item} className="h-full">
               <motion.div
-                whileHover={{ scale: 1.05, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="h-full"
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="h-full group"
               >
-                <Card className="mercor-card h-full overflow-hidden text-center relative group bg-white/80 backdrop-blur-sm border border-yellow-100 hover:border-yellow-200 transition-all duration-300 flex flex-col">
-                  {/* Enhanced card background animation */}
+                <Card className="h-full bg-white/95 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+                  {/* Background gradient overlay */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-yellow-50/30 via-white to-orange-50/30 opacity-0 group-hover:opacity-100"
-                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 bg-gradient-to-br from-yellow-50/50 via-white to-orange-50/30 opacity-0 group-hover:opacity-100"
+                    transition={{ duration: 0.5 }}
                   />
                   
-                  <CardHeader className="pb-4 relative z-10 flex-shrink-0">
+                  {/* Top accent line */}
+                  <motion.div
+                    className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-orange-500"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                  />
+                  
+                  <CardContent className="p-8 relative z-10 h-full flex flex-col">
+                    {/* Icon Section */}
                     <motion.div 
-                      className="mb-4 flex justify-center"
-                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      className="mb-6 flex justify-center"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="p-3 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full border-2 border-yellow-200 group-hover:border-yellow-300 transition-colors duration-300">
-                        {feature.icon}
+                      <div className="relative">
+                        <div className="w-16 h-16 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+                          {feature.icon}
+                        </div>
+                        {/* Icon background glow */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100"
+                          transition={{ duration: 0.5 }}
+                        />
                       </div>
                     </motion.div>
-                    <motion.div
-                      whileHover={{ color: "#F59E0B" }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <CardTitle className="text-xl text-gray-900 min-h-[2.5rem] flex items-center justify-center">{feature.title}</CardTitle>
-                    </motion.div>
-                  </CardHeader>
-                  <CardContent className="relative z-10 flex-grow flex items-center">
-                    <motion.p 
-                      className="text-sm text-gray-600 leading-relaxed"
-                      initial={{ opacity: 0.8 }}
-                      whileHover={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {feature.description}
-                    </motion.p>
+
+                    {/* Content Section */}
+                    <div className="flex-grow flex flex-col text-center">
+                      {/* Title - Single Line */}
+                      <motion.h3 
+                        className="text-xl font-bold text-gray-900 mb-4 leading-tight truncate"
+                        initial={{ opacity: 0.8 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {feature.title}
+                      </motion.h3>
+                      
+                      {/* Description */}
+                      <motion.p 
+                        className="text-gray-600 leading-relaxed mb-6 text-sm"
+                        initial={{ opacity: 0.9 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {feature.description}
+                      </motion.p>
+
+                      {/* Highlights Section */}
+                      <div className="mt-auto">
+                        <motion.h4 
+                          className="text-sm font-semibold text-yellow-600 mb-3"
+                          initial={{ opacity: 0.8 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          Key Benefits:
+                        </motion.h4>
+                        <motion.ul
+                          className="space-y-2 text-left"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                        >
+                          {feature.highlights.map((highlight, highlightIndex) => (
+                            <motion.li
+                              key={highlightIndex}
+                              className="text-gray-600 text-sm flex items-start"
+                              initial={{ opacity: 0, x: -10 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: highlightIndex * 0.1 }}
+                            >
+                              <span className="text-yellow-500 mr-2 mt-1 text-xs">•</span>
+                              {highlight}
+                            </motion.li>
+                          ))}
+                        </motion.ul>
+                      </div>
+                    </div>
                   </CardContent>
                   
-                  {/* Hover glow effect */}
+                  {/* Hover border effect */}
                   <motion.div
-                    className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      background: `radial-gradient(circle at center, rgba(245, 158, 11, 0.1), transparent)`
-                    }}
+                    className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-yellow-200/50"
+                    transition={{ duration: 0.3 }}
                   />
                 </Card>
               </motion.div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Global Presence Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-20 bg-gradient-to-br from-gray-50 via-white to-yellow-50/30 rounded-3xl p-8 md:p-12 relative overflow-hidden"
+        >
+          {/* Background decoration */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              animate={{
+                rotate: [0, 360],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-yellow-200/20 to-orange-200/20 rounded-full"
+            />
+            <motion.div
+              animate={{
+                rotate: [360, 0],
+                x: [0, 20, 0],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute -bottom-5 -left-5 w-32 h-32 bg-gradient-to-br from-orange-200/30 to-yellow-200/30 rounded-full"
+            />
+          </div>
+
+          <div className="relative z-10">
+            {/* Section Header */}
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 rounded-full mb-4"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.span
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  className="text-2xl"
+                >
+                  🌍
+                </motion.span>
+                <span className="text-sm font-medium text-gray-700">Global Reach, Local Expertise</span>
+              </motion.div>
+              
+              <motion.h3
+                className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <motion.span
+                  animate={{ 
+                    backgroundPosition: ["0%", "100%", "0%"]
+                  }}
+                  transition={{ 
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="bg-gradient-to-r from-gray-900 via-yellow-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent"
+                >
+                  Trusted by Companies Worldwide
+                </motion.span>
+              </motion.h3>
+              
+              <motion.p
+                className="text-lg text-gray-600 max-w-2xl mx-auto"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                From Silicon Valley startups to European unicorns, we've helped companies across 6 continents build world-class engineering teams.
+              </motion.p>
+            </motion.div>
+
+            {/* Global Stats Grid */}
+            <motion.div
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+            >
+              {[
+                { icon: "🌎", number: "25+", label: "Countries Served", color: "text-blue-600" },
+                { icon: "🏢", number: "150+", label: "Global Clients", color: "text-green-600" },
+                { icon: "⏰", number: "24/7", label: "Global Support", color: "text-purple-600" },
+                { icon: "🚀", number: "500+", label: "Engineers Placed", color: "text-orange-600" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <motion.div
+                    className="text-4xl mb-3"
+                    animate={{ 
+                      scale: [1, 1.1, 1],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ 
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: index * 0.5
+                    }}
+                  >
+                    {stat.icon}
+                  </motion.div>
+                  <motion.div
+                    className={`text-3xl font-bold ${stat.color} mb-2`}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <div className="text-sm text-gray-600 font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Global Reach Highlights */}
+            <motion.div
+              className="grid md:grid-cols-3 gap-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {[
+                {
+                  region: "🇺🇸 North America",
+                  description: "Silicon Valley startups to Fortune 500 companies",
+                  clients: "Tech giants, fintech unicorns, healthcare innovators"
+                },
+                {
+                  region: "🇪🇺 Europe & UK", 
+                  description: "From London fintech to Berlin mobility startups",
+                  clients: "Digital banks, e-commerce leaders, AI companies"
+                },
+                {
+                  region: "🌏 Asia Pacific",
+                  description: "Supporting rapid growth from Singapore to Sydney",
+                  clients: "Gaming studios, edutech platforms, logistics leaders"
+                }
+              ].map((region, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center p-6 border border-yellow-100 rounded-2xl hover:border-yellow-200 transition-all duration-300 group"
+                  whileHover={{ scale: 1.02, backgroundColor: "rgba(254, 243, 199, 0.1)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.h4
+                    className="text-lg font-semibold text-gray-900 mb-3"
+                    whileHover={{ color: "#D97706" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {region.region}
+                  </motion.h4>
+                  <motion.p
+                    className="text-gray-600 text-sm mb-3 leading-relaxed"
+                    initial={{ opacity: 0.8 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {region.description}
+                  </motion.p>
+                  <motion.div
+                    className="text-xs text-yellow-600 font-medium bg-yellow-50 px-3 py-1 rounded-full inline-block"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {region.clients}
+                  </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Call to Action */}
+            <motion.div
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <motion.p
+                className="text-gray-600 mb-6"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Join companies in <strong>25+ countries</strong> who trust us with their engineering needs
+              </motion.p>
+              <motion.div
+                className="flex flex-wrap justify-center gap-3 text-sm text-gray-500"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                {["🇺🇸 USA", "🇬🇧 UK", "🇩🇪 Germany", "🇸🇬 Singapore", "🇦🇺 Australia", "🇨🇦 Canada", "🇮🇳 India"].map((country, index) => (
+                  <motion.span
+                    key={index}
+                    className="px-3 py-1 bg-gray-100 rounded-full"
+                    whileHover={{ scale: 1.1, backgroundColor: "#FEF3C7" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {country}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
       </motion.div>
     </section>
