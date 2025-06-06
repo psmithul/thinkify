@@ -30,98 +30,93 @@ const AnimatedLogos = () => {
         color: "#1F74BA",
         logoPath: "/images/Flipkart_Symbol_0.svg",
         name: "Flipkart",
-        size: 160
+        size: 200
       },
       {
         id: "swiggy",
         color: "#FC8019",
         logoPath: "/images/swiggy.svg",
         name: "Swiggy",
-        size: 150
+        size: 190
       },
       {
         id: "acko",
         color: "#582CDB",
         logoPath: "/images/Acko_id4WtbwSds_0.svg",
         name: "Acko",
-        size: 145
+        size: 185
       },
       {
         id: "meesho",
         color: "#8B5CF6",
         logoPath: "/images/meesho.png",
         name: "Meesho",
-        size: 155
+        size: 195
       },
       {
         id: "thoughtspot",
         color: "#FF6B35",
         logoPath: "/images/ThoughtSpot_idEiE5Z1Gr_0.svg",
         name: "ThoughtSpot",
-        size: 165
+        size: 205
       },
       {
         id: "netskope",
         color: "#00A1E0",
         logoPath: "/images/Netskope_idPk6JKSHR_0.svg",
         name: "Netskope",
-        size: 150
+        size: 190
       },
       {
         id: "ethos",
         color: "#E91E63",
         logoPath: "/images/Ethos_idILGnoxOt_0.svg",
         name: "Ethos",
-        size: 140
+        size: 180
       },
       {
         id: "netomi",
         color: "#4CAF50",
         logoPath: "/images/netomi.png",
         name: "Netomi",
-        size: 145
+        size: 185
       },
       {
         id: "whatfix",
         color: "#FFA726",
         logoPath: "/images/Whatfix_idc18D79RQ_0.svg",
         name: "Whatfix",
-        size: 155
+        size: 195
       }
     ];
     
-    // Create hexagonal grid positions for logos to stay fixed
-    const createHexagonalGrid = () => {
+    // Create symmetric grid positions for logos to fill screen properly
+    const createSymmetricGrid = () => {
       if (!containerRef.current) return;
       
       const container = containerRef.current.getBoundingClientRect();
       const centerX = container.width / 2;
       const centerY = container.height / 2;
-      const radius = Math.min(container.width, container.height) * 0.35;
+      const spacingX = container.width * 0.28;
+      const spacingY = container.height * 0.25;
       
-      // Define fixed positions in a hexagonal/circular pattern
-      const positions: Array<{x: number, y: number}> = [];
-      
-      // Center position
-      positions.push({ x: centerX, y: centerY });
-      
-      // Inner ring (6 positions)
-      for (let i = 0; i < 6; i++) {
-        const angle = (i * Math.PI * 2) / 6;
-        positions.push({
-          x: centerX + Math.cos(angle) * radius * 0.65,
-          y: centerY + Math.sin(angle) * radius * 0.65
-        });
-      }
-      
-      // Outer ring (2 more positions for the remaining logos)
-      for (let i = 0; i < 2; i++) {
-        const angle = (i * Math.PI * 2) / 2 + Math.PI / 4;
-        positions.push({
-          x: centerX + Math.cos(angle) * radius * 1.15,
-          y: centerY + Math.sin(angle) * radius * 1.15
-        });
-      }
+      // Define symmetric 3x3 grid positions to fill screen better
+      const positions: Array<{x: number, y: number}> = [
+        // Top row
+        { x: centerX - spacingX, y: centerY - spacingY },
+        { x: centerX, y: centerY - spacingY },
+        { x: centerX + spacingX, y: centerY - spacingY },
+        
+        // Middle row
+        { x: centerX - spacingX, y: centerY },
+        { x: centerX, y: centerY },
+        { x: centerX + spacingX, y: centerY },
+        
+        // Bottom row
+        { x: centerX - spacingX, y: centerY + spacingY },
+        { x: centerX, y: centerY + spacingY },
+        { x: centerX + spacingX, y: centerY + spacingY },
+      ];
       
       const newLogos: Logo[] = logoTemplates.map((template, index) => {
         const position = positions[index % positions.length];
@@ -138,7 +133,7 @@ const AnimatedLogos = () => {
     
     // Initialize after a short delay to ensure container is ready
     const timer = setTimeout(() => {
-      createHexagonalGrid();
+      createSymmetricGrid();
     }, 100);
 
     return () => {
@@ -148,36 +143,31 @@ const AnimatedLogos = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      // Recalculate positions on resize while maintaining fixed grid
+      // Recalculate positions on resize while maintaining symmetric grid
       if (!containerRef.current) return;
       
       const container = containerRef.current.getBoundingClientRect();
       const centerX = container.width / 2;
       const centerY = container.height / 2;
-      const radius = Math.min(container.width, container.height) * 0.35;
+      const spacingX = container.width * 0.28;
+      const spacingY = container.height * 0.25;
       
-      const positions: Array<{x: number, y: number}> = [];
-      
-      // Center position
-      positions.push({ x: centerX, y: centerY });
-      
-      // Inner ring
-      for (let i = 0; i < 6; i++) {
-        const angle = (i * Math.PI * 2) / 6;
-        positions.push({
-          x: centerX + Math.cos(angle) * radius * 0.65,
-          y: centerY + Math.sin(angle) * radius * 0.65
-        });
-      }
-      
-      // Outer ring
-      for (let i = 0; i < 2; i++) {
-        const angle = (i * Math.PI * 2) / 2 + Math.PI / 4;
-        positions.push({
-          x: centerX + Math.cos(angle) * radius * 1.15,
-          y: centerY + Math.sin(angle) * radius * 1.15
-        });
-      }
+      const positions: Array<{x: number, y: number}> = [
+        // Top row
+        { x: centerX - spacingX, y: centerY - spacingY },
+        { x: centerX, y: centerY - spacingY },
+        { x: centerX + spacingX, y: centerY - spacingY },
+        
+        // Middle row
+        { x: centerX - spacingX, y: centerY },
+        { x: centerX, y: centerY },
+        { x: centerX + spacingX, y: centerY },
+        
+        // Bottom row
+        { x: centerX - spacingX, y: centerY + spacingY },
+        { x: centerX, y: centerY + spacingY },
+        { x: centerX + spacingX, y: centerY + spacingY },
+      ];
       
       setLogos(prevLogos =>
         prevLogos.map((logo, index) => {
@@ -249,7 +239,7 @@ const AnimatedLogos = () => {
               >
                 ✅
               </motion.div>
-              <span className="font-medium">$50M+ Combined Valuation</span>
+              <span className="font-medium">Proven at Scale</span>
             </motion.div>
             
             <motion.div 
@@ -311,7 +301,7 @@ const AnimatedLogos = () => {
       <div 
         ref={containerRef}
         className="relative w-full h-full overflow-hidden bg-gradient-to-br from-white/60 via-gray-50/30 to-white/50 rounded-3xl border border-white/40 backdrop-blur-sm"
-        style={{ minHeight: '500px' }}
+        style={{ minHeight: '600px' }}
       >
         {/* Enhanced background pattern */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -413,13 +403,13 @@ const AnimatedLogos = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <div className="relative w-20 h-20 filter drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
+                  <div className="relative w-24 h-24 filter drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
                     <Image
                       src={logo.logoPath}
                       alt={`${logo.name} logo`}
                       fill
                       className="object-contain"
-                      sizes="80px"
+                      sizes="96px"
                     />
                   </div>
                 </motion.div>

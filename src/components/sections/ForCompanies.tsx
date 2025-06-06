@@ -305,7 +305,7 @@ const ForCompanies = () => {
                 >
                   🚀
                 </motion.div>
-                <span className="font-medium">Next Intake: April 2024</span>
+                <span className="font-medium">100% Engineering-Led</span>
               </motion.div>
             </motion.div>
           </motion.div>
