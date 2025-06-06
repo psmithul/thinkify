@@ -178,7 +178,7 @@ const Hero = () => {
                       transition={{ duration: 3, repeat: Infinity }}
                       className="text-lg"
                     >
-                      🔥
+                      📅
                     </motion.span>
                     Book an intro call
                   </span>

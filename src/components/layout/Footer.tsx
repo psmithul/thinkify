@@ -278,75 +278,78 @@ const Footer = () => {
 
         {/* Bottom footer */}
         <motion.div 
-          className="pt-8 border-t border-yellow-100 flex flex-col md:flex-row justify-between items-center"
+          className="pt-8 border-t border-yellow-100"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <motion.p 
-            className="text-gray-500 text-sm text-center md:text-left"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          {/* CTA Message above copyright */}
+          <motion.div
+            className="text-center mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            © {new Date().getFullYear()} Thinkify. All rights reserved. Made with ❤️ in India
-          </motion.p>
-          <div className="flex space-x-4">
-            {socialLinks.map((social, index) => (
-              <motion.div
-                key={social.name}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: 0.6 + index * 0.1,
-                  type: "spring",
-                  stiffness: 200 
-                }}
-                whileHover={{ 
-                  scale: 1.3, 
-                  rotate: 360,
-                  y: -5 
-                }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Link 
-                  href={social.href}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-yellow-600 transition-colors duration-300 block p-2 rounded-full hover:bg-yellow-50"
-                  aria-label={`Follow us on ${social.name}`}
-                >
-                  {social.icon}
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            <motion.p 
+              className="text-sm text-gray-600 font-medium"
+              animate={{ 
+                scale: [1, 1.02, 1] 
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity 
+              }}
+            >
+              🚀 Ready to scale your engineering team? Let&apos;s build something amazing together!
+            </motion.p>
+          </motion.div>
 
-        {/* Additional contact info */}
-        <motion.div
-          className="mt-8 pt-6 border-t border-yellow-100 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-        >
-          <motion.p 
-            className="text-sm text-gray-500"
-            animate={{ 
-              scale: [1, 1.02, 1] 
-            }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity 
-            }}
-          >
-            🚀 Ready to scale your engineering team? Let&apos;s build something amazing together!
-          </motion.p>
+          {/* Copyright and social links */}
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <motion.p 
+              className="text-gray-500 text-sm text-center md:text-left"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              © {new Date().getFullYear()} Thinkify. All rights reserved. Made with ❤️ in India
+            </motion.p>
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              {socialLinks.map((social, index) => (
+                <motion.div
+                  key={social.name}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: 0.7 + index * 0.1,
+                    type: "spring",
+                    stiffness: 200 
+                  }}
+                  whileHover={{ 
+                    scale: 1.3, 
+                    rotate: 360,
+                    y: -5 
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Link 
+                    href={social.href}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-yellow-600 transition-colors duration-300 block p-2 rounded-full hover:bg-yellow-50"
+                    aria-label={`Follow us on ${social.name}`}
+                  >
+                    {social.icon}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </footer>
