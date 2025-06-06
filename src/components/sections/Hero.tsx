@@ -158,7 +158,7 @@ const Hero = () => {
                 animate={{ opacity: [0.8, 1, 0.8] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                🚀 The only staffing company run BY engineers FOR engineers. Our ex-lead engineers from top tech companies personally vet every developer. Skip months of hiring - get pre-vetted talent that ships immediately.
+                Ex-lead engineers from top tech firms vet every developer. Skip the hiring hassle—get pre-vetted talent ready to ship.
               </motion.span>
             </motion.div>
               
@@ -186,7 +186,7 @@ const Hero = () => {
                     >
                       🔥
                     </motion.span>
-                    Only 2 Spots Left This Month - Claim Yours
+                    Book 
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
@@ -266,19 +266,6 @@ const Hero = () => {
                 transition={{ delay: 1.2 }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-50 to-orange-50 rounded-full border border-red-200"
               >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-2 h-2 bg-red-500 rounded-full"
-                />
-                <span className="text-sm font-medium text-red-700">
-                  <motion.span
-                    animate={{ opacity: [0.8, 1, 0.8] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    7 companies contacted us this week - spots filling fast
-                  </motion.span>
-                </span>
               </motion.div>
               
               {/* Trust indicators */}
