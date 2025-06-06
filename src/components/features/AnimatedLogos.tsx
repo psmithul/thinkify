@@ -98,7 +98,7 @@ const AnimatedLogos = () => {
       const centerX = container.width / 2;
       const centerY = container.height / 2;
       const spacingX = container.width * 0.28;
-      const spacingY = container.height * 0.25;
+      const spacingY = container.height * 0.20;
       
       // Define symmetric 3x3 grid positions to fill screen better
       const positions: Array<{x: number, y: number}> = [
@@ -150,7 +150,7 @@ const AnimatedLogos = () => {
       const centerX = container.width / 2;
       const centerY = container.height / 2;
       const spacingX = container.width * 0.28;
-      const spacingY = container.height * 0.25;
+      const spacingY = container.height * 0.20;
       
       const positions: Array<{x: number, y: number}> = [
         // Top row
@@ -301,7 +301,7 @@ const AnimatedLogos = () => {
       <div 
         ref={containerRef}
         className="relative w-full h-full overflow-hidden bg-gradient-to-br from-white/60 via-gray-50/30 to-white/50 rounded-3xl border border-white/40 backdrop-blur-sm"
-        style={{ minHeight: '600px' }}
+        style={{ minHeight: '650px' }}
       >
         {/* Enhanced background pattern */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
