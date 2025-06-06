@@ -185,36 +185,14 @@ const Testimonials = () => {
         className="container mx-auto px-4 relative z-10"
         style={{ y, opacity }}
       >
-        {/* Header with real-time stats */}
+        {/* Header */}
         <motion.div 
-          className="text-center mb-16 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8 }}
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-full border border-yellow-200 mb-6"
-          >
-            <motion.div
-              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-2 h-2 bg-yellow-500 rounded-full"
-            />
-            <span className="text-sm font-medium text-gray-700">
-              <motion.span
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                Live: 98% satisfaction rate across all placements
-              </motion.span>
-            </span>
-          </motion.div>
-
           <motion.h2 
             className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 relative"
             initial={{ opacity: 0, y: 30 }}
