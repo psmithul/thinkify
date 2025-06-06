@@ -180,7 +180,7 @@ const Hero = () => {
                     >
                       🔥
                     </motion.span>
-                    Book a meeting today
+                    Book an intro call
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
@@ -246,24 +246,28 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* Updated trust indicators with urgency */}
+            {/* Updated trust indicators */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="mt-8 space-y-4"
+              className="mt-8"
             >
-              {/* Urgency indicator */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-50 to-orange-50 rounded-full border border-red-200"
-              >
-              </motion.div>
-              
               {/* Trust indicators */}
               <div className="flex items-center gap-6 text-sm text-gray-500">
+                <motion.div 
+                  className="flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-green-500"
+                  >
+                    💰
+                  </motion.div>
+                  <span>30% cost savings</span>
+                </motion.div>
                 <motion.div 
                   className="flex items-center gap-2"
                   whileHover={{ scale: 1.05 }}
@@ -275,20 +279,7 @@ const Hero = () => {
                   >
                     ⭐
                   </motion.div>
-                  <span>Ex-Google/Meta Engineers</span>
-                </motion.div>
-                <motion.div 
-                  className="flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="text-green-500"
-                  >
-                    ✅
-                  </motion.div>
-                  <span>Technical Vetting Only</span>
+                  <span>20+ clients served</span>
                 </motion.div>
                 <motion.div 
                   className="flex items-center gap-2"
@@ -301,7 +292,7 @@ const Hero = () => {
                   >
                     🚀
                   </motion.div>
-                  <span>Ships Production Code</span>
+                  <span>2x faster hiring</span>
                 </motion.div>
               </div>
             </motion.div>
@@ -372,4 +363,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;

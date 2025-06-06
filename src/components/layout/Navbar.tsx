@@ -205,7 +205,7 @@ const Navbar = () => {
               className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center gap-1">
-                Get Started
+                Get in Touch
               </span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"

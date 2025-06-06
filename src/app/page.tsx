@@ -9,7 +9,6 @@ import CTABanner from "@/components/sections/CTABanner";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/ui/floating-contact";
 import LoadingScreen from "@/components/ui/loading-screen";
-import Breadcrumb from "@/components/ui/breadcrumb";
 import { motion, AnimatePresence } from "framer-motion";
 import { createSectionObserver, throttle } from "@/lib/utils";
 
@@ -249,9 +248,6 @@ export default function Home() {
       >
         {/* Navigation */}
         <Navbar />
-        
-        {/* Breadcrumb */}
-        <Breadcrumb currentSection={currentSection} className="hidden lg:block" />
         
         {/* Content */}
         <Hero />
