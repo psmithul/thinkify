@@ -451,9 +451,66 @@ const ForCompanies = () => {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
-    </section>
-  );
-};
 
-export default ForCompanies;
+        {/* India & USA Presence Section */}
+        <motion.div
+          className="mt-32 relative"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Section container with enhanced design */}
+          <div className="relative bg-gradient-to-br from-white via-indigo-50/30 to-orange-50/20 rounded-3xl p-12 border border-rose-200/30 shadow-2xl overflow-hidden">
+            {/* Background decoration */}
+            <motion.div
+              className="absolute inset-0 opacity-5"
+              animate={{
+                backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
+              }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              style={{
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f43f5e' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
+              }}
+            />
+            
+            {/* Header */}
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {/* Enhanced Badge */}
+              <motion.div
+                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-indigo-100 via-white to-rose-100 rounded-full border-2 border-gradient-to-r from-indigo-200 to-rose-200 mb-8 shadow-lg"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.span
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  className="text-2xl"
+                >
+                  🌐
+                </motion.span>
+              </motion.div>
+
+              <motion.h3
+                className="text-5xl md:text-6xl font-bold mb-6"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <motion.span
+                  animate={{ 
+                    backgroundPosition: ["0%", "100%", "0%"]
+                  }}
+                  transition={{ 
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="bg-gradient-to-r from-indigo-600 via-rose-600 via-orange-600 to-indigo-600 bg-[length:300%_100%] bg-clip-text text-transparent"
