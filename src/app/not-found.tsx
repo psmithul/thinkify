@@ -273,7 +273,7 @@ const NotFoundPage = () => {
             >
               ⚡
             </motion.span>
-            Thinkify Labs - Building Excellence, One Line at a Time
+            Thinkify - Building Excellence, One Line at a Time
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}

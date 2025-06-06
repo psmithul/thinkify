@@ -16,7 +16,7 @@ const CTABanner = () => {
   };
 
   const handleWhatsAppClick = () => {
-    openWhatsApp("Hi! I'm interested in Thinkify Labs' services and would like to discuss our engineering needs.");
+    openWhatsApp("Hi! I'm interested in Thinkify's services and would like to discuss our engineering needs.");
   };
 
   const handlePhoneClick = () => {

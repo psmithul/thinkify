@@ -63,7 +63,7 @@ export function makePhoneCall() {
 }
 
 // WhatsApp utility - keep as is since user requested WhatsApp button to remain
-export function openWhatsApp(message: string = "Hi! I'm interested in Thinkify Labs' services.") {
+export function openWhatsApp(message: string = "Hi! I'm interested in Thinkify's services.") {
   const whatsappUrl = `https://wa.me/919902417369?text=${encodeURIComponent(message)}`;
   window.open(whatsappUrl, '_blank');
 }

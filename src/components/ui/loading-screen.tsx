@@ -146,7 +146,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {"Thinkify Labs".split("").map((letter, i) => (
+              {"Thinkify".split("").map((letter, i) => (
                 <motion.span
                   key={i}
                   className="text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent"

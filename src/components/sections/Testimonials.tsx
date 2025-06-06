@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    quote: "Thinkify Labs helped us scale our engineering team when we were struggling to find quality talent. Their engineers integrated seamlessly and delivered results from day one.",
+    quote: "Thinkify helped us scale our engineering team when we were struggling to find quality talent. Their engineers integrated seamlessly and delivered results from day one.",
     name: "Arjun Mehta", 
     title: "CTO, StealthMode Startup",
     avatar: "/images/avatar-placeholder.png",
@@ -46,7 +46,7 @@ const testimonials = [
     techStack: ["JavaScript", "React", "GraphQL"]
   },
   {
-    quote: "Thinkify Labs helped us transition from a small team to a proper engineering organization. Their fractional CTO guidance was invaluable during our Series A prep.",
+    quote: "Thinkify helped us transition from a small team to a proper engineering organization. Their fractional CTO guidance was invaluable during our Series A prep.",
     name: "Priya Sharma",
     title: "Founder, EdTech Startup",
     avatar: "/images/avatar-placeholder.png",

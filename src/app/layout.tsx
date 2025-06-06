@@ -9,11 +9,11 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Thinkify Labs | Ex-Flipkart Engineers Finding Your Next Tech Stars",
+  title: "Thinkify | Ex-Flipkart Engineers Finding Your Next Tech Stars",
   description: "We help startups recruit excellent engineers. Our team of ex-Flipkart engineers screen candidates so you don't have to.",
   keywords: ["tech recruitment", "startup hiring", "engineering talent", "ex-Flipkart", "technical screening", "India"],
-  authors: [{ name: "Thinkify Labs" }],
-  creator: "Thinkify Labs",
+  authors: [{ name: "Thinkify" }],
+  creator: "Thinkify",
 };
 
 export default function RootLayout({

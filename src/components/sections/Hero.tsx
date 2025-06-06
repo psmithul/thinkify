@@ -103,33 +103,6 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.div 
-              className="text-sm font-medium text-yellow-600 mb-3 tracking-wide"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <motion.span
-                animate={{ 
-                  opacity: [0.7, 1, 0.7],
-                  scale: [1, 1.05, 1] 
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="relative"
-              >
-                ⚡ Thinkify Labs
-                <motion.div
-                  className="absolute -inset-1 bg-yellow-200 rounded-lg opacity-20 -z-10"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </motion.span>
-              {" • "}
-              <span className="underline cursor-pointer hover:text-orange-600 transition-colors duration-300">
-                🏆 Engineer-Led. Engineer-Vetted. Engineer-Delivered.
-              </span>
-            </motion.div>
-
             <motion.h1 
               className="mercor-heading text-gray-900 mb-4 md:mb-6"
               initial={{ opacity: 0, y: 30 }}
@@ -142,7 +115,7 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="relative"
               >
-                Ex-Lead Engineers Vet
+                World-Class Talent,
                 <motion.div
                   className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                   initial={{ scaleX: 0 }}
@@ -171,7 +144,7 @@ const Hero = () => {
                   backgroundSize: "200% 100%"
                 }}
               >
-                World-Class Engineers for You
+                 Vetted by Ex-leads
               </motion.span>
             </motion.h1>
 

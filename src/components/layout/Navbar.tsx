@@ -140,7 +140,7 @@ const Navbar = () => {
                   : "0 0 10px rgba(251, 191, 36, 0.2)"
               }}
             >
-              ⚡ Thinkify Labs
+              ⚡ Thinkify
             </motion.span>
           </Link>
         </motion.div>
@@ -205,14 +205,7 @@ const Navbar = () => {
               className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center gap-1">
-                <motion.span
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                  className="text-sm"
-                >
-                  ��
-                </motion.span>
-                Last 3 Q1 Spots
+                Get Started
               </span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"

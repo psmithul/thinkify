@@ -42,7 +42,7 @@ const Footer = () => {
   };
 
   const handleWhatsAppClick = () => {
-    openWhatsApp("Hi! I'm interested in Thinkify Labs' services and would like to discuss our engineering needs.");
+    openWhatsApp("Hi! I'm interested in Thinkify's services and would like to discuss our engineering needs.");
   };
 
   const handleScheduleCall = () => {
@@ -147,7 +147,7 @@ const Footer = () => {
                 backgroundSize: "200% 100%"
               }}
             >
-              Thinkify Labs
+              Thinkify
             </motion.h3>
             <motion.p 
               className="text-gray-600 mb-6 max-w-sm leading-relaxed"
@@ -351,16 +351,13 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <motion.p 
-            className="text-gray-500 text-sm mb-4 md:mb-0"
-            animate={{ 
-              opacity: [0.7, 1, 0.7] 
-            }}
-            transition={{ 
-              duration: 3, 
-              repeat: Infinity 
-            }}
+            className="text-gray-500 text-sm text-center md:text-left"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
           >
-            © {new Date().getFullYear()} Thinkify Labs. All rights reserved. Made with ❤️ in India
+            © {new Date().getFullYear()} Thinkify. All rights reserved. Made with ❤️ in India
           </motion.p>
           <div className="flex space-x-4">
             {socialLinks.map((social, index) => (
