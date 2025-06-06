@@ -28,7 +28,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-24">
+    <section className="relative min-h-screen overflow-hidden pt-24 pb-8">
       {/* Background with subtle pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/40 via-white to-orange-50/40 z-0" />
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.01] mix-blend-overlay z-0"></div>
@@ -93,7 +93,7 @@ const Hero = () => {
       </div>
       
       {/* Content Container */}
-      <div className="container mx-auto px-4 py-8 md:py-12 relative z-10 flex flex-col h-[calc(100vh-4rem)]">
+      <div className="container mx-auto px-4 py-8 md:py-12 relative z-10 flex flex-col h-[calc(100vh-6rem)]">
         <div className="flex flex-col lg:flex-row items-center flex-grow">
           {/* Left Content (Text) */}
           <motion.div 
@@ -186,7 +186,7 @@ const Hero = () => {
                     >
                       🔥
                     </motion.span>
-                    Book 
+                    Book a meeting today
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
@@ -343,7 +343,7 @@ const Hero = () => {
         
         {/* Subtle banner at bottom with logos */}
         <motion.div 
-          className="w-full max-w-4xl mx-auto mb-4 z-20 opacity-70"
+          className="w-full max-w-4xl mx-auto mb-0 z-20 opacity-70"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 0.7, y: 0 }}
           transition={{ delay: 1.2, duration: 1 }}

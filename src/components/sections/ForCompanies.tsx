@@ -58,7 +58,7 @@ const ForCompanies = () => {
   };
 
   return (
-    <section id="companies" className="py-20 md:pt-32 md:pb-20 relative overflow-hidden bg-gradient-to-br from-white via-yellow-50/20 to-orange-50/20">
+    <section id="companies" className="py-20 md:pt-16 md:pb-20 relative overflow-hidden bg-gradient-to-br from-white via-yellow-50/20 to-orange-50/20">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.01] mix-blend-overlay"></div>
       
