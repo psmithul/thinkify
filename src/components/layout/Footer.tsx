@@ -284,8 +284,8 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          {/* Copyright */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          {/* Copyright and Social Links */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <motion.p 
               className="text-sm text-gray-600"
               initial={{ opacity: 0, y: 10 }}
@@ -296,12 +296,75 @@ const Footer = () => {
               © 2024 Thinkify. All rights reserved.
             </motion.p>
             
+            {/* Social Media Links */}
+            <motion.div 
+              className="flex items-center gap-6"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gradient-to-r from-yellow-100 to-orange-100 hover:from-yellow-200 hover:to-orange-200 rounded-full flex items-center justify-center text-gray-600 hover:text-yellow-600 transition-all duration-300 group shadow-sm hover:shadow-md"
+                  aria-label={`Follow us on ${social.name}`}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: 0.9 + index * 0.1,
+                    type: "spring",
+                    stiffness: 200 
+                  }}
+                  whileHover={{ 
+                    scale: 1.2, 
+                    rotate: 360,
+                    y: -3 
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <motion.div
+                    className="relative"
+                    animate={{ 
+                      rotate: [0, 5, -5, 0] 
+                    }}
+                    transition={{ 
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: index * 0.5
+                    }}
+                  >
+                    {social.icon}
+                  </motion.div>
+                  
+                  {/* Floating micro animation */}
+                  <motion.div
+                    className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-0 group-hover:opacity-100"
+                    animate={{ 
+                      scale: [0, 1, 0],
+                      rotate: [0, 180, 360]
+                    }}
+                    transition={{ 
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: index * 0.2
+                    }}
+                  />
+                </motion.a>
+              ))}
+            </motion.div>
+            
             <motion.div 
               className="flex gap-6 text-sm text-gray-600"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
             >
               <motion.a 
                 href="#" 

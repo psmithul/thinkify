@@ -367,35 +367,85 @@ const ForCompanies = () => {
                         {feature.description}
                       </motion.p>
 
-                      {/* Highlights Section */}
+                      {/* Enhanced Key Benefits Section */}
                       <div className="mt-auto">
                         <motion.h4 
-                          className="text-sm font-semibold text-yellow-600 mb-3"
+                          className="text-sm font-semibold text-gray-800 mb-4 flex items-center justify-center gap-2"
                           initial={{ opacity: 0.8 }}
                           whileInView={{ opacity: 1 }}
                           transition={{ duration: 0.3 }}
                         >
-                          Key Benefits:
+                          <motion.span
+                            animate={{ rotate: [0, 360] }}
+                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                            className="text-yellow-600"
+                          >
+                            ⭐
+                          </motion.span>
+                          Key Benefits
                         </motion.h4>
-                        <motion.ul
-                          className="space-y-2 text-left"
+                        
+                        <motion.div
+                          className="grid grid-cols-2 gap-2"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                           {feature.highlights.map((highlight, highlightIndex) => (
-                            <motion.li
+                            <motion.div
                               key={highlightIndex}
-                              className="text-gray-600 text-sm flex items-start"
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.3, delay: highlightIndex * 0.1 }}
+                              className="relative group"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.4, delay: highlightIndex * 0.1 }}
+                              whileHover={{ scale: 1.05, y: -2 }}
                             >
-                              <span className="text-yellow-500 mr-2 mt-1 text-xs">•</span>
-                              {highlight}
-                            </motion.li>
+                              <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200/50 rounded-xl p-3 text-center shadow-sm group-hover:shadow-md transition-all duration-300">
+                                {/* Icon based on benefit type */}
+                                <motion.div 
+                                  className="text-lg mb-1"
+                                  animate={{ 
+                                    scale: [1, 1.1, 1] 
+                                  }}
+                                  transition={{ 
+                                    duration: 2 + highlightIndex * 0.5,
+                                    repeat: Infinity,
+                                    delay: highlightIndex * 0.3
+                                  }}
+                                >
+                                  {highlightIndex === 0 && "⚡"}
+                                  {highlightIndex === 1 && "🎯"}
+                                  {highlightIndex === 2 && "🔧"}
+                                  {highlightIndex === 3 && "🚀"}
+                                </motion.div>
+                                
+                                <p className="text-xs font-medium text-gray-700 leading-tight">
+                                  {highlight}
+                                </p>
+                                
+                                {/* Subtle gradient overlay on hover */}
+                                <motion.div
+                                  className="absolute inset-0 bg-gradient-to-r from-yellow-100/0 via-yellow-100/30 to-orange-100/0 rounded-xl opacity-0 group-hover:opacity-100"
+                                  transition={{ duration: 0.3 }}
+                                />
+                              </div>
+                              
+                              {/* Floating micro animation */}
+                              <motion.div
+                                className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-0 group-hover:opacity-100"
+                                animate={{ 
+                                  scale: [0, 1, 0],
+                                  rotate: [0, 180, 360]
+                                }}
+                                transition={{ 
+                                  duration: 1.5,
+                                  repeat: Infinity,
+                                  delay: highlightIndex * 0.2
+                                }}
+                              />
+                            </motion.div>
                           ))}
-                        </motion.ul>
+                        </motion.div>
                       </div>
                     </div>
                   </CardContent>
@@ -441,23 +491,33 @@ const ForCompanies = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              {/* Badge */}
+              {/* Enhanced Badge */}
               <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-green-100 rounded-full border border-blue-200/50 mb-6"
-                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-100 via-white to-green-100 rounded-full border-2 border-gradient-to-r from-blue-200 to-green-200 mb-8 shadow-lg"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.3 }}
               >
                 <motion.span
                   animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  className="text-lg"
+                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  className="text-2xl"
                 >
                   🌐
                 </motion.span>
-                <span className="text-sm font-medium text-gray-700">India & USA Expertise</span>
+                <span className="text-base font-semibold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                  Bridging India & USA Excellence
+                </span>
+                <motion.span
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-lg"
+                >
+                  ⚡
+                </motion.span>
               </motion.div>
 
               <motion.h3
-                className="text-4xl md:text-5xl font-bold mb-4"
+                className="text-5xl md:text-6xl font-bold mb-6"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -468,210 +528,485 @@ const ForCompanies = () => {
                     backgroundPosition: ["0%", "100%", "0%"]
                   }}
                   transition={{ 
-                    duration: 4,
+                    duration: 5,
                     repeat: Infinity,
                     ease: "linear"
                   }}
-                  className="bg-gradient-to-r from-blue-600 via-green-600 to-blue-600 bg-[length:200%_100%] bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-blue-600 via-purple-600 via-green-600 to-blue-600 bg-[length:300%_100%] bg-clip-text text-transparent"
                 >
-                  Serving India & USA Markets
+                  Two Powerhouse Markets,
+                </motion.span>
+                <br />
+                <motion.span
+                  animate={{ 
+                    backgroundPosition: ["100%", "0%", "100%"]
+                  }}
+                  transition={{ 
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: 1
+                  }}
+                  className="bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 bg-[length:200%_100%] bg-clip-text text-transparent"
+                >
+                  One Unified Vision
                 </motion.span>
               </motion.h3>
               
               <motion.p
-                className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+                className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                We specialize in connecting top Indian engineering talent with innovative companies in both Indian and US markets.
+                We don't just connect talent across borders—we create <span className="font-semibold text-gray-800">strategic partnerships</span> that leverage India's engineering excellence and America's innovation ecosystem. Experience the perfect blend of <span className="text-orange-600 font-semibold">world-class talent</span> and <span className="text-blue-600 font-semibold">global market expertise</span>.
               </motion.p>
             </motion.div>
 
-            {/* Market Stats Grid */}
+            {/* Enhanced Market Stats Grid */}
             <motion.div
-              className="grid md:grid-cols-4 gap-6 mb-16"
+              className="grid md:grid-cols-4 gap-6 mb-20"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               {[
-                { icon: "🇮🇳", number: "500+", label: "Engineers in India", color: "text-orange-600" },
-                { icon: "🇺🇸", number: "100+", label: "US Clients Served", color: "text-blue-600" },
-                { icon: "⏰", number: "24/7", label: "India-US Support", color: "text-purple-600" },
-                { icon: "🚀", number: "200+", label: "Projects Delivered", color: "text-green-600" }
+                { 
+                  icon: "🇮🇳", 
+                  number: "1000+", 
+                  label: "Elite Engineers", 
+                  color: "text-orange-600",
+                  description: "Top 1% Indian talent",
+                  gradient: "from-orange-500 to-red-500"
+                },
+                { 
+                  icon: "🇺🇸", 
+                  number: "250+", 
+                  label: "US Success Stories", 
+                  color: "text-blue-600",
+                  description: "Startups to Fortune 500",
+                  gradient: "from-blue-500 to-purple-500"
+                },
+                { 
+                  icon: "⚡", 
+                  number: "72hrs", 
+                  label: "Time to Deploy", 
+                  color: "text-yellow-600",
+                  description: "From match to production",
+                  gradient: "from-yellow-500 to-orange-500"
+                },
+                { 
+                  icon: "🎯", 
+                  number: "99.2%", 
+                  label: "Client Satisfaction", 
+                  color: "text-green-600",
+                  description: "Consistent excellence",
+                  gradient: "from-green-500 to-emerald-500"
+                }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/50 shadow-lg"
+                  className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 text-center border border-white/50 shadow-xl relative overflow-hidden group"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileHover={{ scale: 1.05, y: -10 }}
                 >
+                  {/* Background gradient */}
                   <motion.div
-                    className="text-4xl mb-3"
+                    className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-5`}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  <motion.div
+                    className="text-5xl mb-4"
                     animate={{ 
-                      scale: [1, 1.1, 1],
+                      scale: [1, 1.15, 1],
                       rotate: [0, 5, -5, 0]
                     }}
                     transition={{ 
-                      duration: 3,
+                      duration: 4,
                       repeat: Infinity,
                       delay: index * 0.5
                     }}
                   >
                     {stat.icon}
                   </motion.div>
-                  <div className={`text-3xl font-bold ${stat.color} mb-1`}>
+                  <div className={`text-4xl font-bold ${stat.color} mb-2`}>
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 font-medium text-sm">
+                  <div className="text-gray-800 font-semibold text-base mb-1">
                     {stat.label}
                   </div>
+                  <div className="text-gray-500 text-sm">
+                    {stat.description}
+                  </div>
+                  
+                  {/* Floating elements */}
+                  <motion.div
+                    className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-0 group-hover:opacity-100"
+                    animate={{ scale: [0, 1, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                  />
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Market Highlights */}
+            {/* Enhanced Market Highlights */}
             <motion.div
-              className="grid md:grid-cols-2 gap-12"
+              className="grid md:grid-cols-2 gap-16"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              {/* India Market */}
+              {/* India Market Excellence */}
               <motion.div
-                className="space-y-6"
+                className="space-y-8 relative"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex items-center gap-3 mb-4">
+                {/* Enhanced Header */}
+                <div className="flex items-center gap-4 mb-6">
                   <motion.div
-                    className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center text-2xl shadow-lg"
-                    whileHover={{ rotate: 360 }}
+                    className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-3xl shadow-xl relative overflow-hidden group"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20"
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0.8, 0.5]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
                     🇮🇳
                   </motion.div>
-                  <h4 className="text-2xl font-bold text-gray-800">India Market</h4>
+                  <div>
+                    <h4 className="text-3xl font-bold text-gray-800 mb-1">India Market</h4>
+                    <p className="text-orange-600 font-semibold">Engineering Powerhouse</p>
+                  </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Deep expertise in the Indian tech ecosystem. We understand local talent, market dynamics, and business culture.
-                </p>
-                <ul className="space-y-2">
+                
+                <motion.p 
+                  className="text-lg text-gray-600 leading-relaxed mb-6"
+                  initial={{ opacity: 0.8 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  Home to the world's largest pool of <span className="font-semibold text-gray-800">STEM graduates</span>, India is where innovation meets excellence. We tap into tier-1 engineering colleges, tech hubs, and startup ecosystems to bring you the <span className="text-orange-600 font-semibold">cream of the crop</span>.
+                </motion.p>
+                
+                {/* Enhanced Capabilities Grid */}
+                <div className="grid grid-cols-2 gap-4">
                   {[
-                    "Local compliance & legal support",
-                    "Indian startup ecosystem expertise",
-                    "Bangalore, Hyderabad, Pune talent pools",
-                    "IST timezone advantages"
+                    { 
+                      icon: "🏛️", 
+                      title: "Legal & Compliance", 
+                      desc: "Full regulatory support",
+                      color: "from-orange-100 to-red-100"
+                    },
+                    { 
+                      icon: "🌟", 
+                      title: "Startup Ecosystem", 
+                      desc: "Bangalore to Mumbai network",
+                      color: "from-yellow-100 to-orange-100"
+                    },
+                    { 
+                      icon: "🎯", 
+                      title: "Elite Talent Pools", 
+                      desc: "IIT, NIT, and top-tier grads",
+                      color: "from-red-100 to-orange-100"
+                    },
+                    { 
+                      icon: "🕐", 
+                      title: "Timezone Advantage", 
+                      desc: "IST overlap optimization",
+                      color: "from-orange-100 to-yellow-100"
+                    }
                   ].map((item, i) => (
-                    <motion.li
+                    <motion.div
                       key={i}
-                      className="flex items-center gap-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      className={`bg-gradient-to-br ${item.color} p-4 rounded-xl border border-orange-200/30 shadow-sm group hover:shadow-md transition-all duration-300`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.9 + i * 0.1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
                     >
-                      <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                      <span className="text-gray-700">{item}</span>
-                    </motion.li>
+                      <motion.div 
+                        className="text-2xl mb-2"
+                        animate={{ 
+                          rotate: [0, 10, -10, 0] 
+                        }}
+                        transition={{ 
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: i * 0.5
+                        }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                      <h5 className="font-semibold text-gray-800 text-sm mb-1">{item.title}</h5>
+                      <p className="text-gray-600 text-xs leading-tight">{item.desc}</p>
+                    </motion.div>
                   ))}
-                </ul>
+                </div>
+                
+                {/* Floating decorative element */}
+                <motion.div
+                  className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-orange-200/30 to-red-200/30 rounded-full blur-xl"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.6, 0.3]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
               </motion.div>
 
-              {/* USA Market */}
+              {/* USA Market Innovation */}
               <motion.div
-                className="space-y-6"
+                className="space-y-8 relative"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex items-center gap-3 mb-4">
+                {/* Enhanced Header */}
+                <div className="flex items-center gap-4 mb-6">
                   <motion.div
-                    className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-2xl shadow-lg"
-                    whileHover={{ rotate: 360 }}
+                    className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-3xl shadow-xl relative overflow-hidden group"
+                    whileHover={{ rotate: -360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20"
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0.8, 0.5]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                    />
                     🇺🇸
                   </motion.div>
-                  <h4 className="text-2xl font-bold text-gray-800">USA Market</h4>
+                  <div>
+                    <h4 className="text-3xl font-bold text-gray-800 mb-1">USA Market</h4>
+                    <p className="text-blue-600 font-semibold">Innovation Catalyst</p>
+                  </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Strategic partnerships with US companies. We bridge the gap between Indian talent and American innovation needs.
-                </p>
-                <ul className="space-y-2">
+                
+                <motion.p 
+                  className="text-lg text-gray-600 leading-relaxed mb-6"
+                  initial={{ opacity: 0.8 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  The epicenter of <span className="font-semibold text-gray-800">global innovation</span>, where unicorns are born and industries transformed. We bridge Indian engineering excellence with American business acumen, creating partnerships that scale from <span className="text-blue-600 font-semibold">Silicon Valley to Wall Street</span>.
+                </motion.p>
+                
+                {/* Enhanced Capabilities Grid */}
+                <div className="grid grid-cols-2 gap-4">
                   {[
-                    "Silicon Valley connections",
-                    "US time zone coverage",
-                    "Cultural integration training",
-                    "Remote-first work models"
+                    { 
+                      icon: "🌉", 
+                      title: "Silicon Valley Network", 
+                      desc: "Direct startup connections",
+                      color: "from-blue-100 to-purple-100"
+                    },
+                    { 
+                      icon: "🕒", 
+                      title: "US Timezone Sync", 
+                      desc: "EST/PST coverage model",
+                      color: "from-purple-100 to-blue-100"
+                    },
+                    { 
+                      icon: "🎭", 
+                      title: "Cultural Integration", 
+                      desc: "Cross-cultural excellence",
+                      color: "from-blue-100 to-indigo-100"
+                    },
+                    { 
+                      icon: "🚀", 
+                      title: "Remote-First Models", 
+                      desc: "Distributed team mastery",
+                      color: "from-indigo-100 to-blue-100"
+                    }
                   ].map((item, i) => (
-                    <motion.li
+                    <motion.div
                       key={i}
-                      className="flex items-center gap-2"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      className={`bg-gradient-to-br ${item.color} p-4 rounded-xl border border-blue-200/30 shadow-sm group hover:shadow-md transition-all duration-300`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.9 + i * 0.1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
                     >
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                      <span className="text-gray-700">{item}</span>
-                    </motion.li>
+                      <motion.div 
+                        className="text-2xl mb-2"
+                        animate={{ 
+                          rotate: [0, -10, 10, 0] 
+                        }}
+                        transition={{ 
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: i * 0.5
+                        }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                      <h5 className="font-semibold text-gray-800 text-sm mb-1">{item.title}</h5>
+                      <p className="text-gray-600 text-xs leading-tight">{item.desc}</p>
+                    </motion.div>
                   ))}
-                </ul>
+                </div>
+                
+                {/* Floating decorative element */}
+                <motion.div
+                  className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-xl"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.6, 0.3]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+                />
               </motion.div>
             </motion.div>
 
-            {/* Market Flags Display */}
+            {/* Market Flags Display & CTA */}
             <motion.div
-              className="mt-16 text-center"
+              className="mt-20 text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
-              <p className="text-gray-600 mb-6">
-                Join companies in <strong>India & USA</strong> who trust us with their engineering needs
-              </p>
+              <motion.div
+                className="mb-12"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.3 }}
+              >
+                <motion.h4 
+                  className="text-2xl md:text-3xl font-bold text-gray-800 mb-4"
+                  animate={{ 
+                    backgroundPosition: ["0%", "100%", "0%"]
+                  }}
+                  transition={{ 
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                >
+                  Ready to Scale Across <span className="bg-gradient-to-r from-orange-600 to-blue-600 bg-[length:200%_100%] bg-clip-text text-transparent">Two Continents</span>?
+                </motion.h4>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Join <strong className="text-gray-800">250+ companies</strong> in India & USA who've transformed their engineering capabilities with our vetted talent network.
+                </p>
+              </motion.div>
               
               <motion.div
-                className="flex justify-center gap-8"
+                className="flex justify-center gap-12 mb-8"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 1.4 }}
               >
                 {[
-                  { flag: "🇮🇳", name: "India", market: "Domestic" },
-                  { flag: "🇺🇸", name: "United States", market: "International" }
+                  { flag: "🇮🇳", name: "India", market: "Engineering Hub", clients: "150+ Local Clients" },
+                  { flag: "🇺🇸", name: "United States", market: "Innovation Center", clients: "100+ US Partners" }
                 ].map((country, index) => (
                   <motion.div
                     key={country.name}
-                    className="flex flex-col items-center gap-2 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-white/50 shadow-lg"
-                    whileHover={{ scale: 1.1, y: -5 }}
+                    className="flex flex-col items-center gap-3 p-6 bg-white/70 backdrop-blur-sm rounded-2xl border border-white/50 shadow-lg relative group"
+                    whileHover={{ scale: 1.05, y: -5 }}
                     animate={{
-                      y: [0, -10, 0]
+                      y: [0, -8, 0]
                     }}
                     transition={{
                       hover: { duration: 0.3 },
                       y: { 
-                        duration: 3 + index, 
+                        duration: 4 + index, 
                         repeat: Infinity, 
                         ease: "easeInOut",
-                        delay: index * 1.5
+                        delay: index * 2
                       }
                     }}
                   >
-                    <span className="text-4xl">{country.flag}</span>
-                    <span className="text-sm font-semibold text-gray-700">{country.name}</span>
-                    <span className="text-xs text-gray-500">{country.market}</span>
+                    {/* Floating decoration */}
+                    <motion.div
+                      className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full opacity-0 group-hover:opacity-100"
+                      animate={{ 
+                        scale: [0, 1, 0],
+                        rotate: [0, 360]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.5
+                      }}
+                    />
+                    
+                    <span className="text-6xl mb-2">{country.flag}</span>
+                    <span className="text-xl font-bold text-gray-800">{country.name}</span>
+                    <span className="text-sm font-semibold text-gray-600">{country.market}</span>
+                    <span className="text-xs text-gray-500 px-3 py-1 bg-gradient-to-r from-gray-100 to-gray-50 rounded-full">
+                      {country.clients}
+                    </span>
                   </motion.div>
                 ))}
+              </motion.div>
+
+              {/* Final CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.6 }}
+              >
+                <motion.button
+                  onClick={() => window.open('https://connect.thinkify.io', '_blank')}
+                  className="px-8 py-4 bg-gradient-to-r from-orange-500 via-yellow-500 to-blue-500 hover:from-orange-600 hover:via-yellow-600 hover:to-blue-600 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-lg relative overflow-hidden group"
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    <motion.span
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      className="text-xl"
+                    >
+                      🚀
+                    </motion.span>
+                    Start Your Global Journey Today
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="text-xl"
+                    >
+                      →
+                    </motion.span>
+                  </span>
+                  
+                  {/* Animated background */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.8 }}
+                    style={{ opacity: 0.3 }}
+                  />
+                </motion.button>
+                
+                <motion.p 
+                  className="text-sm text-gray-500 mt-4"
+                  animate={{ opacity: [0.6, 1, 0.6] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  ⚡ Get matched with pre-vetted engineers in 72 hours
+                </motion.p>
               </motion.div>
             </motion.div>
           </div>
