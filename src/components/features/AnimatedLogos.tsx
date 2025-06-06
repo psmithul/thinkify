@@ -96,7 +96,7 @@ const AnimatedLogos = () => {
       
       const container = containerRef.current.getBoundingClientRect();
       const centerX = container.width / 2;
-      const centerY = container.height / 2;
+      const centerY = container.height * 0.45;
       const spacingX = container.width * 0.28;
       const spacingY = container.height * 0.20;
       
@@ -148,7 +148,7 @@ const AnimatedLogos = () => {
       
       const container = containerRef.current.getBoundingClientRect();
       const centerX = container.width / 2;
-      const centerY = container.height / 2;
+      const centerY = container.height * 0.45;
       const spacingX = container.width * 0.28;
       const spacingY = container.height * 0.20;
       
