@@ -483,19 +483,7 @@ const ForCompanies = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               {/* Enhanced Badge */}
-              <motion.div
-                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-indigo-100 via-white to-rose-100 rounded-full border-2 border-gradient-to-r from-indigo-200 to-rose-200 mb-8 shadow-lg"
-                whileHover={{ scale: 1.05, y: -2 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.span
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                  className="text-2xl"
-                >
-                  🌐
-                </motion.span>
-              </motion.div>
+
 
               <motion.h3
                 className="text-5xl md:text-6xl font-bold mb-6"
