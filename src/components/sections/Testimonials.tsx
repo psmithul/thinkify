@@ -173,12 +173,12 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-full border border-yellow-200 mb-6"
           >
             <motion.div
               animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-2 h-2 bg-green-500 rounded-full"
+              className="w-2 h-2 bg-yellow-500 rounded-full"
             />
             <span className="text-sm font-medium text-gray-700">
               <motion.span
@@ -234,7 +234,7 @@ const Testimonials = () => {
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="text-green-500"
+                className="text-yellow-500"
               >
                 ✅
               </motion.div>
@@ -248,7 +248,7 @@ const Testimonials = () => {
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="text-blue-500"
+                className="text-orange-500"
               >
                 ⚡
               </motion.div>
