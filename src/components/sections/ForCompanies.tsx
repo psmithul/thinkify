@@ -514,3 +514,164 @@ const ForCompanies = () => {
                     ease: "linear"
                   }}
                   className="bg-gradient-to-r from-indigo-600 via-rose-600 via-orange-600 to-indigo-600 bg-[length:300%_100%] bg-clip-text text-transparent"
+                >
+                  Two Powerhouse Markets,
+                </motion.span>
+                <br />
+                <motion.span
+                  className="text-gray-900"
+                  animate={{ opacity: [0.8, 1, 0.8] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  One Elite Talent Pool
+                </motion.span>
+              </motion.h3>
+              
+              <motion.p 
+                className="text-xl text-gray-600 max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Access the best developers from India and the USA—all in one platform
+              </motion.p>
+            </motion.div>
+
+            {/* Enhanced Market Stats Grid */}
+            <motion.div
+              className="grid md:grid-cols-4 gap-6 mb-20"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              {[
+                { 
+                  icon: "🇮🇳", 
+                  number: "1000+", 
+                  label: "Elite Engineers", 
+                  color: "text-indigo-600",
+                  description: "Top 1% Indian talent",
+                  gradient: "from-rose-500 to-pink-500"
+                },
+                { 
+                  icon: "🇺🇸", 
+                  number: "500+", 
+                  label: "Senior Developers", 
+                  color: "text-indigo-600",
+                  description: "Proven US expertise",
+                  gradient: "from-indigo-500 to-orange-500"
+                },
+                { 
+                  icon: "⚡", 
+                  number: "48h", 
+                  label: "Time to Hire", 
+                  color: "text-indigo-600",
+                  description: "Lightning fast matching",
+                  gradient: "from-rose-500 to-orange-500"
+                },
+                { 
+                  icon: "💰", 
+                  number: "60%", 
+                  label: "Cost Savings", 
+                  color: "text-indigo-600",
+                  description: "Without quality compromise",
+                  gradient: "from-rose-500 to-orange-500"
+                }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-rose-100/50 relative overflow-hidden group"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  {/* Background gradient on hover */}
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-5`}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  <motion.div
+                    className="text-4xl mb-3"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                  >
+                    {stat.icon}
+                  </motion.div>
+                  
+                  <motion.div
+                    className={`text-3xl font-bold mb-2 ${stat.color}`}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                  >
+                    {stat.number}
+                  </motion.div>
+                  
+                  <div className="font-semibold text-gray-800 mb-2">
+                    {stat.label}
+                  </div>
+                  
+                  <div className="text-sm text-gray-500">
+                    {stat.description}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Call to Action */}
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <motion.div className="relative inline-block">
+                <motion.button
+                  onClick={() => window.open('https://connect.thinkify.io', '_blank')}
+                  className="px-8 py-4 bg-gradient-to-r from-indigo-500 via-rose-500 to-orange-600 hover:from-indigo-600 hover:via-rose-600 hover:to-orange-700 text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-lg relative overflow-hidden group"
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    <motion.span
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      className="text-xl"
+                    >
+                      🌟
+                    </motion.span>
+                    Start Your Global Journey Today
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                      className="text-xl"
+                    >
+                      →
+                    </motion.span>
+                  </span>
+                  
+                  {/* Animated background overlay */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-indigo-500 opacity-0 group-hover:opacity-30"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.8 }}
+                  />
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default ForCompanies;
