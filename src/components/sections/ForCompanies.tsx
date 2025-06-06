@@ -7,18 +7,18 @@ import { Button } from "@/components/ui/button";
 
 const features = [
   {
-    title: "Hire anywhere. Deliver everywhere.",
-    description: "Find the right talent and increase productivity when you prioritize skill and experience over location. Thinkify talent is rigorously qualified and certified, assessed by fully transparent code tests, and identified by our proprietary AI-powered Talent Decision Engine™.",
+    title: "Engineers Vet Engineers. Period.",
+    description: "Our ex-lead engineers from Google, Meta, and unicorn startups personally evaluate every developer. No HR screening - just deep technical assessment by people who've built world-class engineering teams.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-yellow-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <path d="m21 21-4.3-4.3"></path>
+        <path d="M9 11.7l2.5 2.5 4-4"></path>
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
       </svg>
     ),
   },
   {
-    title: "Make work happen fast.",
-    description: "Get the resources you need, when you need them. Onboard easily. Reduce backlog. Quickly generate proof of concepts. Accelerate time to results.",
+    title: "Ship Production Code Day One.",
+    description: "Skip the ramp-up time. Our engineers have already proven they can architect, code, and deploy at scale. They're not just developers - they're problem solvers who understand your entire tech stack.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-orange-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 17.2a3 3 0 1 0 0-5.8V5.5a3 3 0 1 1 6 0v.8M15 8a3 3 0 1 0 0 5.8v.7a3 3 0 1 1-6 0v-.8"></path>
@@ -26,12 +26,12 @@ const features = [
     ),
   },
   {
-    title: "Scale with confidence.",
-    description: "Build high-performing teams with vetted engineering talent. Our rigorous screening process ensures you get developers who can hit the ground running and deliver results from day one.",
+    title: "Engineering Leadership You Can Trust.",
+    description: "Built by engineers who've scaled teams from 10 to 1000+. We understand your technical challenges because we've faced them. Every placement is backed by our engineering expertise guarantee.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-yellow-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 11.7l2.5 2.5 4-4"></path>
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
       </svg>
     ),
   },
@@ -128,7 +128,7 @@ const ForCompanies = () => {
               transition={{ duration: 2, repeat: Infinity }}
               className="relative"
             >
-              ⚡ for startups/scaleups and enterprise
+              ⚡ The Only Engineer-Led Staffing Company
               <motion.div
                 className="absolute -inset-1 bg-yellow-200 rounded-lg opacity-20 -z-10"
                 animate={{ scale: [1, 1.05, 1] }}
@@ -155,7 +155,7 @@ const ForCompanies = () => {
               }}
               className="bg-gradient-to-r from-gray-900 via-yellow-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent relative"
             >
-              Ship Faster Than Your Competition Ever Could
+              Engineers Who Actually Understand Your Code
               <motion.div
                 className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -177,7 +177,7 @@ const ForCompanies = () => {
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              ⏰ While your competitors spend 6+ months hiring, you'll be shipping. Get a world-class team in 48 hours — we guarantee it.
+              🏆 While other recruiters guess, our ex-lead engineers KNOW. We've built the systems, scaled the teams, shipped the products. Every developer we send has been vetted by engineers who understand what it takes to succeed.
             </motion.span>
           </motion.p>
           

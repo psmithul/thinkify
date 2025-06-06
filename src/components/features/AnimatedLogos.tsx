@@ -7,7 +7,6 @@ import Image from "next/image";
 interface Logo {
   id: string;
   color: string;
-  bgColor: string;
   logoPath: string;
   name: string;
   x: number;
@@ -29,74 +28,65 @@ const AnimatedLogos = () => {
       {
         id: "flipkart",
         color: "#1F74BA",
-        bgColor: "rgba(31, 116, 186, 0.15)",
         logoPath: "/images/Flipkart_Symbol_0.svg",
         name: "Flipkart",
-        size: 72
+        size: 120
       },
       {
         id: "swiggy",
         color: "#FC8019",
-        bgColor: "rgba(252, 128, 25, 0.15)",
         logoPath: "/images/swiggy.svg",
         name: "Swiggy",
-        size: 70
+        size: 110
       },
       {
         id: "acko",
         color: "#582CDB",
-        bgColor: "rgba(88, 44, 219, 0.15)",
         logoPath: "/images/Acko_id4WtbwSds_0.svg",
         name: "Acko",
-        size: 68
+        size: 105
       },
       {
         id: "meesho",
         color: "#8B5CF6",
-        bgColor: "rgba(139, 92, 246, 0.15)",
         logoPath: "/images/meesho.png",
         name: "Meesho",
-        size: 72
+        size: 115
       },
       {
         id: "thoughtspot",
         color: "#FF6B35",
-        bgColor: "rgba(255, 107, 53, 0.15)",
         logoPath: "/images/ThoughtSpot_idEiE5Z1Gr_0.svg",
         name: "ThoughtSpot",
-        size: 76
+        size: 125
       },
       {
         id: "netskope",
         color: "#00A1E0",
-        bgColor: "rgba(0, 161, 224, 0.15)",
         logoPath: "/images/Netskope_idPk6JKSHR_0.svg",
         name: "Netskope",
-        size: 70
+        size: 110
       },
       {
         id: "ethos",
         color: "#E91E63",
-        bgColor: "rgba(233, 30, 99, 0.15)",
         logoPath: "/images/Ethos_idILGnoxOt_0.svg",
         name: "Ethos",
-        size: 66
+        size: 100
       },
       {
         id: "netomi",
         color: "#4CAF50",
-        bgColor: "rgba(76, 175, 80, 0.15)",
         logoPath: "/images/netomi.png",
         name: "Netomi",
-        size: 68
+        size: 105
       },
       {
         id: "whatfix",
         color: "#FFA726",
-        bgColor: "rgba(255, 167, 38, 0.15)",
         logoPath: "/images/Whatfix_idc18D79RQ_0.svg",
         name: "Whatfix",
-        size: 72
+        size: 115
       }
     ];
     
@@ -107,7 +97,7 @@ const AnimatedLogos = () => {
       const container = containerRef.current.getBoundingClientRect();
       const centerX = container.width / 2;
       const centerY = container.height / 2;
-      const radius = Math.min(container.width, container.height) * 0.3;
+      const radius = Math.min(container.width, container.height) * 0.35;
       
       // Define fixed positions in a hexagonal/circular pattern
       const positions: Array<{x: number, y: number}> = [];
@@ -119,17 +109,17 @@ const AnimatedLogos = () => {
       for (let i = 0; i < 6; i++) {
         const angle = (i * Math.PI * 2) / 6;
         positions.push({
-          x: centerX + Math.cos(angle) * radius * 0.6,
-          y: centerY + Math.sin(angle) * radius * 0.6
+          x: centerX + Math.cos(angle) * radius * 0.65,
+          y: centerY + Math.sin(angle) * radius * 0.65
         });
       }
       
       // Outer ring (2 more positions for the remaining logos)
       for (let i = 0; i < 2; i++) {
-        const angle = (i * Math.PI * 2) / 2 + Math.PI / 4; // Offset for better distribution
+        const angle = (i * Math.PI * 2) / 2 + Math.PI / 4;
         positions.push({
-          x: centerX + Math.cos(angle) * radius * 1.1,
-          y: centerY + Math.sin(angle) * radius * 1.1
+          x: centerX + Math.cos(angle) * radius * 1.15,
+          y: centerY + Math.sin(angle) * radius * 1.15
         });
       }
       
@@ -164,7 +154,7 @@ const AnimatedLogos = () => {
       const container = containerRef.current.getBoundingClientRect();
       const centerX = container.width / 2;
       const centerY = container.height / 2;
-      const radius = Math.min(container.width, container.height) * 0.3;
+      const radius = Math.min(container.width, container.height) * 0.35;
       
       const positions: Array<{x: number, y: number}> = [];
       
@@ -175,8 +165,8 @@ const AnimatedLogos = () => {
       for (let i = 0; i < 6; i++) {
         const angle = (i * Math.PI * 2) / 6;
         positions.push({
-          x: centerX + Math.cos(angle) * radius * 0.6,
-          y: centerY + Math.sin(angle) * radius * 0.6
+          x: centerX + Math.cos(angle) * radius * 0.65,
+          y: centerY + Math.sin(angle) * radius * 0.65
         });
       }
       
@@ -184,8 +174,8 @@ const AnimatedLogos = () => {
       for (let i = 0; i < 2; i++) {
         const angle = (i * Math.PI * 2) / 2 + Math.PI / 4;
         positions.push({
-          x: centerX + Math.cos(angle) * radius * 1.1,
-          y: centerY + Math.sin(angle) * radius * 1.1
+          x: centerX + Math.cos(angle) * radius * 1.15,
+          y: centerY + Math.sin(angle) * radius * 1.15
         });
       }
       
@@ -256,24 +246,16 @@ const AnimatedLogos = () => {
               ease: "easeOut"
             }}
             whileHover={{ 
-              scale: 1.2,
+              scale: 1.15,
               zIndex: 50,
               transition: { duration: 0.3, ease: "easeOut" }
             }}
           >
+            {/* Clean logo container without circular background */}
             <motion.div
-              className="w-full h-full rounded-full backdrop-blur-sm border border-white/50 flex items-center justify-center relative overflow-hidden shadow-lg"
-              style={{ 
-                backgroundColor: logo.bgColor,
-                boxShadow: `0 4px 20px ${logo.color}25`
-              }}
+              className="w-full h-full flex items-center justify-center relative overflow-hidden"
               animate={{
-                scale: [1, 1.02, 1],
-                boxShadow: [
-                  `0 4px 20px ${logo.color}25`,
-                  `0 6px 25px ${logo.color}35`,
-                  `0 4px 20px ${logo.color}25`
-                ]
+                scale: [1, 1.02, 1]
               }}
               transition={{
                 scale: {
@@ -281,61 +263,18 @@ const AnimatedLogos = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: index * 0.3
-                },
-                boxShadow: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.2
                 }
               }}
-              whileHover={{
-                backgroundColor: logo.bgColor.replace('0.15', '0.3'),
-                boxShadow: `0 8px 32px ${logo.color}40, 0 0 0 2px ${logo.color}30`,
-                borderColor: `${logo.color}50`,
-                scale: 1.05
-              }}
             >
-              {/* Orbital rings around logo */}
+              {/* Subtle glow effect on hover */}
               <motion.div
-                className="absolute inset-0 rounded-full border opacity-30"
-                style={{ borderColor: logo.color }}
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.1, 0.3, 0.1],
-                  rotate: 360
-                }}
-                transition={{
-                  scale: {
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.5
-                  },
-                  opacity: {
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.5
-                  },
-                  rotate: {
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: index * 0.5
-                  }
-                }}
-              />
-              
-              {/* Enhanced glow effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
                 style={{
-                  background: `radial-gradient(circle at center, ${logo.color}35, transparent 70%)`
+                  background: `radial-gradient(circle at center, ${logo.color}15, transparent 70%)`
                 }}
                 animate={{
                   scale: [1, 1.1, 1],
-                  opacity: [0, 0.2, 0]
+                  opacity: [0, 0.1, 0]
                 }}
                 transition={{
                   duration: 3,
@@ -345,20 +284,13 @@ const AnimatedLogos = () => {
                 }}
               />
               
-              {/* Logo image container */}
+              {/* Logo image - bigger and cleaner */}
               <motion.div
-                className="relative z-10 flex flex-col items-center justify-center w-full h-full p-2"
+                className="relative w-full h-full flex items-center justify-center"
                 animate={{
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 1, 0, -1, 0]
+                  rotate: [0, 0.5, 0, -0.5, 0]
                 }}
                 transition={{
-                  scale: {
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.2
-                  },
                   rotate: {
                     duration: 8,
                     repeat: Infinity,
@@ -367,39 +299,35 @@ const AnimatedLogos = () => {
                   }
                 }}
                 whileHover={{ 
-                  scale: 1.15, 
-                  rotate: 5,
+                  scale: 1.1,
                   transition: { duration: 0.3 }
                 }}
               >
-                <div className="relative w-8 h-8 mb-1">
+                <div className="relative w-16 h-16 filter drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
                   <Image
                     src={logo.logoPath}
                     alt={`${logo.name} logo`}
                     fill
                     className="object-contain"
-                    sizes="32px"
+                    sizes="64px"
                   />
-                </div>
-                <div className="text-xs font-semibold" style={{ color: logo.color }}>
-                  {logo.name}
                 </div>
               </motion.div>
 
-              {/* Connecting lines to center (subtle) */}
+              {/* Subtle connecting lines effect (very minimal) */}
               {index > 0 && (
                 <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-30"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-20"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 0.1, 0] }}
+                  animate={{ opacity: [0, 0.05, 0] }}
                   transition={{
-                    duration: 5,
+                    duration: 6,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: index * 0.5
+                    delay: index * 0.8
                   }}
                   style={{
-                    background: `linear-gradient(45deg, transparent 40%, ${logo.color}20 50%, transparent 60%)`
+                    background: `linear-gradient(45deg, transparent 40%, ${logo.color}10 50%, transparent 60%)`
                   }}
                 />
               )}
@@ -408,9 +336,9 @@ const AnimatedLogos = () => {
         ))}
       </AnimatePresence>
 
-      {/* Central connecting node (subtle) */}
+      {/* Central connecting node (very subtle) */}
       <motion.div
-        className="absolute w-2 h-2 bg-gradient-to-br from-yellow-400/30 to-orange-400/30 rounded-full"
+        className="absolute w-1.5 h-1.5 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full"
         style={{
           left: '50%',
           top: '50%',
@@ -418,11 +346,11 @@ const AnimatedLogos = () => {
           zIndex: 5
         }}
         animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.3, 0.6, 0.3]
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2]
         }}
         transition={{
-          duration: 4,
+          duration: 5,
           repeat: Infinity,
           ease: "easeInOut"
         }}

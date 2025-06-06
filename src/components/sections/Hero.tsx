@@ -126,7 +126,7 @@ const Hero = () => {
               </motion.span>
               {" • "}
               <span className="underline cursor-pointer hover:text-orange-600 transition-colors duration-300">
-                🔥 Limited Time: Fast-Track Your Growth
+                🏆 Engineer-Led. Engineer-Vetted. Engineer-Delivered.
               </span>
             </motion.div>
 
@@ -142,7 +142,7 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="relative"
               >
-                Engineering Excellence
+                Ex-Lead Engineers Vet
                 <motion.div
                   className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                   initial={{ scaleX: 0 }}
@@ -171,7 +171,7 @@ const Hero = () => {
                   backgroundSize: "200% 100%"
                 }}
               >
-                that Ships in Weeks, Not Months
+                World-Class Engineers for You
               </motion.span>
             </motion.h1>
 
@@ -185,7 +185,7 @@ const Hero = () => {
                 animate={{ opacity: [0.8, 1, 0.8] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                ⏰ Don't wait months for perfect hires. Get world-class engineers ready to ship TODAY. Join 50+ startups that chose speed over endless recruitment.
+                🚀 The only staffing company run BY engineers FOR engineers. Our ex-lead engineers from top tech companies personally vet every developer. Skip months of hiring - get pre-vetted talent that ships immediately.
               </motion.span>
             </motion.div>
               
@@ -288,7 +288,7 @@ const Hero = () => {
                 >
                   ⭐
                 </motion.div>
-                <span>50+ Startups Chose Us This Month</span>
+                <span>Ex-Google/Meta Engineers</span>
               </motion.div>
               <motion.div 
                 className="flex items-center gap-2"
@@ -301,7 +301,7 @@ const Hero = () => {
                 >
                   ✅
                 </motion.div>
-                <span>Ships in 2-4 Weeks</span>
+                <span>Technical Vetting Only</span>
               </motion.div>
               <motion.div 
                 className="flex items-center gap-2"
@@ -314,7 +314,7 @@ const Hero = () => {
                 >
                   🚀
                 </motion.div>
-                <span>24hr Response Time</span>
+                <span>Ships Production Code</span>
               </motion.div>
             </motion.div>
           </motion.div>
