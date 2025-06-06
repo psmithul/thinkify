@@ -197,42 +197,29 @@ const Navbar = () => {
         {/* CTA Button */}
         <div className="hidden md:flex items-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.95 }}
-            className="relative"
           >
             <Button 
               onClick={handleCTAClick}
-              className="relative overflow-hidden group bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-              title="Get Started (Alt+C)"
+              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
-              <span className="relative z-10 font-medium">🚀 Start Today - Free Call</span>
-              
-              {/* Enhanced glassmorphism overlay */}
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Shine effect */}
+              <span className="relative z-10 flex items-center gap-1">
+                <motion.span
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  className="text-sm"
+                >
+                  ��
+                </motion.span>
+                Last 3 Q1 Spots
+              </span>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.6 }}
-              />
-              
-              {/* Pulse effect */}
-              <motion.div
-                className="absolute inset-0 bg-yellow-400 rounded-lg opacity-20"
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  opacity: [0.2, 0.3, 0.2] 
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity 
-                }}
+                style={{ opacity: 0.3 }}
               />
             </Button>
           </motion.div>

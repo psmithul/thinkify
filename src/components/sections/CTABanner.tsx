@@ -119,7 +119,7 @@ const CTABanner = () => {
               }}
               className="bg-gradient-to-r from-gray-900 via-yellow-600 to-gray-900 bg-[length:200%_100%] bg-clip-text text-transparent relative"
             >
-              ⚡ Ready for Engineers Who Get It?
+              ⚡ Last 3 Teams This Quarter - Don't Miss Out
               <motion.div
                 className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -141,9 +141,41 @@ const CTABanner = () => {
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              🏆 Ex-lead engineers from top companies personally vet every developer. No more interviewing dozens of candidates who can't code. Just world-class engineers ready to ship.
+              🏆 We're limiting Q1 intake to ensure quality. 9 companies already secured their vetted engineering teams. Join the select few.
             </motion.span>
           </motion.p>
+          
+          {/* Urgency indicator bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mb-8 bg-white rounded-lg p-4 border border-gray-200 shadow-sm max-w-md mx-auto relative z-10"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-gray-700">Q1 Team Spots</span>
+              <span className="text-sm font-bold text-red-600">3 of 12 left</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-3 relative overflow-hidden">
+              <motion.div
+                className="bg-gradient-to-r from-red-500 to-orange-500 h-3 rounded-full relative"
+                initial={{ width: "0%" }}
+                whileInView={{ width: "75%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  animate={{ x: ["-100%", "100%"] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                />
+              </motion.div>
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">
+              🔥 75% filled - Q2 waitlist starts next week
+            </p>
+          </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -169,7 +201,7 @@ const CTABanner = () => {
                   >
                     ⚡
                   </motion.span>
-                  🔥 Claim Your Free Strategy Call (Limited Spots)
+                  Secure Last 3 Spots - Free Strategy Call
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
@@ -218,8 +250,8 @@ const CTABanner = () => {
                   </svg>
                 </motion.div>
                 <div>
-                  <div className="font-medium group-hover:text-yellow-600 transition-colors">Get Started Online</div>
-                  <div className="text-sm text-gray-500">Visit our contact portal</div>
+                  <div className="font-medium group-hover:text-yellow-600 transition-colors">Skip the Waitlist</div>
+                  <div className="text-sm text-gray-500">Direct access portal</div>
                 </div>
               </motion.div>
               
@@ -243,8 +275,8 @@ const CTABanner = () => {
                   </svg>
                 </motion.div>
                 <div>
-                  <div className="font-medium group-hover:text-blue-600 transition-colors">Schedule a Call</div>
-                  <div className="text-sm text-gray-500">Book a consultation</div>
+                  <div className="font-medium group-hover:text-blue-600 transition-colors">Priority Queue</div>
+                  <div className="text-sm text-gray-500">24hr callback guarantee</div>
                 </div>
               </motion.div>
             </div>
@@ -276,7 +308,7 @@ const CTABanner = () => {
                 >
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.687"/>
                 </motion.svg>
-                <span className="relative z-10">Chat on WhatsApp</span>
+                <span className="relative z-10">Instant Access on WhatsApp</span>
                 <motion.div
                   className="absolute inset-0 bg-green-600"
                   initial={{ x: "-100%" }}
@@ -287,7 +319,7 @@ const CTABanner = () => {
               </motion.button>
             </motion.div>
 
-            {/* Trust badges */}
+            {/* Trust badges with urgency twist */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -306,7 +338,7 @@ const CTABanner = () => {
                 >
                   ⭐
                 </motion.span>
-                <span>50+ Happy Clients</span>
+                <span>9 Teams This Quarter</span>
               </motion.div>
               <motion.div 
                 className="flex items-center gap-2"
@@ -319,7 +351,7 @@ const CTABanner = () => {
                 >
                   ✅
                 </motion.span>
-                <span>100% Success Rate</span>
+                <span>Engineer-Led Vetting</span>
               </motion.div>
               <motion.div 
                 className="flex items-center gap-2"
@@ -332,7 +364,7 @@ const CTABanner = () => {
                 >
                   🚀
                 </motion.span>
-                <span>Fast Delivery</span>
+                <span>Ships in 48 Hours</span>
               </motion.div>
               <motion.div 
                 className="flex items-center gap-2"
@@ -345,7 +377,7 @@ const CTABanner = () => {
                 >
                   🏆
                 </motion.span>
-                <span>Award Winning</span>
+                <span>Ex-FAANG Leaders</span>
               </motion.div>
             </motion.div>
           </motion.div>

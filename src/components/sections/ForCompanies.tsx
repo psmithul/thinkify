@@ -181,51 +181,68 @@ const ForCompanies = () => {
             </motion.span>
           </motion.p>
           
-          <motion.div 
-            className="mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <motion.h3 
-              className="text-xl font-semibold text-gray-900 mb-8 flex items-center justify-center gap-2"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <motion.span
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-yellow-600"
-              >
-                🚀
-              </motion.span>
-              Stop Waiting. Start Shipping This Week.
-            </motion.h3>
-          </motion.div>
-          
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="relative"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center space-y-6"
           >
+            {/* Urgency messaging */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-50 to-orange-50 rounded-full border border-red-200"
+            >
+              <motion.div
+                animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="w-2 h-2 bg-red-500 rounded-full"
+              />
+              <span className="text-sm font-medium text-red-700">
+                <motion.span
+                  animate={{ opacity: [0.8, 1, 0.8] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  Only 3 spots left in Q1 cohort - Applications close Friday
+                </motion.span>
+              </span>
+            </motion.div>
+
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              className="relative"
             >
               <Button 
-                onClick={handleCTAClick}
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                size="lg" 
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl relative overflow-hidden group transition-all duration-300"
               >
-                <span className="relative z-10">🔥 Get Team Ready in 48hrs - Free Call</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  <motion.span
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="text-lg"
+                  >
+                    🎯
+                  </motion.span>
+                  Reserve Your Q1 Engineering Team Now
+                </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6 }}
                   style={{ opacity: 0.3 }}
+                />
+                <motion.div
+                  className="absolute inset-0 bg-white"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{ duration: 0.8, delay: 0.1 }}
+                  style={{ opacity: 0.1 }}
                 />
               </Button>
               <motion.div
@@ -236,6 +253,60 @@ const ForCompanies = () => {
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
+            </motion.div>
+            
+            {/* Scarcity indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap justify-center gap-6 text-sm text-gray-600"
+            >
+              <motion.div 
+                className="flex items-center gap-2"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                  className="text-green-500"
+                >
+                  ⏰
+                </motion.div>
+                <span className="font-medium">3 Days Left to Apply</span>
+              </motion.div>
+              
+              <motion.div 
+                className="flex items-center gap-2"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.7 }}
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="text-blue-500"
+                >
+                  🎯
+                </motion.div>
+                <span className="font-medium">9/12 Teams Secured</span>
+              </motion.div>
+              
+              <motion.div 
+                className="flex items-center gap-2"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 1.4 }}
+              >
+                <motion.div
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="text-yellow-500"
+                >
+                  🚀
+                </motion.div>
+                <span className="font-medium">Next Intake: April 2024</span>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

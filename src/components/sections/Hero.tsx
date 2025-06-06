@@ -205,7 +205,16 @@ const Hero = () => {
                   onClick={handleCTAClick}
                   className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-medium px-8 py-3 rounded-full shadow-lg hover:shadow-xl relative overflow-hidden group transition-all duration-300"
                 >
-                  <span className="relative z-10">🚀 Start Building Today - Free Consultation</span>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <motion.span
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                      className="text-lg"
+                    >
+                      🔥
+                    </motion.span>
+                    Only 2 Spots Left This Month - Claim Yours
+                  </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-500"
                     initial={{ x: "-100%" }}
@@ -270,52 +279,77 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* Trust indicators */}
+            {/* Updated trust indicators with urgency */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="mt-8 flex items-center gap-6 text-sm text-gray-500"
+              className="mt-8 space-y-4"
             >
-              <motion.div 
-                className="flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
+              {/* Urgency indicator */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.2 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-50 to-orange-50 rounded-full border border-red-200"
               >
                 <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="text-yellow-500"
-                >
-                  ⭐
-                </motion.div>
-                <span>Ex-Google/Meta Engineers</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="text-green-500"
-                >
-                  ✅
-                </motion.div>
-                <span>Technical Vetting Only</span>
-              </motion.div>
-              <motion.div 
-                className="flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div
-                  animate={{ y: [0, -3, 0] }}
+                  animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-blue-500"
-                >
-                  🚀
-                </motion.div>
-                <span>Ships Production Code</span>
+                  className="w-2 h-2 bg-red-500 rounded-full"
+                />
+                <span className="text-sm font-medium text-red-700">
+                  <motion.span
+                    animate={{ opacity: [0.8, 1, 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    7 companies contacted us this week - spots filling fast
+                  </motion.span>
+                </span>
               </motion.div>
+              
+              {/* Trust indicators */}
+              <div className="flex items-center gap-6 text-sm text-gray-500">
+                <motion.div 
+                  className="flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="text-yellow-500"
+                  >
+                    ⭐
+                  </motion.div>
+                  <span>Ex-Google/Meta Engineers</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-green-500"
+                  >
+                    ✅
+                  </motion.div>
+                  <span>Technical Vetting Only</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.div
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-blue-500"
+                  >
+                    🚀
+                  </motion.div>
+                  <span>Ships Production Code</span>
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
 
