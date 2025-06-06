@@ -128,7 +128,7 @@ const ForCompanies = () => {
               transition={{ duration: 2, repeat: Infinity }}
               className="relative"
             >
-              ⚡ The Only Engineer-Led Staffing Company
+              ⚡ Tech Talent, Curated by Engineering Veterans
               <motion.div
                 className="absolute -inset-1 bg-yellow-200 rounded-lg opacity-20 -z-10"
                 animate={{ scale: [1, 1.05, 1] }}
@@ -155,7 +155,7 @@ const ForCompanies = () => {
               }}
               className="bg-gradient-to-r from-gray-900 via-yellow-600 to-orange-600 bg-[length:200%_100%] bg-clip-text text-transparent relative"
             >
-              Engineers Who Actually Understand Your Code
+              Real Engineers. Real Code. Real Results.
               <motion.div
                 className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -177,7 +177,7 @@ const ForCompanies = () => {
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              🏆 While other recruiters guess, our ex-lead engineers KNOW. We've built the systems, scaled the teams, shipped the products. Every developer we send has been vetted by engineers who understand what it takes to succeed.
+              Our ex-lead engineers have been in the trenches—building, scaling, and shipping. That's who vets every developer we send.
             </motion.span>
           </motion.p>
           
@@ -320,19 +320,20 @@ const ForCompanies = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {features.map((feature, index) => (
-            <motion.div key={index} variants={item}>
+            <motion.div key={index} variants={item} className="h-full">
               <motion.div
                 whileHover={{ scale: 1.05, y: -10 }}
                 transition={{ duration: 0.3 }}
+                className="h-full"
               >
-                <Card className="mercor-card h-full overflow-hidden text-center relative group bg-white/80 backdrop-blur-sm border border-yellow-100 hover:border-yellow-200 transition-all duration-300">
+                <Card className="mercor-card h-full overflow-hidden text-center relative group bg-white/80 backdrop-blur-sm border border-yellow-100 hover:border-yellow-200 transition-all duration-300 flex flex-col">
                   {/* Enhanced card background animation */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-yellow-50/30 via-white to-orange-50/30 opacity-0 group-hover:opacity-100"
                     transition={{ duration: 0.3 }}
                   />
                   
-                  <CardHeader className="pb-2 relative z-10">
+                  <CardHeader className="pb-4 relative z-10 flex-shrink-0">
                     <motion.div 
                       className="mb-4 flex justify-center"
                       whileHover={{ scale: 1.2, rotate: 10 }}
@@ -346,12 +347,12 @@ const ForCompanies = () => {
                       whileHover={{ color: "#F59E0B" }}
                       transition={{ duration: 0.3 }}
                     >
-                      <CardTitle className="text-xl text-gray-900">{feature.title}</CardTitle>
+                      <CardTitle className="text-xl text-gray-900 min-h-[2.5rem] flex items-center justify-center">{feature.title}</CardTitle>
                     </motion.div>
                   </CardHeader>
-                  <CardContent className="relative z-10">
+                  <CardContent className="relative z-10 flex-grow flex items-center">
                     <motion.p 
-                      className="text-sm text-gray-600"
+                      className="text-sm text-gray-600 leading-relaxed"
                       initial={{ opacity: 0.8 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}

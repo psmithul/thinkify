@@ -295,13 +295,19 @@ const AnimatedLogos = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <div className="relative w-24 h-24 filter drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300">
+                  <div 
+                    className="relative filter drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300"
+                    style={{
+                      width: `${Math.min(logo.size * 0.4, 120)}px`,
+                      height: `${Math.min(logo.size * 0.4, 120)}px`
+                    }}
+                  >
                     <Image
                       src={logo.logoPath}
                       alt={`${logo.name} logo`}
                       fill
                       className="object-contain"
-                      sizes="96px"
+                      sizes="120px"
                     />
                   </div>
                 </motion.div>
