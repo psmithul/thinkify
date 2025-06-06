@@ -347,7 +347,7 @@ const Hero = () => {
               >
                 ✨
               </motion.span>
-              <span className="text-xs">Trusted by companies worldwide</span>
+              <span className="text-xs">Trusted by companies in India & USA</span>
               <motion.span
                 animate={{ scale: [0.8, 1.2, 0.8] }}
                 transition={{ duration: 3, repeat: Infinity }}

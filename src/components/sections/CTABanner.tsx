@@ -31,7 +31,7 @@ const CTABanner = () => {
     "Pre-vetted by ex-FAANG engineers",
     "Start shipping code in 48 hours", 
     "Full compliance & legal handled",
-    "24/7 global support coverage"
+    "24/7 India-US support coverage"
   ];
 
   // Rotate metrics every 3 seconds
@@ -295,7 +295,7 @@ const CTABanner = () => {
                     { icon: "🏆", text: "Industry Leaders Trust Us" },
                     { icon: "⚡", text: "48hr Delivery Guarantee" },
                     { icon: "🔒", text: "Enterprise Security" },
-                    { icon: "🌍", text: "Global 24/7 Support" }
+                    { icon: "🌐", text: "India-US 24/7 Support" }
                   ].map((trust, index) => (
                     <motion.div
                       key={index}
