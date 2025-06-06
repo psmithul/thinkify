@@ -274,7 +274,7 @@ const ForCompanies = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <motion.span
-                  animate={{ y: [0, -3, 0] }}
+                  animate={{ y: ["0px", "-3px", "0px"] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                   className="text-orange-500"
                 >
@@ -286,168 +286,318 @@ const ForCompanies = () => {
           </motion.div>
         </div>
 
-        {/* Features Grid */}
+        {/* Innovative Redesigned Features Grid */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto perspective-1000"
         >
           {features.map((feature, index) => (
-            <motion.div key={index} variants={item} className="h-full">
-              <motion.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="h-full group"
-              >
-                <Card className="h-full bg-white/95 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
-                  {/* Background gradient overlay */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-white to-orange-50/30 opacity-0 group-hover:opacity-100"
-                    transition={{ duration: 0.5 }}
-                  />
-                  
-                  {/* Top accent line */}
-                  <motion.div
-                    className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-orange-500"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
-                  />
-                  
-                  <CardContent className="p-8 relative z-10 h-full flex flex-col">
-                    {/* Icon Section */}
-                    <motion.div 
-                      className="mb-6 flex justify-center"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="relative">
-                        <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-orange-100 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-                          {feature.icon}
-                        </div>
-                        {/* Icon background glow */}
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-indigo-400/20 to-orange-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100"
-                          transition={{ duration: 0.5 }}
-                        />
-                      </div>
-                    </motion.div>
+            <motion.div 
+              key={index} 
+              variants={item} 
+              className="h-full group"
+              whileHover={{ 
+                rotateY: 5,
+                rotateX: 5,
+                z: 50,
+                scale: 1.02
+              }}
+              transition={{ 
+                duration: 0.6, 
+                ease: "easeOut",
+                type: "spring",
+                stiffness: 100
+              }}
+              style={{ 
+                transformStyle: "preserve-3d",
+                perspective: "1000px"
+              }}
+            >
+              {/* Main Card Container */}
+              <div className="relative h-full min-h-[480px] overflow-hidden">
+                {/* Glassmorphism Background */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/60 to-white/40 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl"
+                  initial={{ opacity: 0.8 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+                
+                {/* Animated Gradient Border */}
+                <motion.div
+                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100"
+                  animate={{
+                    background: [
+                      "linear-gradient(45deg, #6366f1, #ec4899, #f97316, #6366f1)",
+                      "linear-gradient(90deg, #ec4899, #f97316, #6366f1, #ec4899)",
+                      "linear-gradient(135deg, #f97316, #6366f1, #ec4899, #f97316)",
+                      "linear-gradient(180deg, #6366f1, #ec4899, #f97316, #6366f1)"
+                    ]
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity, 
+                    ease: "linear" 
+                  }}
+                  style={{
+                    padding: "2px",
+                    borderRadius: "24px"
+                  }}
+                >
+                  <div className="absolute inset-[2px] bg-white/90 backdrop-blur-xl rounded-[22px]" />
+                </motion.div>
 
-                    {/* Content Section */}
-                    <div className="flex-grow flex flex-col text-center">
-                      {/* Title - Single Line */}
+                {/* Floating Particles */}
+                <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
+                  {[...Array(6)].map((_, particleIndex) => (
+                    <motion.div
+                      key={particleIndex}
+                      className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-indigo-400 to-orange-400 opacity-0 group-hover:opacity-60"
+                      initial={{ 
+                        x: Math.random() * 100 + "%",
+                        y: Math.random() * 100 + "%",
+                        scale: 0
+                      }}
+                      animate={{
+                        y: ["0px", "-20px", "0px"],
+                        scale: [0, 1, 0],
+                        opacity: [0, 0.6, 0]
+                      }}
+                      transition={{
+                        duration: 3 + particleIndex * 0.5,
+                        repeat: Infinity,
+                        delay: particleIndex * 0.3,
+                        ease: "easeInOut"
+                      }}
+                    />
+                  ))}
+                </div>
+
+                {/* Content Container */}
+                <div className="relative h-full p-8 flex flex-col z-10">
+                  {/* Floating Icon Section */}
+                  <motion.div 
+                    className="relative mb-8 flex justify-start"
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotateZ: 10
+                    }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {/* Icon Background Orb */}
+                    <motion.div
+                      className="absolute -inset-4 rounded-full opacity-0 group-hover:opacity-100"
+                      animate={{
+                        background: [
+                          "radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)",
+                          "radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)"
+                        ]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    />
+                    
+                    {/* Icon Container */}
+                    <motion.div 
+                      className="relative w-20 h-20 bg-gradient-to-br from-indigo-100/80 via-rose-100/60 to-orange-100/80 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg border border-white/40"
+                      whileHover={{
+                        rotateY: 180,
+                        scale: 1.1
+                      }}
+                      transition={{ duration: 0.6 }}
+                      style={{ transformStyle: "preserve-3d" }}
+                    >
+                      <motion.div
+                        className="relative z-10"
+                        initial={{ rotateY: 0 }}
+                        whileHover={{ rotateY: 180 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {feature.icon}
+                      </motion.div>
+                      
+                      {/* Icon Glow Effect */}
+                      <motion.div
+                        className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-400/20 to-orange-400/20 blur-xl opacity-0 group-hover:opacity-100"
+                        transition={{ duration: 0.5 }}
+                      />
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Split Content Layout */}
+                  <div className="flex-grow flex flex-col">
+                    {/* Title with Diagonal Cut Effect */}
+                    <motion.div 
+                      className="relative mb-6"
+                      initial={{ x: -20, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: index * 0.2 }}
+                    >
                       <motion.h3 
-                        className="text-xl font-bold text-gray-900 mb-4 leading-tight truncate"
-                        initial={{ opacity: 0.8 }}
-                        whileHover={{ opacity: 1 }}
+                        className="text-2xl font-bold text-gray-900 leading-tight relative z-10"
+                        whileHover={{ x: 5 }}
                         transition={{ duration: 0.3 }}
                       >
                         {feature.title}
                       </motion.h3>
                       
-                      {/* Description */}
+                      {/* Animated Underline */}
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-indigo-500 to-orange-500 rounded-full opacity-0 group-hover:opacity-100"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: "60%" }}
+                        transition={{ duration: 0.4 }}
+                      />
+                    </motion.div>
+                    
+                    {/* Description with Hover Reveal */}
+                    <motion.div
+                      className="relative mb-8 overflow-hidden"
+                      initial={{ height: "auto" }}
+                    >
                       <motion.p 
-                        className="text-gray-600 leading-relaxed mb-6 text-sm"
-                        initial={{ opacity: 0.9 }}
-                        whileHover={{ opacity: 1 }}
+                        className="text-gray-600 leading-relaxed relative z-10"
+                        initial={{ y: 0 }}
+                        whileHover={{ y: -2 }}
                         transition={{ duration: 0.3 }}
                       >
                         {feature.description}
                       </motion.p>
+                      
+                      {/* Background Gradient on Hover */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-indigo-50/0 via-rose-50/30 to-orange-50/0 rounded-lg opacity-0 group-hover:opacity-100 -z-10"
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
 
-                      {/* Enhanced Key Benefits Section */}
-                      <div className="mt-auto">
-                        <motion.h4 
-                          className="text-sm font-semibold text-gray-800 mb-4 flex items-center justify-center gap-2"
-                          initial={{ opacity: 0.8 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
+                    {/* Innovative Benefits Layout */}
+                    <div className="mt-auto">
+                      <motion.h4 
+                        className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <motion.span
+                          className="w-6 h-6 rounded-full bg-gradient-to-r from-indigo-500 to-orange-500 flex items-center justify-center text-white text-xs"
+                          animate={{ rotate: [0, 360] }}
+                          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                         >
-                          <motion.span
-                            animate={{ rotate: [0, 360] }}
-                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                            className="text-orange-600"
+                          ✨
+                        </motion.span>
+                        Key Benefits
+                      </motion.h4>
+                      
+                      {/* Staggered Benefits Grid */}
+                      <motion.div
+                        className="space-y-3"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 }}
+                      >
+                        {feature.highlights.map((highlight, highlightIndex) => (
+                          <motion.div
+                            key={highlightIndex}
+                            className="relative group/benefit"
+                            initial={{ 
+                              opacity: 0, 
+                              x: highlightIndex % 2 === 0 ? -20 : 20 
+                            }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                              duration: 0.5, 
+                              delay: highlightIndex * 0.1 
+                            }}
+                            whileHover={{ 
+                              scale: 1.02, 
+                              x: 5,
+                              transition: { duration: 0.2 }
+                            }}
                           >
-                            ⭐
-                          </motion.span>
-                          Key Benefits
-                        </motion.h4>
-                        
-                        <motion.div
-                          className="grid grid-cols-2 gap-2"
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                          {feature.highlights.map((highlight, highlightIndex) => (
+                            {/* Morphing Background */}
                             <motion.div
-                              key={highlightIndex}
-                              className="relative group"
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              whileInView={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 0.4, delay: highlightIndex * 0.1 }}
-                              whileHover={{ scale: 1.05, y: -2 }}
-                            >
-                              <div className="bg-gradient-to-r from-indigo-50 to-orange-50 border border-rose-200/50 rounded-xl p-3 text-center shadow-sm group-hover:shadow-md transition-all duration-300">
-                                {/* Icon based on benefit type */}
-                                <motion.div 
-                                  className="text-lg mb-1"
-                                  animate={{ 
-                                    scale: [1, 1.1, 1] 
-                                  }}
-                                  transition={{ 
-                                    duration: 2 + highlightIndex * 0.5,
-                                    repeat: Infinity,
-                                    delay: highlightIndex * 0.3
-                                  }}
-                                >
-                                  {highlightIndex === 0 && "⚡"}
-                                  {highlightIndex === 1 && "🎯"}
-                                  {highlightIndex === 2 && "🔧"}
-                                  {highlightIndex === 3 && "🚀"}
-                                </motion.div>
-                                
-                                <p className="text-xs font-medium text-gray-700 leading-tight">
-                                  {highlight}
-                                </p>
-                                
-                                {/* Subtle gradient overlay on hover */}
-                                <motion.div
-                                  className="absolute inset-0 bg-gradient-to-r from-indigo-100/0 via-rose-100/30 to-orange-100/0 rounded-xl opacity-0 group-hover:opacity-100"
-                                  transition={{ duration: 0.3 }}
-                                />
-                              </div>
+                              className="absolute inset-0 bg-gradient-to-r from-white/50 to-indigo-50/50 rounded-xl border border-indigo-200/30 backdrop-blur-sm"
+                              whileHover={{
+                                background: "linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(236,72,153,0.1) 50%, rgba(249,115,22,0.1) 100%)"
+                              }}
+                              transition={{ duration: 0.3 }}
+                            />
+                            
+                            <div className="relative p-4 flex items-center gap-3">
+                              {/* Dynamic Icon */}
+                              <motion.div 
+                                className="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-orange-500 flex items-center justify-center text-white text-sm font-bold shadow-lg"
+                                whileHover={{ 
+                                  rotateY: 360,
+                                  scale: 1.1
+                                }}
+                                transition={{ duration: 0.6 }}
+                              >
+                                {highlightIndex === 0 && "⚡"}
+                                {highlightIndex === 1 && "🎯"}
+                                {highlightIndex === 2 && "🔧"}
+                                {highlightIndex === 3 && "🚀"}
+                              </motion.div>
                               
-                              {/* Floating micro animation */}
+                              {/* Benefit Text */}
+                              <motion.p 
+                                className="text-sm font-medium text-gray-700 flex-grow"
+                                whileHover={{ color: "#374151" }}
+                              >
+                                {highlight}
+                              </motion.p>
+                              
+                              {/* Arrow Indicator */}
                               <motion.div
-                                className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-indigo-400 to-orange-400 rounded-full opacity-0 group-hover:opacity-100"
-                                animate={{ 
-                                  scale: [0, 1, 0],
-                                  rotate: [0, 180, 360]
-                                }}
-                                transition={{ 
-                                  duration: 1.5,
-                                  repeat: Infinity,
-                                  delay: highlightIndex * 0.2
-                                }}
-                              />
-                            </motion.div>
-                          ))}
-                        </motion.div>
-                      </div>
+                                className="w-6 h-6 rounded-full bg-gradient-to-r from-indigo-400 to-orange-400 flex items-center justify-center text-white text-xs opacity-0 group-hover/benefit:opacity-100"
+                                whileHover={{ scale: 1.2 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                →
+                              </motion.div>
+                            </div>
+                            
+                            {/* Glowing Edge Effect */}
+                            <motion.div
+                              className="absolute inset-0 rounded-xl border-2 border-transparent opacity-0 group-hover/benefit:opacity-100"
+                              style={{
+                                background: "linear-gradient(45deg, transparent, rgba(99,102,241,0.3), transparent, rgba(249,115,22,0.3), transparent)",
+                                backgroundSize: "400% 400%"
+                              }}
+                              animate={{
+                                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                              }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            />
+                          </motion.div>
+                        ))}
+                      </motion.div>
                     </div>
-                  </CardContent>
-                  
-                  {/* Hover border effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-yellow-200/50"
-                    transition={{ duration: 0.3 }}
-                  />
-                </Card>
-              </motion.div>
+                  </div>
+                </div>
+
+                {/* Corner Accent Elements */}
+                <motion.div
+                  className="absolute top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-br from-indigo-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 180, 360]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
+                
+                <motion.div
+                  className="absolute bottom-4 left-4 w-8 h-8 rounded-full bg-gradient-to-br from-rose-400/20 to-indigo-400/20 opacity-0 group-hover:opacity-100"
+                  animate={{
+                    scale: [1, 0.8, 1],
+                    rotate: [360, 180, 0]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+                />
+              </div>
             </motion.div>
           ))}
         </motion.div>
