@@ -28,9 +28,9 @@ const AnimatedLogos = () => {
       {
         id: "flipkart",
         color: "#1F74BA",
-        logoPath: "/images/Flipkart_Symbol_0.svg",
+        logoPath: "/images/Flipkart_Symbol_0.png",
         name: "Flipkart",
-        size: 200
+        size: 300
       },
       {
         id: "swiggy",
