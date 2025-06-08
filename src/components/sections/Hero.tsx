@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import AnimatedLogos from "@/components/features/AnimatedLogos";
-import { smoothScrollTo } from "@/lib/utils";
+import { smoothScrollTo, trackLinkedInConversion } from "@/lib/utils";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -20,6 +20,7 @@ const Hero = () => {
   }, []);
 
   const handleCTAClick = () => {
+    trackLinkedInConversion();
     window.open('https://connect.thinkify.io', '_blank');
   };
 

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { openWhatsApp } from "@/lib/utils";
+import { openWhatsApp, trackLinkedInConversion } from "@/lib/utils";
 
 const CTABanner = () => {
   const { scrollYProgress } = useScroll();
@@ -13,10 +13,12 @@ const CTABanner = () => {
   const opacity = useTransform(scrollYProgress, [0.7, 0.85], [0, 1]);
   
   const handleEmailClick = () => {
+    trackLinkedInConversion();
     window.open('https://connect.thinkify.io', '_blank');
   };
 
   const handleWhatsAppClick = () => {
+    trackLinkedInConversion();
     openWhatsApp("Hi! I'm interested in Thinkify's services and would like to discuss our engineering needs.");
   };
 

@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { openWhatsApp } from "@/lib/utils";
+import { openWhatsApp, trackLinkedInConversion } from "@/lib/utils";
 
 const Footer = () => {
   const footerLinks = [
@@ -38,14 +38,17 @@ const Footer = () => {
   ];
 
   const handleContactClick = () => {
+    trackLinkedInConversion();
     window.open('https://connect.thinkify.io', '_blank');
   };
 
   const handleWhatsAppClick = () => {
+    trackLinkedInConversion();
     openWhatsApp("Hi! I'm interested in Thinkify's services and would like to discuss our engineering needs.");
   };
 
   const handleScheduleCall = () => {
+    trackLinkedInConversion();
     window.open('https://calendly.com/thinkify-labs', '_blank');
   };
 

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { trackLinkedInConversion } from "@/lib/utils";
 
 const features = [
   {
@@ -73,6 +74,7 @@ const ForCompanies = () => {
   };
 
   const handleCTAClick = () => {
+    trackLinkedInConversion();
     window.open('https://connect.thinkify.io', '_blank');
   };
 
@@ -772,7 +774,10 @@ const ForCompanies = () => {
             >
               <motion.div className="relative inline-block">
                 <motion.button
-                  onClick={() => window.open('https://connect.thinkify.io', '_blank')}
+                  onClick={() => {
+                    trackLinkedInConversion();
+                    window.open('https://connect.thinkify.io', '_blank');
+                  }}
                   className="px-8 py-4 bg-gradient-to-r from-indigo-500 via-rose-500 to-orange-600 hover:from-indigo-600 hover:via-rose-600 hover:to-orange-700 text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-lg relative overflow-hidden group"
                   whileHover={{ scale: 1.05, y: -3 }}
                   whileTap={{ scale: 0.95 }}

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { motion, AnimatePresence } from "framer-motion";
-import { createEmailTemplate, smoothScrollTo, createSectionObserver, throttle } from "@/lib/utils";
+import { createEmailTemplate, smoothScrollTo, createSectionObserver, throttle, trackLinkedInConversion } from "@/lib/utils";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,6 +86,7 @@ const Navbar = () => {
   };
 
   const handleCTAClick = () => {
+    trackLinkedInConversion();
     window.open('https://connect.thinkify.io', '_blank');
   };
 

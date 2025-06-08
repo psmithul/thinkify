@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { trackLinkedInConversion } from "@/lib/utils";
 
 const NotFoundPage = () => {
   return (
@@ -246,7 +247,10 @@ const NotFoundPage = () => {
             <motion.div
               className="text-center p-3 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors cursor-pointer"
               whileHover={{ scale: 1.02 }}
-              onClick={() => window.open('https://connect.thinkify.io', '_blank')}
+              onClick={() => {
+                trackLinkedInConversion();
+                window.open('https://connect.thinkify.io', '_blank');
+              }}
             >
               <div className="text-2xl mb-2">📞</div>
               <div className="font-medium text-gray-900">Contact Us</div>

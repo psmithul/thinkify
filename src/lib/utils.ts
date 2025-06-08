@@ -1,15 +1,23 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-// Extend Window interface for gtag
+// Extend Window interface for gtag and lintrk
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
+    lintrk?: (...args: any[]) => void;
   }
 }
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+// LinkedIn conversion tracking utility
+export function trackLinkedInConversion() {
+  if (typeof window !== 'undefined' && window.lintrk) {
+    window.lintrk('track', { conversion_id: 22487049 });
+  }
 }
 
 // Connect URL redirect utility - replaces email template
@@ -59,6 +67,7 @@ export function smoothScrollTo(elementId: string, offset: number = 80, duration:
 
 // Phone call utility - redirect to connect URL instead
 export function makePhoneCall() {
+  trackLinkedInConversion();
   window.open('https://connect.thinkify.io', '_blank');
 }
 
